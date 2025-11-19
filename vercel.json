@@ -1,0 +1,14 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-src https://sketchfab.com https://*.sketchfab.com 'self'; frame-ancestors 'self'"
+        }
+      ]
+    }
+  ]
+}
+
