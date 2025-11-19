@@ -6,22 +6,22 @@ const TestimonialsSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3 });
   const testimonials = [
     {
-      text: 'In my history of working with TetraX AI Solutions, I can honestly say that there is not one company that I\'ve ever worked with that has better service.',
+      text: 'In my history of working with Nexus AI Solutions, I can honestly say that there is not one company that I\'ve ever worked with that has better service.',
       author: 'James Smith',
       role: 'Creative Director',
     },
     {
-      text: 'I know they are going to be honest with me. I know it is going to be good. That is the number one advantage of working with TetraX AI Solutions because I just do not want to be sold. I want to trust that what I am getting is going to be good.',
+      text: 'I know they are going to be honest with me. I know it is going to be good. That is the number one advantage of working with Nexus AI Solutions because I just do not want to be sold. I want to trust that what I am getting is going to be good.',
       author: 'Michael Thompson',
       role: 'Sales Manager',
     },
     {
-      text: 'We worked with TetraX AI Solutions in developing our AI-powered platform. The development & implementation process was very smooth & delivered the exact results we were expecting. We\'ll surely work with them in the future.',
+      text: 'We worked with Nexus AI Solutions in developing our AI-powered platform. The development & implementation process was very smooth & delivered the exact results we were expecting. We\'ll surely work with them in the future.',
       author: 'Tim Bogemans',
       role: 'Managing Partner',
     },
     {
-      text: 'TetraX AI Solutions offers a high caliber of resources skilled in AI, Machine Learning, mobile & Quality Assurance. Over the past three years, We was very pleased with the service provided by TetraX AI Solutions development teams & executive management.',
+      text: 'Nexus AI Solutions offers a high caliber of resources skilled in AI, Machine Learning, mobile & Quality Assurance. Over the past three years, We was very pleased with the service provided by Nexus AI Solutions development teams & executive management.',
       author: 'Ross Shamelashvili',
       role: 'Manager, Development Operations',
     },

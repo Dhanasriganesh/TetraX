@@ -20,15 +20,15 @@ const DesktopNavigation = ({ isTextWhite = false }) => {
             key={index}
             className="relative"
             onMouseEnter={() => hasSubmenu && setActiveDropdown(index)}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseLeave={() => hasSubmenu && setActiveDropdown(null)}
           >
             {/* Main Menu Item */}
             <Link
               to={item.path || '#'}
-              className={`relative px-4 py-3 rounded-lg font-medium text-sm transition-all duration-300 group ${
+              className={`relative px-4 py-3 font-medium text-sm ${
                 isActive
                   ? isTextWhite ? 'text-white' : 'text-blue-600'
-                  : isTextWhite ? 'text-white/90 hover:text-white' : 'text-gray-700 hover:text-blue-600'
+                  : isTextWhite ? 'text-white/90' : 'text-gray-700'
               }`}
               style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.01em' }}
             >
@@ -47,18 +47,7 @@ const DesktopNavigation = ({ isTextWhite = false }) => {
                   </motion.svg>
                 )}
               </span>
-              
-              {/* Hover background effect */}
-              <motion.div
-                className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 ${
-                  isTextWhite 
-                    ? 'bg-white/20' 
-                    : 'bg-gradient-to-r from-blue-50 to-purple-50'
-                }`}
-                initial={false}
-                transition={{ duration: 0.2 }}
-              />
-              
+
               {/* Active indicator */}
               {isActive && (
                 <motion.div

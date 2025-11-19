@@ -1,95 +1,157 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
 
-const HeroSection = () => {
-  const [currentWord, setCurrentWord] = useState(0);
-  const words = ['Inclusive', 'Inspiring', 'Innovative'];
+const stats = [
+  { value: 3480, suffix: '+', label: 'Projects Completed' },
+  { value: 428, suffix: '+', label: 'IT Specialists' },
+  { value: 6980, suffix: '+', label: 'Happy Clients' },
+  { value: 256, suffix: '+', label: 'Smart Solutions' },
+];
+
+const AnimatedNumber = ({ value, suffix = '+' }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
+  const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 2,
+        ease: 'easeOut',
+        onUpdate: latest => setDisplayValue(Math.floor(latest)),
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')`,
-          opacity: 0.7,
-        }}
-      />
-      
-      {/* Simple dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40" />
+    <span ref={ref}>
+      {displayValue}
+      {suffix}
+    </span>
+  );
+};
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl"
-          >
-            <span className="block">TetraX AI</span>
-            <span className="block">Solutions</span>
-          </motion.h1>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8"
-          >
-            <span className="text-white drop-shadow-lg">
-              {words.map((word, index) => (
-                <span
-                  key={index}
-                  className={`inline-block transition-all duration-500 ${
-                    index === currentWord
-                      ? 'opacity-100 scale-110'
-                      : 'opacity-0 absolute'
-                  }`}
-                >
-                  {word}
-                </span>
+const HeroSection = () => {
+  return (
+    <section 
+      id="hero" 
+      data-header-theme="light"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+    >
+      {/* Sketchfab 3D Nebula Background */}
+      <div className="absolute inset-0 z-0">
+        <iframe
+          title="HDRI Nebula 360 Background"
+          frameBorder="0"
+          allowFullScreen
+          mozAllowFullScreen="true"
+          webkitAllowFullScreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking="true"
+          execution-while-out-of-viewport="true"
+          execution-while-not-rendered="true"
+          web-share="true"
+          src="https://sketchfab.com/models/a704ff6043a44400921f2eb207925c46/embed?autostart=1&autospin=0&preload=1&ui_infos=0&ui_hint=0&ui_stop=0&ui_general_controls=0&ui_watermark=0&ui_fullscreen=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&ui_controls=0&transparent=1"
+          className="absolute inset-0 w-full h-full pointer-events-auto"
+        />
+      </div>
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none"></div>
+
+      {/* Content - Centered in middle of page */}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full pointer-events-none">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center max-w-5xl mx-auto w-full">
+            {/* Subtitle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-6 flex justify-center"
+            >
+              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/20">
+                Next-Generation AI Solutions
+              </span>
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                letterSpacing: '-0.01em',
+                lineHeight: '1.2',
+              }}
+            >
+              <span className="block mb-2">Shaping the Future of</span>
+              <span className="block mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Business Through
+              </span>
+              <span className="block text-white">Innovation and Excellence</span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex text-base justify-center align-middle text-center md:text-lg lg:text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+              }}
+            >
+              Empowering enterprises with cutting-edge AI technology and transformative digital solutions
+              that drive sustainable growth and competitive advantage.
+            </motion.p>
+
+            {/* Stats Preview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto pt-8 border-t border-white/20"
+            >
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center flex flex-col items-center justify-center">
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-sm text-white/80 font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    {stat.label}
+                  </div>
+                </div>
               ))}
-            </span>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow-lg leading-relaxed"
-          >
-            Next Generation AI & Software Development to Enable Businesses to Reinvent The Future With Cutting Edge Digital Transformation & Rapid Innovation
-          </motion.p>
-
-          <motion.a
-            href="#contact"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 shadow-xl"
-          >
-            Explore Us
-          </motion.a>
+            </motion.div>
+          </div>
         </div>
       </div>
       
+      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
       >
-        <svg className="w-6 h-6 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-white/70 text-xs font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>Scroll</span>
+          <motion.svg
+            className="w-5 h-5 text-white/70"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </motion.svg>
+        </div>
       </motion.div>
+
+      {/* White horizontal layer at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-white z-10"></div>
     </section>
   );
 };

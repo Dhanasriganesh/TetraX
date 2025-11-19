@@ -15,13 +15,13 @@ const TrustedCompanySection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            TetraX AI Solutions
+            Nexus AI Solutions
           </h2>
           <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">
             Trusted AI Development Company
           </h3>
           <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            TetraX AI Solutions believes in constant innovation and improvement to remain number one. We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. When you choose to do business with TetraX AI Solutions you are partnering with a company who cares. <strong>100% Satisfaction Guarantee</strong> – We want you to be completely satisfied with our services.
+            Nexus AI Solutions believes in constant innovation and improvement to remain number one. We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. When you choose to do business with Nexus AI Solutions you are partnering with a company who cares. <strong>100% Satisfaction Guarantee</strong> – We want you to be completely satisfied with our services.
           </p>
           <a
             href="#contact"

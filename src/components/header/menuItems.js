@@ -1,72 +1,33 @@
-// Header Navigation Menu Items Configuration
+// Header Navigation Menu Items Configuration - Based on nexusaisol.com
 export const menuItems = [
   {
-    name: 'Life @ TetraX',
-    path: '/life-at-tetrax',
-    submenu: [
-      { name: 'About us', path: '/about' },
-      { name: 'Service Delivery Model', path: '/service-delivery' },
-      { name: 'Mission & Values', path: '/mission-values' },
-      { name: 'Corporate Responsibility', path: '/corporate-responsibility' },
-      { name: 'Partnership & Supplier Diversity', path: '/partnership' },
-      { name: 'Our Skills', path: '/skills' },
-      { name: 'Our Clients', path: '/clients' },
-      { name: 'Employee Referral', path: '/referral' },
-      { name: 'Corporate', path: '/corporate' },
-    ],
+    name: 'Home',
+    path: '/',
   },
   {
-    name: 'Solutions',
-    path: '/solutions',
+    name: 'About Us',
+    path: '/about',
+  },
+  {
+    name: 'Services',
+    path: '/services',
     submenu: [
-      { name: 'Strategic Staffing', path: '/strategic-staffing' },
-      { name: 'Business Process Outsourcing', path: '/bpo' },
-      { name: 'Recruitment Process Outsourcing', path: '/rpo' },
-      { name: 'TetraX AI Solutions Training Hub', path: '/training' },
+      { name: 'Consulting', path: '/services/consulting' },
+      { name: 'Staffing', path: '/services/staffing' },
+      { name: 'Training', path: '/services/training' },
+      { name: 'IT Solutions', path: '/services/it-solutions' },
     ],
   },
   {
     name: 'Industries',
     path: '/industries',
-    submenu: [
-      { name: 'Banking & Financial', path: '/industries/banking' },
-      { name: 'Education', path: '/industries/education' },
-      { name: 'Energy & Utility', path: '/industries/energy' },
-      { name: 'Government', path: '/industries/government' },
-      { name: 'Healthcare & Life Science', path: '/industries/healthcare' },
-      { name: 'Insurance', path: '/industries/insurance' },
-      { name: 'Logistics & Warehousing', path: '/industries/logistics' },
-      { name: 'Retail & Consumer Goods', path: '/industries/retail' },
-      { name: 'Telecom & Media', path: '/industries/telecom' },
-      { name: 'Oil & Gas', path: '/industries/oil-gas' },
-      { name: 'Travel & Hospitality', path: '/industries/travel' },
-      { name: 'E-Commerce', path: '/industries/ecommerce' },
-    ],
   },
   {
-    name: 'Technologies',
-    path: '/technologies',
-    submenu: [
-      { name: 'Artificial Intelligence - AI', path: '/tech/ai' },
-      { name: 'RPA', path: '/tech/rpa' },
-      { name: 'Blockchain', path: '/tech/blockchain' },
-      { name: 'Cloud Professional Services', path: '/tech/cloud' },
-      { name: 'Data Analytics', path: '/tech/analytics' },
-      { name: 'Mobility', path: '/tech/mobility' },
-      { name: 'IoT', path: '/tech/iot' },
-      { name: 'Advanced Analytics', path: '/tech/advanced-analytics' },
-      { name: 'DevOps', path: '/tech/devops' },
-      { name: 'Cloud Computing', path: '/tech/cloud-computing' },
-      { name: 'Big Data', path: '/tech/bigdata' },
-      { name: 'Web Development', path: '/tech/web-dev' },
-    ],
-  },
-  { 
-    name: 'Careers', 
+    name: 'Careers',
     path: '/careers',
   },
-  { 
-    name: 'Contact', 
+  {
+    name: 'Contact Us',
     path: '/contact',
   },
 ];

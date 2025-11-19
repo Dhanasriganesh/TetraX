@@ -1,30 +1,30 @@
-import React from 'react';
+﻿import React from 'react';
 import HeroSection from './sections/HeroSection';
-import TrustedCompanySection from './sections/TrustedCompanySection';
-import IndustryExperienceSection from './sections/IndustryExperienceSection';
-import HowWeWorkSection from './sections/HowWeWorkSection';
-import WhyChooseUsSection from './sections/WhyChooseUsSection';
+import StrategicHighlightsSection from './sections/StrategicHighlightsSection';
+import ServicesSection from './sections/ServicesSection';
+import SolutionsShowcaseSection from './sections/SolutionsShowcaseSection';
+import IndustriesSection from './sections/IndustriesSection';
+import VelocityProcessSection from './sections/VelocityProcessSection';
+import CaseStudiesShowcaseSection from './sections/CaseStudiesShowcaseSection';
 import StatisticsSection from './sections/StatisticsSection';
-import CTASection from './sections/CTASection';
-import ClientsSection from './sections/ClientsSection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import LocationsSection from './sections/LocationsSection';
+import InsightsSection from './sections/InsightsSection';
+import HomeCTASection from './sections/HomeCTASection';
 
-function Home() {
+const Home = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div>
       <HeroSection />
-      <TrustedCompanySection />
-      <IndustryExperienceSection />
-      <HowWeWorkSection />
-      <WhyChooseUsSection />
+      <StrategicHighlightsSection />
+      <ServicesSection />
+      <SolutionsShowcaseSection />
+      <IndustriesSection />
+      <VelocityProcessSection />
+      <CaseStudiesShowcaseSection />
       <StatisticsSection />
-      <CTASection />
-      <ClientsSection />
-      <TestimonialsSection />
-      <LocationsSection />
+      <InsightsSection />
+      <HomeCTASection />
     </div>
   );
-}
+};
 
 export default Home;

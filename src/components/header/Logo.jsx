@@ -43,7 +43,7 @@ const Logo = ({ isTextWhite = false }) => {
           whileHover={{ scale: 1.02 }}
           style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
         >
-          TetraX AI
+          Nexus AI
         </motion.div>
         <div className={`text-xs md:text-sm font-medium tracking-wide uppercase mt-1 ${
           isTextWhite ? 'text-gray-200' : 'text-gray-600'

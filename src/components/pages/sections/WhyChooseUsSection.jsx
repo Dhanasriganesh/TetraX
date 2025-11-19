@@ -6,7 +6,7 @@ import Counter from './Counter';
 const WhyChooseUsSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3 });
   const stats = [
-    { percentage: 60, title: 'Minimal Timelines', description: 'Get Your Projects Done Quickly and Efficiently with TetraX AI Solutions.' },
+    { percentage: 60, title: 'Minimal Timelines', description: 'Get Your Projects Done Quickly and Efficiently with Nexus AI Solutions.' },
     { percentage: 95, title: 'Effective Communication', description: 'Unlock Your Company\'s Potential With Effective Communication Strategies.' },
     { percentage: 70, title: 'High Quality Standards', description: 'Get Professional AI Solutions to Create the Perfect Start-Up.' },
   ];
@@ -24,7 +24,7 @@ const WhyChooseUsSection = () => {
             Why Choose Us
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            One of the pioneers of AI solutions is TetraX AI Solutions. We offer our clients the advantage of having hardworking, committed, and talented manpower on demand, wherever and whenever they are needed, at a cost that fits their development budget.
+            One of the pioneers of AI solutions is Nexus AI Solutions. We offer our clients the advantage of having hardworking, committed, and talented manpower on demand, wherever and whenever they are needed, at a cost that fits their development budget.
           </p>
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8">
