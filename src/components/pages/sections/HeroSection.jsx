@@ -71,7 +71,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 flex justify-center"
             >
-              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/20">
+              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-[9px] font-medium border border-white/20">
                 Next-Generation AI Solutions
               </span>
             </motion.div>
@@ -81,7 +81,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-white leading-tight"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 letterSpacing: '-0.01em',
@@ -100,7 +100,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex text-base justify-center align-middle text-center md:text-lg lg:text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="flex text-[10px] justify-center align-middle text-center md:text-xs lg:text-sm text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
               style={{
                 fontFamily: 'Poppins, sans-serif',
               }}
@@ -118,10 +118,10 @@ const HeroSection = () => {
             >
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center flex flex-col items-center justify-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <div className="text-sm md:text-base lg:text-lg font-bold text-white mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-sm text-white/80 font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <div className="text-[9px] text-white/80 font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     {stat.label}
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const HeroSection = () => {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-white/70 text-xs font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>Scroll</span>
+          <span className="text-white/70 text-[7px] font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>Scroll</span>
           <motion.svg
             className="w-5 h-5 text-white/70"
             fill="none"
@@ -151,7 +151,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* White horizontal layer at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-white z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-9 bg-white z-10"></div>
     </section>
   );
 };

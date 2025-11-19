@@ -171,23 +171,7 @@ function Footer() {
               ))}
             </ul>
             <div>
-              <h5 className="text-white font-semibold text-sm mb-3">Stay updated</h5>
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="flex-1 rounded-lg border border-gray-600 bg-gray-800/50 px-4 py-2 text-sm text-white placeholder-white/70 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg"
-                >
-                  Subscribe
-                </button>
-              </form>
+        
             </div>
           </motion.div>
         </div>

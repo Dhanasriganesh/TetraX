@@ -78,21 +78,21 @@ const IndustriesSection = () => {
           </h3>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {industries.map((industry, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 p-8 text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 p-5 text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-transparent to-purple-100 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative flex flex-col items-center gap-4">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-white/80 text-4xl transition-transform duration-500 group-hover:scale-110">
+              <div className="relative flex flex-col items-center gap-3">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 text-2xl transition-transform duration-500 group-hover:scale-110">
                   {industry.icon}
                 </div>
-                <h4 className="text-xl font-bold text-gray-800">{industry.title}</h4>
+                <h4 className="text-base font-bold text-gray-800">{industry.title}</h4>
               </div>
             </motion.div>
           ))}

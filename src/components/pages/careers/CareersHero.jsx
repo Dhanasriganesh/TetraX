@@ -15,25 +15,25 @@ const CareersHero = () => (
     </div>
     <div className="container relative mx-auto grid gap-16 px-4 lg:grid-cols-2 lg:px-12">
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="space-y-6">
-        <p className="text-xs uppercase tracking-[0.4em] text-white/70">Careers</p>
-        <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
+        <p className="text-[10px] uppercase tracking-[0.4em] text-white/70">Careers</p>
+        <h1 className="text-3xl font-semibold leading-tight md:text-4xl">
           Build meaningful products, platforms, and AI solutions with people who care.
         </h1>
-        <p className="text-lg text-white/80">
+        <p className="text-base text-white/80">
           At Nexus AI, designers, engineers, researchers, and strategists co-create with ambitious clients. We invest in growth, autonomy, and inclusive rituals so everyone thrives.
         </p>
         <div className="flex flex-wrap gap-4">
-          <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-900 shadow-xl">View open roles</button>
-          <button className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white/90">Meet the team</button>
+          <button className="rounded-full bg-white px-6 py-3 text-xs font-semibold text-blue-900 shadow-xl">View open roles</button>
+          <button className="rounded-full border border-white/40 px-6 py-3 text-xs font-semibold text-white/90">Meet the team</button>
         </div>
       </motion.div>
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-        <p className="text-xs uppercase tracking-[0.3em] text-white/60">Life at Nexus AI</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-white/60">Life at Nexus AI</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {metrics.map((metric) => (
             <div key={metric.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 text-center">
-              <p className="text-3xl font-semibold">{metric.value}</p>
-              <p className="text-xs uppercase tracking-wide text-white/70">{metric.label}</p>
+              <p className="text-2xl font-semibold">{metric.value}</p>
+              <p className="text-[10px] uppercase tracking-wide text-white/70">{metric.label}</p>
             </div>
           ))}
         </div>

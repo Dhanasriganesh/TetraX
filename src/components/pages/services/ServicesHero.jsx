@@ -22,18 +22,18 @@ const ServicesHero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl space-y-6"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-white/70">
             Services
           </div>
-          <h1 className="text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
             Design, build, and scale modern businesses with AI-first services.
           </h1>
-          <p className="text-lg text-white/80">
+          <p className="text-base text-white/80">
             From advisory to delivery, we unite strategy, experience, engineering, and change operations. Every engagement blends reusable accelerators with co-creation rituals that keep teams aligned and velocity high.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-blue-900 shadow-xl">Talk to an expert</button>
-            <button className="rounded-full border border-white/50 px-8 py-3 text-sm font-semibold text-white">View service catalog</button>
+            <button className="rounded-full bg-white px-8 py-3 text-xs font-semibold text-blue-900 shadow-xl">Talk to an expert</button>
+            <button className="rounded-full border border-white/50 px-8 py-3 text-xs font-semibold text-white">View service catalog</button>
           </div>
         </motion.div>
 
@@ -45,8 +45,8 @@ const ServicesHero = () => {
         >
           {metrics.map((metric) => (
             <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p className="text-3xl font-semibold">{metric.value}</p>
-              <p className="text-xs uppercase tracking-wide text-white/70">{metric.label}</p>
+              <p className="text-2xl font-semibold">{metric.value}</p>
+              <p className="text-[10px] uppercase tracking-wide text-white/70">{metric.label}</p>
             </div>
           ))}
         </motion.div>

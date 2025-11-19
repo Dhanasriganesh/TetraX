@@ -121,7 +121,7 @@ function Header() {
               <img 
                 src={logonImage} 
                 alt="Nexus AI Solutions Logo" 
-                className="h-16 lg:h-16 lg:w-60"
+                className="h-16 lg:h-12 lg:w-40"
               />
             </Link>
           </div>
