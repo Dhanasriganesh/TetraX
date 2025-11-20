@@ -259,9 +259,9 @@ function Footer() {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 lg:flex lg:justify-center">
           <p className="text-sm">
-            Â© {currentYear} Nexus Ai. All rights reserved.
+            © 2020 Nexus AI Solutions.
           </p>
          
         </div>

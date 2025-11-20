@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
-import logonImage from '../../assets/logon.png';
+import logonImage from '../../assets/nexlogo.png';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
