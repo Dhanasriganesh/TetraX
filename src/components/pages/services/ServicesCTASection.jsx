@@ -9,14 +9,33 @@ const commitments = [
 
 const ServicesCTASection = () => {
   return (
-    <section className="bg-blue-950 py-20 text-white">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-br from-blue-950 via-red-950 to-blue-900 py-20 text-white overflow-hidden">
+      {/* Modern tech grid pattern */}
+      <div className="absolute inset-0 opacity-15">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(to right, #3b82f6 1px, transparent 1px),
+            linear-gradient(to bottom, #3b82f6 1px, transparent 1px),
+            linear-gradient(to right, #ef4444 1px, transparent 1px),
+            linear-gradient(to bottom, #ef4444 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px, 80px 80px, 40px 40px, 40px 40px',
+          backgroundPosition: '0 0, 0 0, 40px 40px, 40px 40px'
+        }}></div>
+      </div>
+      {/* Glowing orbs */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-red-600 rounded-full blur-[150px] opacity-20"></div>
+      {/* Diagonal accent lines */}
+      <div className="absolute top-0 right-0 w-64 h-64 border-t-2 border-r-2 border-blue-500/20"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 border-b-2 border-l-2 border-red-500/20"></div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="rounded-[40px] border border-white/10 bg-gradient-to-r from-blue-800 to-purple-700 p-10 shadow-2xl"
+          className="rounded-[40px] border border-white/10 bg-gradient-to-r from-blue-800 to-red-700 p-10 shadow-2xl"
         >
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">

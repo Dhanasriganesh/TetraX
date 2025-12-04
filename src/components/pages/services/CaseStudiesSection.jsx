@@ -24,8 +24,29 @@ const caseStudies = [
 
 const CaseStudiesSection = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-br from-white via-red-50/30 to-blue-50/30 py-20 overflow-hidden">
+      {/* Scattered dots pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 30%, #3b82f6 2px, transparent 2px),
+            radial-gradient(circle at 60% 20%, #ef4444 3px, transparent 3px),
+            radial-gradient(circle at 80% 60%, #3b82f6 2px, transparent 2px),
+            radial-gradient(circle at 30% 80%, #ef4444 2px, transparent 2px),
+            radial-gradient(circle at 90% 40%, #3b82f6 3px, transparent 3px),
+            radial-gradient(circle at 40% 50%, #ef4444 2px, transparent 2px),
+            radial-gradient(circle at 15% 70%, #3b82f6 2px, transparent 2px),
+            radial-gradient(circle at 70% 85%, #ef4444 3px, transparent 3px)
+          `,
+          backgroundSize: '300px 300px',
+          backgroundPosition: '0 0'
+        }}></div>
+      </div>
+      {/* Gradient overlays */}
+      <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-gradient-to-br from-blue-200 to-transparent rounded-full blur-3xl opacity-25"></div>
+      <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-gradient-to-tr from-red-200 to-transparent rounded-full blur-3xl opacity-25"></div>
+      <div className="absolute top-1/3 left-1/2 w-[400px] h-[400px] bg-gradient-to-r from-blue-100 to-red-100 rounded-full blur-3xl opacity-20"></div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <div className="mb-12 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Proof</p>
           <h2 className="mt-3 text-4xl font-bold text-gray-900">Outcomes shipped with ambitious clients</h2>

@@ -16,10 +16,12 @@ const differentiators = [
 
 const AboutHero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 py-24">
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute -right-40 top-10 h-96 w-96 rounded-full bg-blue-200 blur-3xl"></div>
-        <div className="absolute -left-16 bottom-0 h-80 w-80 rounded-full bg-purple-200 blur-3xl"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-red-50 to-blue-100 py-24">
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute -right-40 top-10 h-96 w-96 rounded-full bg-blue-400 blur-3xl"></div>
+        <div className="absolute -left-16 bottom-0 h-80 w-80 rounded-full bg-red-400 blur-3xl"></div>
+        <div className="absolute right-1/4 top-1/2 h-64 w-64 rounded-full bg-blue-300 blur-2xl"></div>
+        <div className="absolute left-1/3 bottom-1/4 h-48 w-48 rounded-full bg-red-300 blur-2xl"></div>
       </div>
 
       <div className="container relative mx-auto grid gap-16 px-4 lg:grid-cols-2 lg:px-12">
@@ -45,7 +47,7 @@ const AboutHero = () => {
               <ul className="mt-4 space-y-3 text-xs text-gray-700">
                 {differentiators.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></span>
+                    <span className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-red-500"></span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -84,7 +86,7 @@ const AboutHero = () => {
                 </div>
               ))}
             </div>
-            <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+            <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-red-600 p-6 text-white">
               <p className="text-xs uppercase tracking-wide text-white/70">Certified Partnerships</p>
               <p className="text-base font-semibold">Microsoft AI Cloud | AWS Advanced | Google Cloud Build | NVIDIA Inception</p>
             </div>

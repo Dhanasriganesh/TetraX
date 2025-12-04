@@ -18,7 +18,7 @@ const StatisticsSection = () => {
       id="statistics" 
       data-header-theme="gradient"
       ref={ref} 
-      className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+      className="py-20 bg-gradient-to-r from-blue-700 to-red-700 text-white"
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

@@ -23,8 +23,12 @@ const pillars = [
 ];
 
 const StrategicHighlightsSection = () => (
-  <section className="bg-white py-20" data-header-theme="light">
-    <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[2fr_3fr] lg:px-12">
+  <section className="relative bg-gradient-to-br from-blue-100 via-blue-50/50 to-red-100 py-20 overflow-hidden" data-header-theme="light">
+    {/* Decorative circles */}
+    <div className="absolute top-10 right-10 w-64 h-64 bg-blue-300/40 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 left-10 w-80 h-80 bg-red-300/40 rounded-full blur-3xl"></div>
+    <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-blue-400/30 rounded-full blur-2xl"></div>
+    <div className="container relative z-10 mx-auto grid gap-10 px-4 lg:grid-cols-[2fr_3fr] lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +46,7 @@ const StrategicHighlightsSection = () => (
         <div className="grid gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-4 text-center shadow-sm">
-              <p className="text-3xl font-bold text-blue-900">{stat.value}</p>
+              <p className="text-3xl font-bold text-blue-700">{stat.value}</p>
               <p className="text-xs uppercase tracking-wide text-gray-500">{stat.label}</p>
             </div>
           ))}
@@ -53,13 +57,13 @@ const StrategicHighlightsSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="rounded-[32px] border border-gray-100 bg-gradient-to-b from-blue-50 to-purple-50 p-10 shadow-2xl"
+        className="rounded-[32px] border border-blue-200 bg-gradient-to-b from-blue-600 to-red-600 p-10 shadow-2xl"
       >
         <div className="space-y-6">
           {pillars.map((pillar) => (
-            <div key={pillar.title} className="rounded-2xl bg-white/90 p-6 shadow">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">{pillar.title}</p>
-              <p className="mt-3 text-sm text-gray-700">{pillar.description}</p>
+            <div key={pillar.title} className="rounded-2xl bg-white/95 p-6 shadow">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{pillar.title}</p>
+              <p className="mt-3 text-sm text-gray-800">{pillar.description}</p>
             </div>
           ))}
         </div>

@@ -23,8 +23,29 @@ const insights = [
 ];
 
 const InsightsSection = () => (
-  <section className="bg-white py-20">
-    <div className="container mx-auto px-4 lg:px-12">
+  <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 py-20 overflow-hidden">
+    {/* Minimal radiating lines from corners */}
+    <div className="absolute inset-0 opacity-35">
+      <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        {/* Lines from top-right (blue) */}
+        <line x1="100%" y1="0" x2="80%" y2="20%" stroke="rgba(29, 78, 216, 0.3)" strokeWidth="1"/>
+        <line x1="100%" y1="0" x2="70%" y2="15%" stroke="rgba(29, 78, 216, 0.25)" strokeWidth="0.8"/>
+        <line x1="100%" y1="0" x2="75%" y2="25%" stroke="rgba(29, 78, 216, 0.2)" strokeWidth="0.8"/>
+        
+        {/* Lines from bottom-left (red) */}
+        <line x1="0" y1="100%" x2="20%" y2="80%" stroke="rgba(185, 28, 28, 0.3)" strokeWidth="1"/>
+        <line x1="0" y1="100%" x2="15%" y2="70%" stroke="rgba(185, 28, 28, 0.25)" strokeWidth="0.8"/>
+        <line x1="0" y1="100%" x2="25%" y2="75%" stroke="rgba(185, 28, 28, 0.2)" strokeWidth="0.8"/>
+      </svg>
+    </div>
+    
+    {/* Soft corner gradients */}
+    <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300/15 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+    <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-300/15 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+    
+    {/* Simple accent circle */}
+    <div className="absolute top-1/2 left-1/2 w-32 h-32 border border-blue-600/10 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Insights</p>
@@ -42,7 +63,7 @@ const InsightsSection = () => (
             transition={{ duration: 0.4, delay: index * 0.05 }}
             className="rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-lg"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">{insight.category}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{insight.category}</p>
             <h3 className="mt-3 text-2xl font-semibold text-gray-900">{insight.title}</h3>
             <p className="mt-4 text-sm text-gray-600">{insight.author} â€¢ {insight.time}</p>
            

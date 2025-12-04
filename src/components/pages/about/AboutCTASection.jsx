@@ -9,14 +9,27 @@ const commitments = [
 
 const AboutCTASection = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-br from-white via-blue-50 to-red-50 py-20 overflow-hidden">
+      {/* Grid mesh background */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'linear-gradient(#3b82f6 1px, transparent 1px), linear-gradient(90deg, #ef4444 1px, transparent 1px)',
+        backgroundSize: '80px 80px',
+        opacity: 0.08
+      }}></div>
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'linear-gradient(#ef4444 1px, transparent 1px), linear-gradient(90deg, #3b82f6 1px, transparent 1px)',
+        backgroundSize: '20px 20px',
+        opacity: 0.05
+      }}></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-red-200 rounded-full blur-3xl opacity-20"></div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="rounded-[40px] bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-10 text-white shadow-2xl"
+          className="rounded-[40px] bg-gradient-to-r from-blue-600 via-red-600 to-blue-700 p-10 text-white shadow-2xl"
         >
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
             <div>

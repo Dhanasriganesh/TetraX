@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 const HomeCTASection = () => (
-  <section className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-800 py-20 text-white" data-header-theme="gradient">
+  <section className="bg-gradient-to-r from-blue-800 via-blue-700 to-red-800 py-20 text-white" data-header-theme="gradient">
     <div className="container mx-auto px-4 lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}

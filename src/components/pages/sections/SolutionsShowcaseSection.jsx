@@ -25,8 +25,13 @@ const solutions = [
 ];
 
 const SolutionsShowcaseSection = () => (
-  <section className="bg-gray-50 py-20" data-header-theme="light">
-    <div className="container mx-auto px-4 lg:px-12">
+  <section className="relative bg-gradient-to-bl from-blue-100 via-red-100/50 to-blue-100 py-20 overflow-hidden" data-header-theme="light">
+    {/* Geometric shapes */}
+    <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-300/40 to-transparent rounded-bl-full"></div>
+    <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-red-300/40 to-transparent rounded-tr-full"></div>
+    <div className="absolute top-1/3 right-1/4 w-32 h-32 border border-blue-400/50 rounded-lg rotate-45"></div>
+    <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-red-400/50 rounded-full"></div>
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Solution patterns</p>
         <h2 className="mt-4 text-4xl font-bold text-gray-900">Modular offerings built to plug into your roadmap</h2>
@@ -46,14 +51,14 @@ const SolutionsShowcaseSection = () => (
           >
             <div className="flex items-center justify-between">
               <h3 className="text-2xl font-semibold text-gray-900">{solution.title}</h3>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">0{index + 1}</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">0{index + 1}</span>
             </div>
             <p className="mt-3 text-sm text-gray-600">{solution.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {solution.tags.map((tag) => (
-                <span key={tag} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
-                  {tag}
-                </span>
+              <span key={tag} className="rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+                {tag}
+              </span>
               ))}
             </div>
           </motion.div>

@@ -26,8 +26,33 @@ const phases = [
 
 const ProcessSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50 py-20">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-b from-white via-blue-50/50 to-red-50/50 py-20 overflow-hidden">
+      {/* Connected nodes pattern - representing process flow */}
+      <div className="absolute inset-0 opacity-20">
+        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="process-flow" x="0" y="0" width="300" height="200" patternUnits="userSpaceOnUse">
+              {/* Flow lines */}
+              <path d="M50,50 L150,50" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5,5" opacity="0.5"/>
+              <path d="M150,50 L250,50" stroke="#ef4444" strokeWidth="2" strokeDasharray="5,5" opacity="0.5"/>
+              <path d="M100,100 L200,100" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5,5" opacity="0.4"/>
+              {/* Nodes */}
+              <circle cx="50" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
+              <circle cx="150" cy="50" r="6" fill="#ef4444" opacity="0.6"/>
+              <circle cx="250" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
+              <circle cx="100" cy="100" r="5" fill="#ef4444" opacity="0.5"/>
+              <circle cx="200" cy="100" r="5" fill="#3b82f6" opacity="0.5"/>
+              {/* Arrows */}
+              <polygon points="145,48 145,52 155,50" fill="#ef4444" opacity="0.5"/>
+              <polygon points="245,48 245,52 255,50" fill="#3b82f6" opacity="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#process-flow)" />
+        </svg>
+      </div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-300 to-transparent rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-red-300 to-transparent rounded-full blur-3xl opacity-20"></div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">How we work</p>
           <h2 className="mt-4 text-4xl font-bold text-gray-900">A proven delivery rhythm with measurable checkpoints</h2>

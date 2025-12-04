@@ -48,7 +48,7 @@ const HeroSection = () => {
           allow="autoplay; fullscreen; xr-spatial-tracking; camera; microphone"
           referrerPolicy="no-referrer-when-downgrade"
           loading="eager"
-          src="https://sketchfab.com/models/a704ff6043a44400921f2eb207925c46/embed?autostart=1&autospin=0&preload=1&ui_infos=0&ui_hint=0&ui_stop=0&ui_general_controls=0&ui_watermark=0&ui_fullscreen=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&ui_controls=0&transparent=1"
+          src="https://sketchfab.com/models/a704ff6043a44400921f2eb207925c46/embed?autostart=1&autospin=0&preload=1&ui_infos=0&ui_hint=0&ui_stop=0&ui_general_controls=0&ui_watermark=0&ui_fullscreen=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&ui_controls=0&transparent=1&scrollwheel=0"
           className="absolute inset-0 w-full h-full pointer-events-auto"
           style={{ border: 'none' }}
         />
@@ -86,7 +86,7 @@ const HeroSection = () => {
               }}
             >
               <span className="block mb-2">Shaping the Future of</span>
-              <span className="block mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="block mb-2 bg-gradient-to-r from-blue-600 via-blue-500 to-red-600 bg-clip-text text-transparent">
                 Business Through
               </span>
               <span className="block text-white">Innovation and Excellence</span>

@@ -36,8 +36,25 @@ const capabilities = [
 
 const CapabilityMatrixSection = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-white py-20 overflow-hidden">
+      {/* Hexagon pattern background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(circle at 50px 50px, #3b82f6 2px, transparent 2px),
+            radial-gradient(circle at 150px 100px, #ef4444 2px, transparent 2px),
+            radial-gradient(circle at 100px 150px, #3b82f6 2px, transparent 2px),
+            radial-gradient(circle at 200px 50px, #ef4444 2px, transparent 2px)
+          `,
+          backgroundSize: '200px 200px',
+          backgroundPosition: '0 0, 50px 25px, 100px 50px, 0 75px'
+        }}></div>
+      </div>
+      {/* Floating gradient shapes */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-blue-300 to-transparent rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-tl from-red-300 to-transparent rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-200 to-red-200 rounded-full blur-3xl opacity-15"></div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Capabilities</p>
           <h2 className="mt-4 text-4xl font-bold text-gray-900">A unified service catalog for high-velocity teams</h2>

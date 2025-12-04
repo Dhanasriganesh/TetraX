@@ -70,8 +70,21 @@ const offerings = [
 
 const ServiceDetailSections = () => {
   return (
-    <section className="bg-white py-20" id="service-details">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 overflow-hidden" id="service-details">
+      {/* Modern gradient mesh background */}
+      <div className="absolute inset-0 opacity-50">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-blue-400 to-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-red-400 to-red-200 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-blue-300 to-red-300 rounded-full blur-3xl opacity-70"></div>
+      </div>
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.06]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(#3b82f6 1.5px, transparent 1.5px), linear-gradient(90deg, #ef4444 1.5px, transparent 1.5px)',
+          backgroundSize: '60px 60px'
+        }}></div>
+      </div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Consulting Â· Staffing Â· Training Â· IT Solutions</p>
           <h2 className="mt-4 text-4xl font-bold text-gray-900">Depth across every service line</h2>

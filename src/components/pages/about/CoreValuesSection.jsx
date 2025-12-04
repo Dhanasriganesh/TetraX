@@ -30,8 +30,21 @@ const values = [
 
 const CoreValuesSection = () => {
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="container mx-auto px-4 lg:px-12">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 overflow-hidden">
+      {/* Geometric shapes background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-64 h-64 border-2 border-blue-300 rotate-45"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 border-2 border-red-300 rounded-full"></div>
+        <div className="absolute bottom-20 left-1/4 w-56 h-56 border-2 border-blue-400 -rotate-12"></div>
+        <div className="absolute bottom-10 right-1/3 w-40 h-40 border-2 border-red-400 rotate-45 rounded-full"></div>
+        <svg className="absolute top-1/3 right-1/4 w-32 h-32 text-blue-300" viewBox="0 0 100 100">
+          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-1/3 left-1/3 w-28 h-28 text-red-300" viewBox="0 0 100 100">
+          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+      <div className="container relative mx-auto px-4 lg:px-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">Core values</p>
