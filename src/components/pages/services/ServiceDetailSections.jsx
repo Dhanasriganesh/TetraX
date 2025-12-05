@@ -30,7 +30,7 @@ const offerings = [
       'Knowledge transfer baked into every engagement',
     ],
     metrics: [
-      { label: 'Time to deploy', value: '3 wks' },
+      { label: 'Time to deploy', value: '3 weeks' },
       { label: 'Retention', value: '96%' },
     ],
   },
@@ -46,8 +46,8 @@ const offerings = [
       'Coaching circles and certification pathways',
     ],
     metrics: [
-      { label: 'Learners certified', value: '4k+' },
-      { label: 'Skill uplift', value: '+32 pts' },
+      { label: 'Learners certified', value: '4,000+' },
+      { label: 'Skill uplift', value: '+32 points' },
     ],
   },
   {
@@ -63,7 +63,7 @@ const offerings = [
     ],
     metrics: [
       { label: 'Deployments per year', value: '120+' },
-      { label: 'Release acceleration', value: '5x' },
+      { label: 'Release acceleration', value: '5 times' },
     ],
   },
 ];
@@ -86,7 +86,7 @@ const ServiceDetailSections = () => {
       </div>
       <div className="container relative mx-auto px-4 lg:px-12">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Consulting Â· Staffing Â· Training Â· IT Solutions</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Consulting · Staffing · Training · IT Solutions</p>
           <h2 className="mt-4 text-4xl font-bold text-gray-900">Depth across every service line</h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
             Each offering includes strategy, experience, engineering, and change partners so we can move from idea to scaled value without handoffs.

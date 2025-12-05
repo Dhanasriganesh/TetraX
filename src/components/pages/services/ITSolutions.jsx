@@ -32,7 +32,7 @@ const stackHighlights = [
 const caseResults = [
   {
     client: 'Global retailer',
-    result: 'Headless commerce platform launched across 14 countries with 5x release cadence and 35% faster performance.',
+    result: 'Headless commerce platform launched across 14 countries with 5 times release cadence and 35% faster performance.',
   },
   {
     client: 'Healthcare network',

@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import visionImage from '../../../assets/banners/aibanner.png';
 
 const pillars = [
   {
@@ -26,7 +27,14 @@ const MissionVisionSection = () => {
   return (
     <section className="relative bg-gradient-to-br from-white via-blue-50/30 to-white py-20 overflow-hidden">
       {/* Curved flowing shapes background */}
-      <div className="absolute inset-0 opacity-40">
+      <motion.div 
+        animate={{ 
+          opacity: [0.4, 0.6, 0.4],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0"
+      >
         <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -41,7 +49,7 @@ const MissionVisionSection = () => {
           <path d="M 0 200 Q 300 100 600 200 T 1200 200 L 1200 0 L 0 0 Z" fill="url(#grad1)" />
           <path d="M 0 800 Q 300 700 600 800 T 1200 800 L 1200 600 L 0 600 Z" fill="url(#grad2)" />
         </svg>
-      </div>
+      </motion.div>
       <div className="absolute top-20 right-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute bottom-20 left-20 w-72 h-72 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
@@ -78,8 +86,23 @@ const MissionVisionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="rounded-3xl border border-gray-100 bg-gradient-to-b from-white to-gray-50 p-8 shadow-xl"
+              className="group relative rounded-3xl border border-gray-100 bg-gradient-to-b from-white to-gray-50 p-8 shadow-xl overflow-hidden"
             >
+              {/* Background Image on Hover */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                initial={false}
+              >
+                <motion.img
+                  src={visionImage}
+                  alt={pillar.title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </motion.div>
+              
+              <div className="relative z-10">
               <div className="mb-6 inline-flex rounded-full bg-blue-50 px-4 py-1 text-sm font-semibold text-blue-600">
                 {pillar.title}
               </div>
@@ -92,9 +115,27 @@ const MissionVisionSection = () => {
                   </li>
                 ))}
               </ul>
+              </div>
             </motion.div>
           ))}
         </div>
+        
+        {/* Large Featured Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 rounded-3xl overflow-hidden shadow-2xl group"
+        >
+          <motion.img
+            src={visionImage}
+            alt="Vision and Mission"
+            className="w-full h-64 object-cover"
+            whileHover={{ scale: 1.1, rotate: 1 }}
+            transition={{ duration: 0.6 }}
+          />
+        </motion.div>
       </div>
     </section>
   );

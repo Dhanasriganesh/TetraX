@@ -25,7 +25,14 @@ const studies = [
 const CaseStudiesShowcaseSection = () => (
   <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 overflow-hidden">
     {/* Minimal ascending bars (representing growth/success) */}
-    <div className="absolute inset-0 opacity-30">
+    <motion.div 
+      animate={{ 
+        opacity: [0.3, 0.5, 0.3],
+        y: [0, -10, 0]
+      }}
+      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute inset-0"
+    >
       <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
         {/* Blue bars - left side ascending */}
         <rect x="5%" y="70%" width="1.5" height="100" fill="rgba(29, 78, 216, 0.3)" rx="1"/>
@@ -44,15 +51,45 @@ const CaseStudiesShowcaseSection = () => (
           strokeWidth="1.5"
           strokeDasharray="5,5"/>
       </svg>
-    </div>
+    </motion.div>
     
     {/* Soft gradient corners */}
-    <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300/15 rounded-full blur-3xl transform -translate-x-1/3 -translate-y-1/3"></div>
-    <div className="absolute bottom-0 right-0 w-72 h-72 bg-red-300/15 rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3"></div>
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.3, 1],
+        x: [0, -20, 0],
+        y: [0, -20, 0]
+      }}
+      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-0 left-0 w-72 h-72 bg-blue-300/15 rounded-full blur-3xl transform -translate-x-1/3 -translate-y-1/3"
+    ></motion.div>
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.3, 1],
+        x: [0, 20, 0],
+        y: [0, 20, 0]
+      }}
+      transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-0 right-0 w-72 h-72 bg-red-300/15 rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3"
+    ></motion.div>
     
     {/* Subtle achievement stars */}
-    <div className="absolute top-24 right-20 text-blue-600/15 text-3xl">★</div>
-    <div className="absolute bottom-32 left-24 text-red-600/15 text-2xl">★</div>
+    <motion.div 
+      animate={{ 
+        rotate: [0, 360],
+        scale: [1, 1.5, 1]
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-24 right-20 text-blue-600/15 text-3xl"
+    >★</motion.div>
+    <motion.div 
+      animate={{ 
+        rotate: [0, -360],
+        scale: [1, 1.5, 1]
+      }}
+      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-32 left-24 text-red-600/15 text-2xl"
+    >★</motion.div>
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Proof</p>

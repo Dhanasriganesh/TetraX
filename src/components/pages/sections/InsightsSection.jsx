@@ -6,26 +6,31 @@ const insights = [
     title: 'Building trustworthy AI copilots across regulated industries',
     category: 'Perspective',
     author: 'Priya Nair',
-    time: '6 min read',
   },
   {
     title: 'Design systems as operating systems for omni-channel brands',
     category: 'Playbook',
     author: 'Matthew Cole',
-    time: '8 min read',
   },
   {
     title: 'Telemetry-first DevOps: how to scale releases without burnout',
     category: 'Guide',
     author: 'Nora Valdez',
-    time: '7 min read',
   },
 ];
 
 const InsightsSection = () => (
   <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 py-20 overflow-hidden">
     {/* Minimal radiating lines from corners */}
-    <div className="absolute inset-0 opacity-35">
+    <motion.div 
+      animate={{ 
+        opacity: [0.35, 0.55, 0.35],
+        rotate: [0, 5, 0]
+      }}
+      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute inset-0"
+      style={{ transformOrigin: 'center' }}
+    >
       <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
         {/* Lines from top-right (blue) */}
         <line x1="100%" y1="0" x2="80%" y2="20%" stroke="rgba(29, 78, 216, 0.3)" strokeWidth="1"/>
@@ -37,14 +42,37 @@ const InsightsSection = () => (
         <line x1="0" y1="100%" x2="15%" y2="70%" stroke="rgba(185, 28, 28, 0.25)" strokeWidth="0.8"/>
         <line x1="0" y1="100%" x2="25%" y2="75%" stroke="rgba(185, 28, 28, 0.2)" strokeWidth="0.8"/>
       </svg>
-    </div>
+    </motion.div>
     
     {/* Soft corner gradients */}
-    <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300/15 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-    <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-300/15 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.4, 1],
+        x: [0, 30, 0],
+        y: [0, -30, 0]
+      }}
+      transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-0 right-0 w-96 h-96 bg-blue-300/15 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+    ></motion.div>
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.4, 1],
+        x: [0, -30, 0],
+        y: [0, 30, 0]
+      }}
+      transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-0 left-0 w-96 h-96 bg-red-300/15 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+    ></motion.div>
     
     {/* Simple accent circle */}
-    <div className="absolute top-1/2 left-1/2 w-32 h-32 border border-blue-600/10 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.2, 1],
+        rotate: [0, 180, 360]
+      }}
+      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      className="absolute top-1/2 left-1/2 w-32 h-32 border border-blue-600/10 rounded-full transform -translate-x-1/2 -translate-y-1/2"
+    ></motion.div>
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div>
@@ -65,7 +93,7 @@ const InsightsSection = () => (
           >
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{insight.category}</p>
             <h3 className="mt-3 text-2xl font-semibold text-gray-900">{insight.title}</h3>
-            <p className="mt-4 text-sm text-gray-600">{insight.author} â€¢ {insight.time}</p>
+            <p className="mt-4 text-sm text-gray-600">{insight.author}</p>
            
           </motion.article>
         ))}

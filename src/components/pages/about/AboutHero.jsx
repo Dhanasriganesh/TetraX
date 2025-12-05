@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import teamImage from '../../../assets/ppl/peopple1.jpg';
+import hoverImage from '../../../assets/banners/aibanner.png';
 
 const stats = [
   { label: 'Years of excellence', value: '15+' },
@@ -18,10 +20,42 @@ const AboutHero = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-red-50 to-blue-100 py-24">
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute -right-40 top-10 h-96 w-96 rounded-full bg-blue-400 blur-3xl"></div>
-        <div className="absolute -left-16 bottom-0 h-80 w-80 rounded-full bg-red-400 blur-3xl"></div>
-        <div className="absolute right-1/4 top-1/2 h-64 w-64 rounded-full bg-blue-300 blur-2xl"></div>
-        <div className="absolute left-1/3 bottom-1/4 h-48 w-48 rounded-full bg-red-300 blur-2xl"></div>
+        <motion.div 
+          animate={{ 
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-40 top-10 h-96 w-96 rounded-full bg-blue-400 blur-3xl"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.15, 1]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -left-16 bottom-0 h-80 w-80 rounded-full bg-red-400 blur-3xl"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            x: [0, -25, 0],
+            y: [0, 25, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+          className="absolute right-1/4 top-1/2 h-64 w-64 rounded-full bg-blue-300 blur-2xl"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            x: [0, 20, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-1/3 bottom-1/4 h-48 w-48 rounded-full bg-red-300 blur-2xl"
+        ></motion.div>
       </div>
 
       <div className="container relative mx-auto grid gap-16 px-4 lg:grid-cols-2 lg:px-12">
@@ -55,7 +89,7 @@ const AboutHero = () => {
             </div>
             <div className="rounded-2xl bg-blue-900/90 p-6 text-white shadow-xl">
               <p className="text-xs uppercase tracking-wide text-white/70">Impact snapshot</p>
-              <p className="mt-4 text-2xl font-semibold">.4B+</p>
+              <p className="mt-4 text-2xl font-semibold">$4B+</p>
               <p className="text-xs text-white/80">client value delivered since 2010</p>
               <div className="mt-6 rounded-xl bg-white/10 p-4 text-xs text-white/80">
                 "Nexus AI reimagined our operating model and launched an AI-powered service fabric that now runs across 14 countries."
@@ -68,9 +102,24 @@ const AboutHero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="rounded-[32px] border border-white/50 bg-white/80 p-10 shadow-2xl backdrop-blur"
+          className="relative rounded-[32px] border border-white/50 bg-white/80 p-10 shadow-2xl backdrop-blur overflow-hidden group"
         >
-          <div className="space-y-8">
+          {/* Animated Image */}
+          <motion.div
+            className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+            initial={false}
+          >
+            <motion.img
+              src={hoverImage}
+              alt="Nexus AI"
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.6 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-600/60 via-blue-600/30 to-transparent" />
+          </motion.div>
+          
+          <div className="relative z-10 space-y-8">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-blue-500">Inside Nexus AI</p>
               <h2 className="mt-2 text-2xl font-semibold text-gray-900">Purpose-built studios</h2>

@@ -41,10 +41,17 @@ const ServicesSection = () => {
     >
       {/* Diagonal stripes pattern */}
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
+        <motion.div 
+          animate={{ 
+            backgroundPosition: ['0px 0px', '60px 60px']
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-full h-full" 
+          style={{
           backgroundImage: 'linear-gradient(45deg, transparent 49%, rgba(59, 130, 246, 0.15) 49%, rgba(59, 130, 246, 0.15) 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, rgba(239, 68, 68, 0.15) 49%, rgba(239, 68, 68, 0.15) 51%, transparent 51%)',
           backgroundSize: '60px 60px'
-        }}></div>
+          }}
+        ></motion.div>
       </div>
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         <motion.div

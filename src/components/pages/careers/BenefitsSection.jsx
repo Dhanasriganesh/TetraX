@@ -8,7 +8,7 @@ const benefits = [
   },
   {
     title: 'Flexibility & Wellbeing',
-    description: 'Remote-first with regional studios, flexible PTO, wellness stipends, and inclusive benefits packages.',
+    description: 'Remote-first with regional studios, flexible paid time off, wellness stipends, and inclusive benefits packages.',
   },
   {
     title: 'Impact & Ownership',

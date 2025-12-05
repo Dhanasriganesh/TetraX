@@ -10,13 +10,51 @@ import logonImage from '../../assets/nexlogo.png';
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerTheme, setHeaderTheme] = useState('light'); // 'light', 'gradient'
+  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
   const tickingRef = useRef(false);
+  const lastScrollY = useRef(0);
+  const scrollThreshold = 3; // minimum scroll distance to trigger hide/show
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Handle scroll to show/hide header
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Don't hide header if we're at the top
+      if (currentScrollY < 50) {
+        setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Check scroll direction
+      if (Math.abs(currentScrollY - lastScrollY.current) < scrollThreshold) {
+        return;
+      }
+
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Observe sections to change header theme
   useEffect(() => {
@@ -109,19 +147,23 @@ function Header() {
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerClasses.bg} ${headerClasses.shadow}`}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ 
+        duration: 0.2, 
+        ease: [0.4, 0, 0.2, 1],
+        type: "tween"
+      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${headerClasses.bg} ${headerClasses.shadow}`}
     >
       <nav className="container mx-auto px-10 lg:px-16">
-        <div className="flex items-center justify-between h-20 lg:h-24 gap-8 lg:gap-12">
+        <div className="flex items-center justify-between h-16 lg:h-18 gap-8 lg:gap-12">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
               <img 
                 src={logonImage} 
                 alt="Nexus AI Solutions Logo" 
-                className="h-16 lg:h-12 lg:w-40"
+                className="h-12 lg:h-10 lg:w-36"
               />
             </Link>
           </div>

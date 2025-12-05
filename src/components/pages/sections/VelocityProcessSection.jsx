@@ -23,7 +23,14 @@ const steps = [
 const VelocityProcessSection = () => (
   <section className="relative bg-gradient-to-br from-blue-100 via-blue-50/40 to-red-100 py-20 overflow-hidden">
     {/* Diagonal flowing lines representing velocity and movement */}
-    <div className="absolute inset-0 opacity-60">
+    <motion.div 
+      animate={{ 
+        opacity: [0.6, 0.8, 0.6],
+        x: [0, 20, 0]
+      }}
+      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      className="absolute inset-0"
+    >
       <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -62,10 +69,17 @@ const VelocityProcessSection = () => (
         <line x1="1720" y1="1080" x2="1370" y2="800" stroke="url(#redGrad)" strokeWidth="2"/>
         <line x1="1420" y1="1080" x2="1020" y2="750" stroke="url(#redGrad)" strokeWidth="1.5"/>
       </svg>
-    </div>
+    </motion.div>
     
     {/* Connected nodes pattern representing process flow */}
-    <div className="absolute inset-0 opacity-50">
+    <motion.div 
+      animate={{ 
+        opacity: [0.5, 0.7, 0.5],
+        scale: [1, 1.05, 1]
+      }}
+      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute inset-0"
+    >
       <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
         {/* Network nodes - blue side */}
         <circle cx="15%" cy="20%" r="4" fill="rgb(29, 78, 216)" opacity="0.8"/>
@@ -88,11 +102,27 @@ const VelocityProcessSection = () => (
         <line x1="75%" y1="40%" x2="80%" y2="60%" stroke="rgb(185, 28, 28)" strokeWidth="1.5" opacity="0.7"/>
         <line x1="80%" y1="60%" x2="70%" y2="80%" stroke="rgb(185, 28, 28)" strokeWidth="1.5" opacity="0.7"/>
       </svg>
-    </div>
+    </motion.div>
     
     {/* Glowing orbs for depth */}
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-400/20 rounded-full blur-3xl"></div>
+    <motion.div 
+      animate={{ 
+        x: [0, -30, 0],
+        y: [0, 30, 0],
+        scale: [1, 1.2, 1]
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"
+    ></motion.div>
+    <motion.div 
+      animate={{ 
+        x: [0, 30, 0],
+        y: [0, -30, 0],
+        scale: [1, 1.2, 1]
+      }}
+      transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-400/20 rounded-full blur-3xl"
+    ></motion.div>
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Delivery rhythm</p>

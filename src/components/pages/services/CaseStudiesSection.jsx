@@ -6,7 +6,7 @@ const caseStudies = [
     industry: 'Retail & Consumer',
     headline: 'AI-driven forecasting trims inventory costs by 19%',
     summary: 'Partnered with a global retailer to build a unified data fabric, predictive demand models, and store associate copilots.',
-    impact: ['8 week pilot to nationwide rollout', '35k associates enabled', ' working capital unlocked'],
+    impact: ['8 week pilot to nationwide rollout', '35k associates enabled', '$50M working capital unlocked'],
   },
   {
     industry: 'Healthcare',
@@ -18,7 +18,7 @@ const caseStudies = [
     industry: 'Energy & Utilities',
     headline: 'Automation control tower saves 1.2M field hours',
     summary: 'Built a secure automation platform with digital twins, workflow orchestration, and workforce enablement programs.',
-    impact: ['90 day roadmap to production', '5x more releases', 'Enterprise academy for 600 employees'],
+    impact: ['90 day roadmap to production', '5 times more releases', 'Enterprise academy for 600 employees'],
   },
 ];
 

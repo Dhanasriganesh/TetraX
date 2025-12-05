@@ -30,7 +30,7 @@ const details = [
     name: 'Tech Solutions',
     focus: 'Modern engineering + automation',
     deliverables: ['Product + platform squads', 'Automation control towers', 'Runbooks, enablement, and managed evolution'],
-    quote: 'We gained a 5x release cadence with full observability.',
+    quote: 'We gained 5 times release cadence with full observability.',
   },
 ];
 

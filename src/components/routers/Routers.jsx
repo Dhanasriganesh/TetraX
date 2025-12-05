@@ -7,6 +7,7 @@ import Staffing from '../pages/services/Staffing'
 import Training from '../pages/services/Training'
 import ITSolutions from '../pages/services/ITSolutions'
 import Industries from '../pages/Industries'
+import Clients from '../pages/Clients'
 import Careers from '../pages/Careers'
 import Products from '../pages/Products'
 import Contact from '../pages/Contact'
@@ -24,6 +25,7 @@ function Routers() {
             <Route path='/services/training' element={<Training />} />
             <Route path='/services/it-solutions' element={<ITSolutions />} />
             <Route path='/industries' element={<Industries />} />
+            <Route path='/clients' element={<Clients />} />
             <Route path='/careers' element={<Careers />} />
             <Route path='/products' element={<Products />} />
             <Route path='/contact' element={<Contact />} />

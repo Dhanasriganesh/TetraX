@@ -20,7 +20,7 @@ const ContactHero = () => (
           Let's turn your next idea into measurable impact.
         </h1>
         <p className="text-base text-white/80">
-          Share your goals, challenges, or partnership ideasâ€"our strategy, design, and engineering teams are ready to collaborate.
+          Share your goals, challenges, or partnership ideas—our strategy, design, and engineering teams are ready to collaborate.
         </p>
         <div className="flex flex-wrap gap-4">
           <button className="rounded-full bg-white px-6 py-3 text-xs font-semibold text-blue-900 shadow-xl">Schedule a call</button>

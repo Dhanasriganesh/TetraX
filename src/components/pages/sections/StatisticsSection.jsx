@@ -7,10 +7,10 @@ const StatisticsSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   const stats = [
-    { number: 3480, suffix: '', label: 'Project Completed' },
-    { number: 428, suffix: '', label: 'IT Specialist' },
+    { number: 3480, suffix: '', label: 'Projects Completed' },
+    { number: 428, suffix: '', label: 'IT Specialists' },
     { number: 6980, suffix: '', label: 'Happy Clients' },
-    { number: 256, suffix: '', label: 'Smart Solution' },
+    { number: 256, suffix: '', label: 'Smart Solutions' },
   ];
 
   return (

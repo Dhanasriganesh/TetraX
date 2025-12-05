@@ -64,7 +64,14 @@ const IndustriesSection = () => {
       className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-red-50 overflow-hidden"
     >
       {/* Minimal curved arcs */}
-      <div className="absolute inset-0 opacity-40">
+      <motion.div 
+        animate={{ 
+          opacity: [0.4, 0.6, 0.4],
+          x: [0, 10, 0]
+        }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0"
+      >
         <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
           {/* Blue arc top-left */}
           <path d="M 0,200 Q 200,50 400,200" 
@@ -86,15 +93,45 @@ const IndustriesSection = () => {
             stroke="rgba(185, 28, 28, 0.2)" 
             strokeWidth="1"/>
         </svg>
-      </div>
+      </motion.div>
       
       {/* Soft gradient orbs */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-red-300/20 rounded-full blur-3xl"></div>
+      <motion.div 
+        animate={{ 
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-20 -left-20 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"
+      ></motion.div>
+      <motion.div 
+        animate={{ 
+          x: [0, -40, 0],
+          y: [0, 30, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -bottom-20 -right-20 w-80 h-80 bg-red-300/20 rounded-full blur-3xl"
+      ></motion.div>
       
       {/* Minimal dots accent */}
-      <div className="absolute top-32 right-1/4 w-2 h-2 bg-blue-600/40 rounded-full"></div>
-      <div className="absolute bottom-32 left-1/4 w-2 h-2 bg-red-600/40 rounded-full"></div>
+      <motion.div 
+        animate={{ 
+          scale: [1, 2, 1],
+          opacity: [0.4, 0.8, 0.4]
+        }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-32 right-1/4 w-2 h-2 bg-blue-600/40 rounded-full"
+      ></motion.div>
+      <motion.div 
+        animate={{ 
+          scale: [1, 2, 1],
+          opacity: [0.4, 0.8, 0.4]
+        }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        className="absolute bottom-32 left-1/4 w-2 h-2 bg-red-600/40 rounded-full"
+      ></motion.div>
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -106,7 +143,7 @@ const IndustriesSection = () => {
             Industries
           </h2>
           <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-red-700">
-            We Deal Industries
+            Industries We Serve
           </h3>
         </motion.div>
 

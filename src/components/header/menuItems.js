@@ -23,6 +23,10 @@ export const menuItems = [
     path: '/industries',
   },
   {
+    name: 'Clients',
+    path: '/clients',
+  },
+  {
     name: 'Careers',
     path: '/careers',
   },

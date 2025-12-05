@@ -13,10 +13,10 @@ const HomeCTASection = () => (
       >
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Letâ€™s build</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Let's build</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight">Ready to design the next chapter of your business?</h2>
             <p className="mt-4 max-w-2xl text-lg text-white/80">
-              Kick off with a strategy sprint, AI co-creation workshop, or platform modernization plan. Weâ€™ll tailor the first 90 days to your outcomes.
+              Kick off with a strategy sprint, AI co-creation workshop, or platform modernization plan. We'll tailor the first 90 days to your outcomes.
             </p>
           </div>
         </div>

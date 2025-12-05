@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import cultureImage from '../../../assets/ppl/peopple1.jpg';
+import impactImage from '../../../assets/banners/sponsership.jpg';
 
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',
@@ -14,36 +16,112 @@ const CultureImpactSection = () => {
       {/* Modern layered gradient shapes */}
       <div className="absolute inset-0">
         {/* Large flowing gradients */}
-        <div className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-300/40 to-transparent blur-3xl"></div>
-        <div className="absolute -bottom-1/3 -right-1/4 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-red-300/40 to-transparent blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/3 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-200/30 to-red-200/30 blur-3xl"></div>
+        <motion.div 
+          animate={{ 
+            x: [0, -60, 0],
+            y: [0, 60, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-900/30 to-transparent blur-3xl"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            x: [0, 60, 0],
+            y: [0, -60, 0],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-1/3 -right-1/4 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-red-900/30 to-transparent blur-3xl"
+        ></motion.div>
+        <motion.div 
+          animate={{ 
+            rotate: [0, 180, 360],
+            scale: [1, 1.15, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/3 right-1/3 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-800/25 to-red-800/25 blur-3xl"
+        ></motion.div>
       </div>
       
       {/* Geometric overlay pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <motion.div 
+        animate={{ 
+          opacity: [0.1, 0.15, 0.1],
+          backgroundPosition: ['0 0', '80px 80px']
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0"
+      >
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            linear-gradient(to right, #3b82f6 1px, transparent 1px),
-            linear-gradient(to bottom, #3b82f6 1px, transparent 1px),
-            linear-gradient(to right, #ef4444 1px, transparent 1px),
-            linear-gradient(to bottom, #ef4444 1px, transparent 1px)
+            linear-gradient(to right, #1e3a8a 1px, transparent 1px),
+            linear-gradient(to bottom, #1e3a8a 1px, transparent 1px),
+            linear-gradient(to right, #7f1d1d 1px, transparent 1px),
+            linear-gradient(to bottom, #7f1d1d 1px, transparent 1px)
           `,
           backgroundSize: '100px 100px, 100px 100px, 60px 60px, 60px 60px',
           backgroundPosition: '0 0, 0 0, 50px 50px, 50px 50px'
         }}></div>
-      </div>
+      </motion.div>
 
       {/* Floating accent shapes */}
-      <div className="absolute top-20 right-1/4 w-32 h-32 border-2 border-blue-400/40 rounded-lg rotate-12 backdrop-blur-sm"></div>
-      <div className="absolute bottom-32 left-1/4 w-40 h-40 border-2 border-red-400/40 rounded-full backdrop-blur-sm"></div>
-      <div className="absolute top-1/2 right-20 w-24 h-24 border-2 border-blue-400/30 -rotate-45 backdrop-blur-sm"></div>
+      <motion.div 
+        animate={{ 
+          rotate: [12, 192, 12],
+          x: [0, 30, 0],
+          y: [0, -30, 0]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 right-1/4 w-32 h-32 border-2 border-blue-900/50 rounded-lg backdrop-blur-sm"
+        style={{ rotate: 12 }}
+      ></motion.div>
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.3, 1],
+          x: [0, -25, 0],
+          y: [0, 25, 0]
+        }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-32 left-1/4 w-40 h-40 border-2 border-red-900/50 rounded-full backdrop-blur-sm"
+      ></motion.div>
+      <motion.div 
+        animate={{ 
+          rotate: [-45, 315, -45],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 right-20 w-24 h-24 border-2 border-blue-900/40 backdrop-blur-sm"
+        style={{ rotate: -45 }}
+      ></motion.div>
       <div className="container relative mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.3 }}
+          className="space-y-6"
         >
+          {/* Culture Image */}
+          <motion.div
+            className="relative rounded-3xl overflow-hidden shadow-2xl group"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.img
+              src={cultureImage}
+              alt="Culture & Impact"
+              className="w-full h-64 object-cover"
+              whileHover={{ scale: 1.15, rotate: 2 }}
+              transition={{ duration: 0.6 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <p className="text-sm font-semibold">Built for people. Grounded in ethics.</p>
+            </div>
+          </motion.div>
+          
+          <div>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Culture & Impact</p>
           <h2 className="mt-4 text-4xl font-bold leading-snug text-gray-900">
             Built for people. Grounded in ethics. Driven by measurable impact.
@@ -61,6 +139,7 @@ const CultureImpactSection = () => {
               <p className="text-sm uppercase tracking-wide text-gray-600">hours of pro-bono advisory</p>
             </div>
           </div>
+          </div>
         </motion.div>
 
         <motion.div
@@ -68,8 +147,24 @@ const CultureImpactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="rounded-[32px] border border-blue-200 bg-white/60 p-8 backdrop-blur"
+          className="relative rounded-[32px] border border-blue-200 bg-white/60 p-8 backdrop-blur overflow-hidden group"
         >
+          {/* Impact Image Background */}
+          <motion.div
+            className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+            initial={false}
+          >
+            <motion.img
+              src={impactImage}
+              alt="Impact"
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.2, rotate: -3 }}
+              transition={{ duration: 0.8 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/50 to-red-600/50" />
+          </motion.div>
+          
+          <div className="relative z-10">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Our commitments</p>
           <ul className="mt-6 space-y-5 text-base text-gray-800">
             {commitments.map((item) => (
@@ -82,6 +177,7 @@ const CultureImpactSection = () => {
           <div className="mt-10 rounded-3xl border border-blue-200 bg-white/50 p-6 text-sm text-gray-700">
             "Our partnership with Nexus AI accelerated our sustainability roadmap while equipping our teams with the skills to own the change."
             <p className="mt-3 font-semibold text-gray-900">VP of Digital Strategy, Global Energy Leader</p>
+          </div>
           </div>
         </motion.div>
       </div>

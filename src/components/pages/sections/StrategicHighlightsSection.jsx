@@ -25,9 +25,33 @@ const pillars = [
 const StrategicHighlightsSection = () => (
   <section className="relative bg-gradient-to-br from-blue-100 via-blue-50/50 to-red-100 py-20 overflow-hidden" data-header-theme="light">
     {/* Decorative circles */}
-    <div className="absolute top-10 right-10 w-64 h-64 bg-blue-300/40 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-20 left-10 w-80 h-80 bg-red-300/40 rounded-full blur-3xl"></div>
-    <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-blue-400/30 rounded-full blur-2xl"></div>
+    <motion.div 
+      animate={{ 
+        x: [0, 30, 0],
+        y: [0, -20, 0],
+        scale: [1, 1.1, 1]
+      }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-10 right-10 w-64 h-64 bg-blue-300/40 rounded-full blur-3xl"
+    ></motion.div>
+    <motion.div 
+      animate={{ 
+        x: [0, -30, 0],
+        y: [0, 30, 0],
+        scale: [1, 1.15, 1]
+      }}
+      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute bottom-20 left-10 w-80 h-80 bg-red-300/40 rounded-full blur-3xl"
+    ></motion.div>
+    <motion.div 
+      animate={{ 
+        x: [0, -20, 0],
+        y: [0, 20, 0],
+        rotate: [0, 180, 360]
+      }}
+      transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+      className="absolute top-1/2 left-1/3 w-40 h-40 bg-blue-400/30 rounded-full blur-2xl"
+    ></motion.div>
     <div className="container relative z-10 mx-auto grid gap-10 px-4 lg:grid-cols-[2fr_3fr] lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
