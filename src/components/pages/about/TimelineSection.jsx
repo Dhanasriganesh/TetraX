@@ -1,6 +1,10 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import growthImage from '../../../assets/banners/industrybanner.png';
+import milestone1Image from '../../../assets/banners/energybanner.png';
+import milestone2Image from '../../../assets/banners/financebanner.png';
+import milestone3Image from '../../../assets/banners/healthbanner.png';
+import milestone4Image from '../../../assets/banners/telecombanner.png';
+import milestone5Image from '../../../assets/ppl/location1.png';
 import journeyImage from '../../../assets/wolrdlocation.jpg';
 
 const milestones = [
@@ -8,26 +12,31 @@ const milestones = [
     year: '2010',
     title: 'Founded in Charlotte',
     description: 'Launched with a focus on cloud-native engineering for financial services.',
+    image: milestone1Image,
   },
   {
     year: '2015',
     title: 'Global delivery hubs',
     description: 'Opened innovation labs in Toronto and Lisbon, expanding 24/6 coverage.',
+    image: milestone2Image,
   },
   {
     year: '2018',
     title: 'Experience & Data studio',
     description: 'Merged design research, data science, and AI engineering under one practice.',
+    image: milestone3Image,
   },
   {
     year: '2022',
     title: 'Responsible AI framework',
     description: 'Published our Responsible Intelligence playbook adopted by Fortune 500 partners.',
+    image: milestone4Image,
   },
   {
     year: '2025',
     title: 'Adaptive enterprise platform',
     description: 'Launched modular platform accelerators powering retail, healthcare, and energy clients.',
+    image: milestone5Image,
   },
 ];
 
@@ -252,16 +261,21 @@ const TimelineSection = () => {
               >
                 {/* Background Image on Hover */}
                 <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                   initial={false}
                 >
                   <motion.img
-                    src={growthImage}
+                    src={milestone.image}
                     alt={milestone.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.2, rotate: 3 }}
-                    transition={{ duration: 0.8 }}
+                    className="w-full h-full object-cover object-center"
+                    initial={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    style={{
+                      filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
+                    }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
                 </motion.div>
                 
                 <div className="relative z-10">

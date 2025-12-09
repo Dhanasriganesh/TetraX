@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
-import logonImage from '../../assets/nexlogo.png';
+import logonImage from '../../assets/logoob.png';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -122,23 +122,24 @@ function Header() {
     };
   }, [location.pathname]);
 
-  // Determine header classes based on theme
+  // Determine header classes; hero stays transparent/light, others use normal/light bg
   const getHeaderClasses = () => {
-    switch (headerTheme) {
-      case 'gradient':
-        return {
-          bg: 'bg-white/95 backdrop-blur-md',
-          text: false, // dark text
-          shadow: 'shadow-lg',
-        };
-      case 'light':
-      default:
-        return {
-          bg: 'bg-white',
-          text: false, // dark text
-          shadow: 'shadow-md border-b border-gray-200',
-        };
+    const isHero = headerTheme === 'gradient' || headerTheme === 'hero';
+
+    // All non-home hero sections: transparent/light. Home hero stays solid.
+    if (isHero && location.pathname !== '/') {
+      return {
+        bg: 'bg-transparent',
+        text: true, // light text over hero
+        shadow: '',
+      };
     }
+
+    return {
+      bg: 'bg-white',
+      text: false, // dark text elsewhere
+      shadow: 'shadow-md border-b border-gray-200',
+    };
   };
 
   const headerClasses = getHeaderClasses();

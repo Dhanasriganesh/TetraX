@@ -32,7 +32,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12">
       <div className="container mx-auto px-4 lg:px-12">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Contact form</p>

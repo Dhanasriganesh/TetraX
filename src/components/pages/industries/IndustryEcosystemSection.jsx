@@ -12,7 +12,7 @@ const ecosystem = [
   },
   {
     title: 'Regulatory & Compliance Network',
-    description: 'Advisors covering healthcare, finance, retail, manufacturing, and public sector guardrails.',
+    description: 'Advisors covering healthcare, finance, retail, manufacturing, automotive, and public sector guardrails.',
   },
 ];
 

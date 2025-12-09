@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Globe, Sparkles, Zap, Target, Rocket } from 'lucide-react';
+import heroBackgroundImage from '../../assets/vectors/bg.jpg';
 
 // Import logos
 import accentureLogo from '../../assets/accenture.png';
@@ -236,7 +237,18 @@ const Clients = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16">
+      <section 
+        data-header-theme="hero"
+        className="relative pt-32 pb-16"
+        style={{
+          backgroundImage: `url(${heroBackgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-blue-900/60 to-purple-900/65"></div>
         <div className="container relative mx-auto px-4 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -257,20 +269,20 @@ const Clients = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl lg:text-5xl font-bold mb-4"
+              className="text-4xl lg:text-5xl font-bold mb-4 text-white"
             >
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 bg-clip-text text-transparent">
+                <span className="text-white">
                 70+ Global Leaders
               </span>
               <br />
-              <span className="text-gray-900">Trust Nexus AI</span>
+              <span className="text-white">Trust Nexus AI</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-base text-gray-600 mb-6 max-w-3xl mx-auto leading-relaxed"
+              className="text-base text-white mb-6 max-w-3xl mx-auto leading-relaxed"
             >
               Powering innovation for Fortune 500 companies and industry disruptors across the globe
             </motion.p>
@@ -356,7 +368,7 @@ const Clients = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+            className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7"
           >
             {getFilteredClients().map((client, index) => (
               <motion.div
@@ -365,9 +377,8 @@ const Clients = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: index * 0.03 }}
                 whileHover={{ 
-                  y: -12, 
-                  scale: 1.05,
-                  rotateY: 5,
+                  y: -8, 
+                  scale: 1.02,
                 }}
                 className="group relative"
               >
@@ -375,7 +386,10 @@ const Clients = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                 
                 {/* Card */}
-                <div className={`relative bg-gradient-to-br ${client.color} rounded-3xl p-6 border border-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 group-hover:border-transparent group-hover:shadow-2xl h-32 flex items-center justify-center overflow-hidden`}>
+                <div 
+                  className="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:border-gray-300 h-32 flex items-center justify-center overflow-hidden"
+                  style={{ transform: 'none' }}
+                >
                   {/* Animated background pattern */}
                   <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -390,17 +404,30 @@ const Clients = () => {
                   />
                   
                   {/* Logo */}
-                  <motion.div
-                    className="relative z-10"
-                    whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-                    transition={{ duration: 0.5 }}
+                  <div 
+                    className="relative z-10 w-full h-full flex items-center justify-center"
+                    style={{ 
+                      transform: 'none',
+                      perspective: 'none',
+                    }}
                   >
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-h-16 max-w-full object-contain drop-shadow-lg"
+                      className="max-h-16 max-w-[90%] w-auto h-auto object-contain"
+                      style={{
+                        imageRendering: 'auto',
+                        transform: 'none !important',
+                        display: 'block',
+                        rotate: '0deg !important',
+                        transformStyle: 'flat',
+                        backfaceVisibility: 'visible',
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
                     />
-                  </motion.div>
+                  </div>
 
                   {/* Sparkle effect on hover */}
                   <motion.div

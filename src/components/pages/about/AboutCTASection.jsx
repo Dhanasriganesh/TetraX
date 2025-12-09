@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import partnershipImage from '../../../assets/banners/techbanner.png';
+import partnershipImage from '../../../assets/banners/fullstackbanner.png';
 
 const commitments = [
   'Co-create a 90-day transformation roadmap',

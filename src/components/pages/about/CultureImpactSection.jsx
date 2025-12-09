@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import cultureImage from '../../../assets/ppl/peopple1.jpg';
-import impactImage from '../../../assets/banners/sponsership.jpg';
+import cultureImage from '../../../assets/ppl/location2.png';
+import impactImage from '../../../assets/banners/transportbanner.png';
 
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',
@@ -151,17 +151,21 @@ const CultureImpactSection = () => {
         >
           {/* Impact Image Background */}
           <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+            className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
             initial={false}
           >
             <motion.img
               src={impactImage}
               alt="Impact"
-              className="w-full h-full object-cover"
-              whileHover={{ scale: 1.2, rotate: -3 }}
-              transition={{ duration: 0.8 }}
+              className="w-full h-full object-cover object-center"
+              initial={{ scale: 1.1 }}
+              whileHover={{ scale: 1.15 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{
+                filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/50 to-red-600/50" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
           </motion.div>
           
           <div className="relative z-10">

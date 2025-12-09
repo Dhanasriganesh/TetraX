@@ -88,7 +88,7 @@ const CustomCursor = () => {
             className="pointer-events-none fixed z-[9999] hidden lg:block"
             style={{ width: outerSize, height: outerSize }}
           >
-            <div className="h-full w-full rounded-full bg-transparent ring-1 ring-blue-900 backdrop-blur-xl" />
+            <div className="h-full w-full rounded-full bg-transparent ring-1 ring-blue-900" />
           </motion.div>
 
           <motion.div

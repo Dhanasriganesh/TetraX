@@ -7,37 +7,49 @@ function Footer() {
   const [email, setEmail] = useState('');
 
   const exploreLinks = [
-      { name: 'Services', path: '/services' },
+    { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-      { name: 'Careers', path: '/careers' },
-      { name: 'Contact', path: '/contact' },
+    { name: 'Services', path: '/services' },
+    { name: 'Industries', path: '/industries' },
+    { name: 'Clients', path: '/clients' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Products', path: '/products' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const technologiesLinks = [
-    { name: 'AI', path: '/technologies/ai' },
-    { name: 'Cloud Computing', path: '/technologies/cloud' },
-    { name: 'DevOps', path: '/technologies/devops' },
-    { name: 'Big Data Technologies', path: '/technologies/big-data' },
-    { name: 'Web Development', path: '/technologies/web' },
-    { name: 'IoT', path: '/technologies/iot' },
-    { name: 'Android Developer', path: '/technologies/android' },
-    { name: 'Java/Python Full Stack', path: '/technologies/full-stack' },
-    { name: 'ServiceNow', path: '/technologies/servicenow' },
-    { name: 'Business/Data Analyst', path: '/technologies/analyst' },
-    { name: 'QA Engineer', path: '/technologies/qa' },
-    { name: 'Data Science', path: '/technologies/data-science' },
-    { name: 'Salesforce', path: '/technologies/salesforce' },
+  const servicesLinks = [
+    { name: 'Consulting', path: '/services/consulting' },
+    { name: 'Staffing', path: '/services/staffing' },
+    { name: 'Training', path: '/services/training' },
+    { name: 'IT Solutions', path: '/services/it-solutions' },
   ];
 
   const industriesLinks = [
-    { name: 'Financial Services', path: '/industries/financial' },
-    { name: 'Healthcare', path: '/industries/healthcare' },
-    { name: 'Media, Entertainment & Gaming', path: '/industries/media' },
-    { name: 'Technology Enablement', path: '/industries/technology' },
-    { name: 'Telecommunications', path: '/industries/telecom' },
-    { name: 'Energy', path: '/industries/energy' },
-    { name: 'Consumer and Industrial Products', path: '/industries/consumer' },
-    { name: 'Transportation and Travel', path: '/industries/transportation' },
+    { name: 'Financial Services', path: '/industries' },
+    { name: 'Healthcare', path: '/industries' },
+    { name: 'Media, Entertainment & Gaming', path: '/industries' },
+    { name: 'Technology Enablement', path: '/industries' },
+    { name: 'Telecommunications', path: '/industries' },
+    { name: 'Energy', path: '/industries' },
+    { name: 'Consumer & Industrial Products', path: '/industries' },
+    { name: 'Transportation & Travel', path: '/industries' },
+  ];
+
+  const locations = [
+    {
+      title: 'Nexus AI Headquarters',
+      address: 'Nexus AI, 11020 David Taylor Dr, Charlotte, NC 28262, USA',
+      phone: '+1 (980) 781-9639',
+      email: 'info@nexusaisol.com',
+      mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
+    },
+    {
+      title: 'Nexus AI Development Center',
+      address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
+      phone: '+91 77939 92217',
+      email: 'info@nexusaisol.com',
+      mapUrl: 'https://www.google.com/maps?q=Vasavi+MPM+Grand,+Ameerpet,+Hyderabad,+Telangana',
+    },
   ];
 
   const handleNewsletterSubmit = (e) => {
@@ -56,7 +68,7 @@ function Footer() {
             backgroundPosition: ['0px 0px', '40px 40px'],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `
               linear-gradient(to right, #3b82f6 1px, transparent 1px),
@@ -189,9 +201,9 @@ function Footer() {
         />
       </div>
 
-      <div className="container relative mx-auto px-4 lg:px-12 py-16">
+      <div className="container relative mx-auto px-4 lg:px-10 py-12">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-10">
           {/* Logo and Description - Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -225,11 +237,36 @@ function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2"
+            className="lg:col-span-3"
           >
             <h4 className="text-gray-900 font-bold text-base mb-6">Explore</h4>
-            <ul className="space-y-3">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
               {exploreLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
+                >
+                  <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Services Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-2"
+          >
+            <h4 className="text-gray-900 font-bold text-base mb-6">Services</h4>
+            <ul className="space-y-3">
+              {servicesLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
@@ -245,49 +282,6 @@ function Footer() {
             </ul>
           </motion.div>
 
-          {/* Technologies Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-3"
-          >
-            <h4 className="text-gray-900 font-bold text-base mb-6">Technologies</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-              <ul className="space-y-3">
-                {technologiesLinks.slice(0, 7).map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
-                    >
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            <ul className="space-y-3">
-                {technologiesLinks.slice(7).map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
-                  >
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            </div>
-          </motion.div>
-
           {/* Industries Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -297,172 +291,79 @@ function Footer() {
             className="lg:col-span-4"
           >
             <h4 className="text-gray-900 font-bold text-base mb-6">Industries</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-              <ul className="space-y-3">
-                {industriesLinks.slice(0, 4).map((link) => (
-                  <li key={link.path}>
-                    <Link
-                      to={link.path}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
-                    >
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <ul className="space-y-3">
-                {industriesLinks.slice(4).map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
-                  >
-                      <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    {link.name}
-                  </Link>
-                </li>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+              {industriesLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.path}
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
+                >
+                  <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  {link.name}
+                </Link>
               ))}
-            </ul>
             </div>
           </motion.div>
         </div>
 
         {/* Newsletter/Demo Request Section - OfficeSpace Style */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-16 rounded-3xl bg-gradient-to-br from-gray-50 to-blue-50 p-10 relative overflow-hidden border border-gray-200"
-        >
-          {/* Decorative pattern overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="footer-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#footer-grid)" />
-            </svg>
-          </div>
-          
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded mb-3 uppercase tracking-wide">
-                Demo
-              </div>
-              <h3 className="text-gray-900 font-bold text-3xl mb-4">Request a Demo</h3>
-              <p className="text-gray-600 text-sm">
-                Experience the power of Nexus AI. See how our intelligent solutions can transform your business operations and drive growth.
-              </p>
-            </div>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email..."
-                className="flex-1 px-5 py-3 rounded-full bg-white text-gray-900 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                required
-              />
-              <button
-                type="submit"
-                className="w-12 h-12 rounded-full bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </form>
-          </div>
-
-          {/* Placeholder for illustrations - Can add images here */}
-          <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
-            <svg className="w-64 h-64" viewBox="0 0 200 200" fill="none">
-              <circle cx="100" cy="100" r="80" fill="currentColor" className="text-blue-600"/>
-              <circle cx="60" cy="80" r="40" fill="currentColor" className="text-orange-500"/>
-              <circle cx="140" cy="120" r="50" fill="currentColor" className="text-green-500"/>
-            </svg>
-          </div>
-        </motion.div>
+       
 
         {/* Location Sections */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Headquarters */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="relative pl-6 border-l-4 border-yellow-500"
-          >
-            <div className="flex items-start gap-3 mb-4">
-              <svg className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <div>
-                <h4 className="text-gray-900 font-bold text-lg mb-2">Nexus AI Headquarters</h4>
-                <p className="text-gray-600 text-sm mb-3">
-                  Nexus AI, 11020 David Taylor Dr, Charlotte, NC 28262, USA
-                </p>
-                <div className="space-y-2">
-                  <a href="tel:+19807819639" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                    +1 (980) 781-9639
-                  </a>
-                  <a href="mailto:info@nexusaisol.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                    info@nexusaisol.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Development Center */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="relative pl-6 border-l-4 border-yellow-500"
-          >
-            <div className="flex items-start gap-3 mb-4">
-              <svg className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <div>
-                <h4 className="text-gray-900 font-bold text-lg mb-2">Nexus AI Development Center</h4>
-                <p className="text-gray-600 text-sm mb-3">
-                  Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India
-                </p>
-                <div className="space-y-2">
-                  <a href="tel:+917793992217" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        <div className="bg-white/80 border border-gray-100 rounded-2xl shadow-sm p-6 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-10 w-1 bg-yellow-500 rounded-full" />
+            <h3 className="text-gray-900 font-semibold text-lg">Our Locations</h3>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {locations.map((location, idx) => (
+              <motion.div
+                key={location.title}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
+                className="rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/80 p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
-                    +91 77939 92217
-                  </a>
-                  <a href="mailto:info@nexusaisol.com" className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    info@nexusaisol.com
-                  </a>
+                  </div>
+                  <div className="space-y-2 flex-1">
+                    <div className="space-y-1">
+                      <h4 className="text-gray-900 font-semibold text-base">{location.title}</h4>
+                      <a
+                        href={location.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-blue-700 text-sm leading-relaxed"
+                      >
+                        {location.address}
+                      </a>
                     </div>
-              </div>
-            </div>
-        </motion.div>
+                    <div className="flex flex-col gap-1 text-sm text-gray-600">
+                      <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        {location.phone}
+                      </a>
+                      <a href={`mailto:${location.email}`} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        {location.email}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Bar - Copyright Centered */}
@@ -471,10 +372,17 @@ function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="border-t border-gray-200 pt-8"
+          className="border-t border-gray-200 pt-6"
         >
           <div className="flex justify-center items-center">
             <p className="text-sm text-gray-600">© {currentYear} Nexus AI. All rights reserved.</p>
+          </div>
+          <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+            <svg className="w-80 h-80" viewBox="0 0 200 200" fill="none">
+              <circle cx="100" cy="100" r="100" fill="currentColor" className="text-blue-600"/>
+              <circle cx="60" cy="80" r="40" fill="currentColor" className="text-orange-500"/>
+              <circle cx="140" cy="120" r="50" fill="currentColor" className="text-green-500"/>
+            </svg>
           </div>
         </motion.div>
       </div>

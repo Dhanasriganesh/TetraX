@@ -1,12 +1,12 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import valuesImage from '../../../assets/ppl/men1.jpg';
-import teamworkImage from '../../../assets/banners/techbanner.png';
-import integrityImage from '../../../assets/banners/aibanner.png';
-import innovationImage from '../../../assets/banners/industrybanner.png';
-import peopleImage from '../../../assets/ppl/peopple1.jpg';
+import teamworkImage from '../../../assets/banners/webbanner.png';
+import integrityImage from '../../../assets/banners/bigdatabanner.png';
+import innovationImage from '../../../assets/banners/iotbanner.png';
+import peopleImage from '../../../assets/ppl/location.png';
 import outcomesImage from '../../../assets/banners/sponsership.jpg';
-import sustainabilityImage from '../../../assets/banners/techbanner.png';
+import sustainabilityImage from '../../../assets/banners/mediabanner.png';
 import partnershipImage from '../../../assets/ppl/girl2.jpg';
 
 const values = [
@@ -143,18 +143,21 @@ const CoreValuesSection = () => {
             >
               {/* Background Image on Hover */}
               <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 overflow-hidden"
+                className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                 initial={false}
               >
                 <motion.img
                   src={value.image}
                   alt={value.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-12"
+                  className="w-full h-full object-cover object-center"
+                  initial={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   style={{
-                    filter: 'brightness(0.9) contrast(1.1)',
+                    filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
               </motion.div>
               
               <div className="relative z-10">

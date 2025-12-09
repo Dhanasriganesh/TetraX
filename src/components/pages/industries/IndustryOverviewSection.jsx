@@ -42,6 +42,11 @@ const industries = [
     summary: 'Mobility platforms, logistics optimization, and travel technology that enhance efficiency and customer experiences.',
     strengths: ['Fleet management systems', 'Route optimization + analytics', 'Customer journey platforms'],
   },
+  {
+    name: 'Automotive & Mobility',
+    summary: 'Software-defined vehicle, in-cabin experiences, and connected mobility platforms that keep drivers, fleets, and riders safe and delighted.',
+    strengths: ['Connected vehicle platforms', 'Predictive maintenance + telematics', 'In-vehicle UX + infotainment'],
+  },
 ];
 
 const IndustryOverviewSection = () => (

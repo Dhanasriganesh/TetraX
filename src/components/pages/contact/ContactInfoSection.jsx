@@ -50,7 +50,7 @@ const contactDetails = [
 ];
 
 const ContactInfoSection = () => (
-  <section className="bg-white py-20">
+  <section className="bg-white py-12">
     <div className="container mx-auto px-4 lg:px-12">
       <div className="grid gap-10 lg:grid-cols-[2fr_3fr]">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="rounded-[32px] border border-gray-100 bg-gray-50 p-8 shadow-xl">

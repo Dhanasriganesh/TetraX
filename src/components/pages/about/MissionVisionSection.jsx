@@ -1,6 +1,9 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import visionImage from '../../../assets/banners/aibanner.png';
+import missionImage from '../../../assets/banners/cloudbanner.jpg';
+import visionImage from '../../../assets/banners/databanner.png';
+import promiseImage from '../../../assets/banners/devopsbanner.png';
+import featuredImage from '../../../assets/ppl/girl2.jpg';
 
 const pillars = [
   {
@@ -8,18 +11,21 @@ const pillars = [
     description:
       'Engineer trustworthy AI and digital ecosystems that amplify human decision-making, accelerate innovation, and drive resilient growth for our clients.',
     highlights: ['Strategy, product, and delivery under one roof', 'Outcome-focused agile governance'],
+    image: missionImage,
   },
   {
     title: 'Vision',
     description:
       'Be the partner enterprises trust to navigate every wave of technological disruption with purpose, clarity, and measurable impact.',
     highlights: ['Industry blueprints for faster execution', 'Embedded change enablement'],
+    image: visionImage,
   },
   {
     title: 'Promise',
     description:
       'Design experiences people love, platforms teams can scale, and cultures empowered to continuously learn.',
     highlights: ['Inclusive collaboration rituals', 'Transparent impact metrics'],
+    image: promiseImage,
   },
 ];
 
@@ -90,16 +96,21 @@ const MissionVisionSection = () => {
             >
               {/* Background Image on Hover */}
               <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                 initial={false}
               >
                 <motion.img
-                  src={visionImage}
+                  src={pillar.image}
                   alt={pillar.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.8 }}
+                  className="w-full h-full object-cover object-center"
+                  initial={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  style={{
+                    filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
+                  }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
               </motion.div>
               
               <div className="relative z-10">
@@ -121,21 +132,7 @@ const MissionVisionSection = () => {
         </div>
         
         {/* Large Featured Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 rounded-3xl overflow-hidden shadow-2xl group"
-        >
-          <motion.img
-            src={visionImage}
-            alt="Vision and Mission"
-            className="w-full h-64 object-cover"
-            whileHover={{ scale: 1.1, rotate: 1 }}
-            transition={{ duration: 0.6 }}
-          />
-        </motion.div>
+      
       </div>
     </section>
   );
