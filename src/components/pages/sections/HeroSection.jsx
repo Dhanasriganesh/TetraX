@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
+import heroVideo from '../../../assets/videos/TetraXai.mp4';
 
 const stats = [
   { value: 3480, suffix: '+', label: 'Projects Completed' },
@@ -36,22 +37,21 @@ const HeroSection = () => {
   return (
     <section 
       id="hero" 
-      data-header-theme="light"
+      data-header-theme="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Sketchfab 3D Nebula Background */}
+      {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <iframe
-          title="HDRI Nebula 360 Background"
-          frameBorder="0"
-          allowFullScreen
-          allow="autoplay; fullscreen; xr-spatial-tracking; camera; microphone"
-          referrerPolicy="no-referrer-when-downgrade"
-          loading="eager"
-          src="https://sketchfab.com/models/a704ff6043a44400921f2eb207925c46/embed?autostart=1&autospin=0&preload=1&ui_infos=0&ui_hint=0&ui_stop=0&ui_general_controls=0&ui_watermark=0&ui_fullscreen=0&ui_help=0&ui_settings=0&ui_vr=0&ui_annotations=0&ui_controls=0&transparent=1&scrollwheel=0"
-          className="absolute inset-0 w-full h-full pointer-events-auto"
-          style={{ border: 'none' }}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Dark overlay for text readability */}
@@ -93,18 +93,7 @@ const HeroSection = () => {
             </motion.h1>
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex text-[10px] justify-center align-middle text-center md:text-xs lg:text-sm text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
-              style={{
-                fontFamily: 'Poppins, sans-serif',
-              }}
-            >
-              Empowering enterprises with cutting-edge AI technology and transformative digital solutions
-              that drive sustainable growth and competitive advantage.
-            </motion.p>
+          
 
             {/* Stats Preview */}
             <motion.div
@@ -147,8 +136,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* White horizontal layer at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-9 bg-white z-10"></div>
+
     </section>
   );
 };

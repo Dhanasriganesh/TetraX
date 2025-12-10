@@ -24,7 +24,7 @@ const LocationsSection = () => {
       type: 'Registered Office',
       address: '8832 Blakeney Professional Dr Suite 205, Charlotte, NC 28277, United States.',
       email: 'info@nexusai.com',
-      phone: '980-222-3242',
+      phone: '+91 7793992217',
     },
   ];
 

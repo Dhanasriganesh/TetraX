@@ -9,9 +9,10 @@ import logonImage from '../../assets/logoob.png';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [headerTheme, setHeaderTheme] = useState('light'); // 'light', 'gradient'
-  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
+  // Initialize theme as 'hero' if on home page (where hero section is), otherwise 'light'
+  const [headerTheme, setHeaderTheme] = useState(location.pathname === '/' ? 'hero' : 'light');
+  const [isVisible, setIsVisible] = useState(true);
   const tickingRef = useRef(false);
   const lastScrollY = useRef(0);
   const scrollThreshold = 3; // minimum scroll distance to trigger hide/show
@@ -67,27 +68,48 @@ function Header() {
       requestAnimationFrame(() => {
         // Check which section is in view
         let currentTheme = 'light';
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = rect.top;
-          const sectionBottom = rect.bottom;
-          
-          // If section is in view (with some threshold)
-          if (sectionTop <= 100 && sectionBottom >= 100) {
-            const theme = section.getAttribute('data-header-theme');
-            if (theme) {
-              currentTheme = theme;
+        const scrollY = window.scrollY;
+        
+        // If we're at the very top of the page, check for hero section
+        if (scrollY < 100) {
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const sectionBottom = rect.bottom;
+            
+            // If section starts at or near the top, use its theme
+            if (sectionTop <= 150 && sectionBottom >= 0) {
+              const theme = section.getAttribute('data-header-theme');
+              if (theme) {
+                currentTheme = theme;
+              }
             }
-          }
-        });
+          });
+        } else {
+          // When scrolled, check which section is in view
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const sectionBottom = rect.bottom;
+            
+            // If section is in view (with some threshold)
+            if (sectionTop <= 100 && sectionBottom >= 100) {
+              const theme = section.getAttribute('data-header-theme');
+              if (theme) {
+                currentTheme = theme;
+              }
+            }
+          });
+        }
 
         setHeaderTheme(currentTheme);
         tickingRef.current = false;
       });
     };
 
-    // Initial check
+    // Initial check - run immediately and after a short delay to catch DOM ready
     updateTheme();
+    const initialTimeout = setTimeout(updateTheme, 100);
 
     // Use Intersection Observer for better performance
     const observer = new IntersectionObserver(
@@ -103,7 +125,7 @@ function Header() {
       },
       {
         threshold: [0, 0.1, 0.3, 0.5],
-        rootMargin: '-80px 0px 0px 0px',
+        rootMargin: '0px 0px 0px 0px',
       }
     );
 
@@ -115,6 +137,7 @@ function Header() {
     window.addEventListener('scroll', updateTheme, { passive: true });
 
     return () => {
+      clearTimeout(initialTimeout);
       sections.forEach((section) => {
         observer.unobserve(section);
       });
@@ -126,8 +149,8 @@ function Header() {
   const getHeaderClasses = () => {
     const isHero = headerTheme === 'gradient' || headerTheme === 'hero';
 
-    // All non-home hero sections: transparent/light. Home hero stays solid.
-    if (isHero && location.pathname !== '/') {
+    // Hero sections: transparent/light text for visibility over video/background
+    if (isHero) {
       return {
         bg: 'bg-transparent',
         text: true, // light text over hero

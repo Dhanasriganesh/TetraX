@@ -24,8 +24,8 @@ const contactDetails = [
   {
     label: 'Phone',
     content: (
-      <a href="tel:+19807371810" className="text-base text-gray-800 hover:text-blue-600 transition-colors">
-        +1 (980) 737-1810
+      <a href="tel:+917793992217" className="text-base text-gray-800 hover:text-blue-600 transition-colors">
+        +91 7793992217
       </a>
     ),
     icon: (
