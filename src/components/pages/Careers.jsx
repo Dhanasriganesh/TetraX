@@ -9,10 +9,11 @@ const Careers = () => {
   return (
     <div className="bg-gray-50">
       <CareersHero />
-      <BenefitsSection />
-      <OpenRolesSection />
-      <CultureSection />
       <ApplicationFormSection />
+      <BenefitsSection />
+      {/* <OpenRolesSection /> */}
+      <CultureSection />
+      
     </div>
   );
 };

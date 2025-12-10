@@ -1,34 +1,181 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Briefcase, Users, GraduationCap, Monitor } from 'lucide-react';
+
+const ServiceCard = ({ service, index }) => {
+  const { ref, inView } = useInView({ 
+    threshold: 0.3, 
+    triggerOnce: false,
+    rootMargin: '-50px 0px'
+  });
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delay: index * 0.15,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        opacity: { duration: 0.6 },
+        y: { duration: 0.8 },
+        scale: { duration: 0.8 }
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: index * 0.15 + 0.2,
+        duration: 0.4
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={cardVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      className="group relative"
+    >
+      <div className="relative h-full bg-white/80 backdrop-blur-xl rounded-2xl p-5 md:p-6 shadow-lg border border-white/50 overflow-hidden transition-all duration-500 hover:shadow-xl hover:scale-[1.02]">
+        {/* Animated gradient background */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          style={{
+            background: `linear-gradient(135deg, 
+              ${index % 2 === 0 ? 'rgba(59, 130, 246, 0.1)' : 'rgba(239, 68, 68, 0.1)'} 0%, 
+              transparent 50%, 
+              ${index % 2 === 0 ? 'rgba(168, 85, 247, 0.1)' : 'rgba(59, 130, 246, 0.1)'} 100%)`
+          }}
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear"
+          }}
+        />
+        
+        {/* Shimmer effect */}
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          {/* Icon Container */}
+          <motion.div
+            variants={iconVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="mb-4 relative"
+          >
+            <div className="relative inline-flex">
+              <div className={`relative rounded-xl p-2.5 transition-all duration-300 group-hover:scale-110 ${
+                index % 2 === 0 
+                  ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
+                  : 'bg-gradient-to-br from-red-500 to-red-600'
+              }`}>
+                <service.Icon className="w-5 h-5 text-white" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Title */}
+          <motion.h4
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ delay: index * 0.15 + 0.4, duration: 0.6 }}
+            className="text-xl font-bold mb-3  group-hover:text-blue-600 transition-colors duration-300"
+          >
+            {service.title}
+          </motion.h4>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
+            className="text-blue-900 leading-relaxed mb-4 text-sm line-clamp-4"
+          >
+            {service.description}
+          </motion.p>
+
+          {/* Read More Link */}
+          <motion.a
+            href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: index * 0.15 + 0.6, duration: 0.6 }}
+            className="relative inline-flex items-center gap-2 text-blue-400 font-semibold group/link overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Read More
+              <motion.span
+                className="text-xl"
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                →
+              </motion.span>
+            </span>
+            <motion.div
+              className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-600 to-red-600"
+              initial={{ width: 0 }}
+              whileHover={{ width: '100%' }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.a>
+        </div>
+
+        {/* Decorative corner accent */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-600/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      </div>
+    </motion.div>
+  );
+};
 
 const ServicesSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const services = [
     {
       title: 'Consulting',
       description:
         'At Nexus AI Solutions, we bring cutting-edge artificial intelligence and deep industry expertise to help your business navigate complex challenges and unlock new opportunities.',
-      icon: '🧭',
+      Icon: Briefcase,
     },
     {
       title: 'Staffing',
       description:
         "In today's competitive landscape, having the right talent is crucial for success. Our staffing solutions connect you with top-tier professionals who can drive your business forward.",
-      icon: '🤝',
+      Icon: Users,
     },
     {
       title: 'Training',
       description:
         'Stay ahead of the technology curve with our comprehensive training programs designed to upskill your team and keep them at the forefront of industry innovations.',
-      icon: '🎓',
+      Icon: GraduationCap,
     },
     {
       title: 'IT Solutions',
       description:
         'Transform your business with our comprehensive suite of IT solutions tailored to meet your unique needs and drive digital transformation.',
-      icon: '🖥️',
+      Icon: Monitor,
     },
   ];
 
@@ -36,63 +183,88 @@ const ServicesSection = () => {
     <section 
       id="services" 
       data-header-theme="light"
-      ref={ref} 
-      className="relative py-20 bg-gradient-to-tr from-red-100 via-red-50/50 to-blue-100 overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden"
     >
-      {/* Diagonal stripes pattern */}
-      <div className="absolute inset-0 opacity-50">
-        <motion.div 
-          animate={{ 
-            backgroundPosition: ['0px 0px', '60px 60px']
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-full h-full" 
-          style={{
-          backgroundImage: 'linear-gradient(45deg, transparent 49%, rgba(59, 130, 246, 0.15) 49%, rgba(59, 130, 246, 0.15) 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, rgba(239, 68, 68, 0.15) 49%, rgba(239, 68, 68, 0.15) 51%, transparent 51%)',
-          backgroundSize: '60px 60px'
-          }}
-        ></motion.div>
-      </div>
-      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
+          animate={{
+            backgroundPosition: ['0px 0px', '100px 100px'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.15) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+        
+        {/* Floating gradient orbs */}
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: [0, -80, 0],
+            y: [0, -60, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-red-400/20 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-block px-4 py-2 mb-4 bg-gradient-to-r from-blue-600/10 to-red-600/10 rounded-full text-blue-700 text-sm font-semibold border border-blue-200/50"
+          >
             What We're Offering
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-red-700">
+          </motion.span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent">
             Our Services
-          </h3>
+          </h2>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={inView ? { width: '100px' } : {}}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-1 bg-gradient-to-r from-blue-600 to-red-600 mx-auto rounded-full"
+          />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-red-600/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-red-600 text-3xl transition-transform duration-500 group-hover:scale-105">
-                  {service.icon}
-                </div>
-                <h4 className="text-xl font-bold mb-3 text-gray-800">{service.title}</h4>
-                <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
-              </div>
-              <a
-                href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="relative inline-flex items-center text-blue-700 font-semibold transition-all duration-300 group-hover:gap-2"
-              >
-                Read More
-                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </a>
-            </motion.div>
+            <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
       </div>

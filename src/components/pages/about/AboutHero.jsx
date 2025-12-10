@@ -4,14 +4,14 @@ import backgroundImage from '../../../assets/vectors/4703133.jpg';
 
 const stats = [
   { label: 'AI launches', value: '320+' },
-  { label: 'Median ship', value: '6 wks' },
+  { label: 'Median ship', value: '6 weeks' },
   { label: 'Uptime seen', value: '99.9%' },
 ];
 
 const signals = [
   'E-Verified, enterprise-ready',
   'Design + data + engineering, embedded',
-  'No slideware — shipping only',
+  
 ];
 
 const floaters = [
