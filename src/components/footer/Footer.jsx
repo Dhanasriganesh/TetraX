@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import mapImage from '../../assets/mapp.png';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,8 +39,8 @@ function Footer() {
   const locations = [
     {
       title: 'Nexus AI Headquarters',
-      address: 'Nexus AI, 11020 David Taylor Dr, Charlotte, NC 28262, USA',
-      phone: '+91 7793992217',
+      address: '11020 David Taylor Dr #100, Charlotte, NC 28262, USA',
+      phone: '+1 980 781 9639',
       email: 'info@nexusaisol.com',
       mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
     },
@@ -327,23 +328,25 @@ function Footer() {
                 transition={{ duration: 0.5, delay: 0.1 * idx }}
                 className="rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/80 p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
               >
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="space-y-2 flex-1">
-                    <div className="space-y-1">
-                      <h4 className="text-gray-900 font-semibold text-base">{location.title}</h4>
-                      <a
-                        href={location.mapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-blue-700 text-sm leading-relaxed"
-                      >
-                        {location.address}
-                      </a>
+                <div className="flex items-stretch gap-4">
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="space-y-1 flex-1">
+                        <h4 className="text-gray-900 font-semibold text-base">{location.title}</h4>
+                        <a
+                          href={location.mapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-blue-700 text-sm leading-relaxed"
+                        >
+                          {location.address}
+                        </a>
+                      </div>
                     </div>
                     <div className="flex flex-col gap-1 text-sm text-gray-600">
                       <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
@@ -360,6 +363,13 @@ function Footer() {
                       </a>
                     </div>
                   </div>
+                  <div className="w-28 md:w-32 lg:w-36 rounded-lg overflow-hidden border border-gray-100 shadow-sm self-center">
+                    <img
+                      src={mapImage}
+                      alt="Map preview"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -375,7 +385,7 @@ function Footer() {
           className="border-t border-gray-200 pt-6"
         >
           <div className="flex justify-center items-center">
-            <p className="text-sm text-gray-600">© {currentYear} Nexus AI. All rights reserved.</p>
+            <p className="text-sm text-gray-600">© 2020 Nexus AI. All rights reserved.</p>
           </div>
           <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
             <svg className="w-80 h-80" viewBox="0 0 200 200" fill="none">

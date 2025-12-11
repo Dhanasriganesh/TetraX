@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import cultureImage from '../../../assets/ppl/location2.png';
+import cultureImage from '../../../assets/about-section/culture.jpg';
 import impactImage from '../../../assets/banners/transportbanner.png';
-
+import commit from '../../../assets/about-section/commit.png';
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',
   'Pro-bono innovation programs for nonprofits driving social impact',
@@ -23,7 +23,7 @@ const CultureImpactSection = () => {
             scale: [1, 1.2, 1]
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-blue-900/30 to-transparent blur-3xl"
+          className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full  blur-3xl"
         ></motion.div>
         <motion.div 
           animate={{ 
@@ -32,7 +32,7 @@ const CultureImpactSection = () => {
             scale: [1, 1.3, 1]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-1/3 -right-1/4 w-[900px] h-[900px] rounded-full bg-gradient-to-tl from-red-900/30 to-transparent blur-3xl"
+          className="absolute -bottom-1/3 -right-1/4 w-[900px] h-[900px] rounded-full  blur-3xl"
         ></motion.div>
         <motion.div 
           animate={{ 
@@ -40,7 +40,7 @@ const CultureImpactSection = () => {
             scale: [1, 1.15, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-1/3 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-800/25 to-red-800/25 blur-3xl"
+          className="absolute top-1/3 right-1/3 w-[600px] h-[600px] rounded-full blur-3xl"
         ></motion.div>
       </div>
       
@@ -115,10 +115,8 @@ const CultureImpactSection = () => {
               whileHover={{ scale: 1.15, rotate: 2 }}
               transition={{ duration: 0.6 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <p className="text-sm font-semibold">Built for people. Grounded in ethics.</p>
-            </div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+         
           </motion.div>
           
           <div>
@@ -149,24 +147,7 @@ const CultureImpactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="relative rounded-[32px] border border-blue-200 bg-white/60 p-8 backdrop-blur overflow-hidden group"
         >
-          {/* Impact Image Background */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
-            initial={false}
-          >
-            <motion.img
-              src={impactImage}
-              alt="Impact"
-              className="w-full h-full object-cover object-center"
-              initial={{ scale: 1.1 }}
-              whileHover={{ scale: 1.15 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{
-                filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
-          </motion.div>
+
           
           <div className="relative z-10">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Our commitments</p>
@@ -182,6 +163,13 @@ const CultureImpactSection = () => {
             "Our partnership with Nexus AI accelerated our sustainability roadmap while equipping our teams with the skills to own the change."
             <p className="mt-3 font-semibold text-gray-900">VP of Digital Strategy, Global Energy Leader</p>
           </div>
+          <motion.img
+              src={commit}
+              alt="Culture & Impact"
+              className="w-full h-56 mt-4 object-cover rounded-2xl"
+              whileHover={{ scale: 1, rotate: 0 }}
+              transition={{ duration: 0.6 }}
+            />
           </div>
         </motion.div>
       </div>

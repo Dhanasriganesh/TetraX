@@ -1,11 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-
-const heroStats = [
-  { label: 'Specialists in network', value: '1.2K+' },
-  { label: 'Average deployment time', value: '21 days' },
-  { label: 'Client retention', value: '96%' },
-];
+import staffingHero from '../../../assets/about-section/staffing.jpg';
 
 const talentModels = [
   {
@@ -46,30 +41,15 @@ const successHighlights = [
 const Staffing = () => {
   return (
     <div className="bg-gray-50">
-      <section className="bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-28 text-white">
-        <div className="container mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Staffing</p>
-            <h1 className="text-4xl font-semibold leading-tight md:text-5xl">Build blended teams that stay aligned, enabled, and accountable.</h1>
-            <p className="text-lg text-white/80">
-              We match world-class talent to your mission, layering playbooks, enablement, and transparent reporting so every squad delivers tangible value.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-900 shadow-xl">Request talent slate</button>
-              <button className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white/90">See sample playbook</button>
-            </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <div className="grid gap-4 sm:grid-cols-3">
-              {heroStats.map((metric) => (
-                <div key={metric.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 text-center">
-                  <p className="text-2xl font-semibold">{metric.value}</p>
-                  <p className="text-xs uppercase tracking-wide text-white/70">{metric.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+      <section className="relative overflow-hidden pt-16">
+        <motion.img
+          initial={{ opacity: 0.6, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          src={staffingHero}
+          alt="Staffing in management"
+          className="w-full h-auto max-h-[420px] object-cover rounded-3xl shadow-2xl border border-white/50"
+        />
       </section>
 
       <section className="bg-white py-20">

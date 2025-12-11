@@ -4,7 +4,7 @@ import missionImage from '../../../assets/banners/cloudbanner.jpg';
 import visionImage from '../../../assets/banners/databanner.png';
 import promiseImage from '../../../assets/banners/devopsbanner.png';
 import featuredImage from '../../../assets/ppl/girl2.jpg';
-
+import whyImage from '../../../assets/about-section/why.jpg';
 const pillars = [
   {
     title: 'Mission',
@@ -76,12 +76,25 @@ const MissionVisionSection = () => {
         }
       `}</style>
       <div className="container relative mx-auto px-4 lg:px-12">
-        <div className="mb-14 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-500">Why we exist</p>
-          <h2 className="mt-4 text-4xl font-bold text-gray-900">Purpose that inspires action</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
-            Beyond delivering software, we build adaptive operating models where teams, systems, and data work in sync. Every engagement blends research, experimentation, and measurable business impact.
-          </p>
+        <div className='flex gap-6'>
+          <div className="mb-14 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-500">Why we exist</p>
+            <h2 className="mt-4 text-4xl font-bold text-gray-900">Purpose that inspires action</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+              Beyond delivering software, we build adaptive operating models where teams, systems, and data work in sync. Every engagement blends research, experimentation, and measurable business impact.
+            </p>
+          
+          </div>
+          <div>
+            <motion.img
+                src={whyImage}
+                alt="Why we exist"
+                className="w-full h-56 mt-4 object-cover rounded-2xl"
+                whileHover={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </div>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">

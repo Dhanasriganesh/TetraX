@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import whyImage from '../../../assets/home-section/why.png';
 
 const stats = [
   { label: 'AI-native launches', value: '280+' },
@@ -81,15 +82,25 @@ const StrategicHighlightsSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="rounded-[32px] border border-blue-200 bg-gradient-to-b from-blue-600 to-red-600 p-10 shadow-2xl"
+        className="rounded-[32px] border border-blue-200 bg-white p-4 shadow-2xl overflow-hidden"
       >
-        <div className="space-y-6">
-          {pillars.map((pillar) => (
-            <div key={pillar.title} className="rounded-2xl bg-white/95 p-6 shadow">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{pillar.title}</p>
-              <p className="mt-3 text-sm text-gray-800">{pillar.description}</p>
-            </div>
-          ))}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="relative rounded-2xl overflow-hidden border border-gray-100 bg-gradient-to-br from-blue-50 to-red-50">
+            <img
+              src={whyImage}
+              alt="Why teams choose us"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/15" />
+          </div>
+          <div className="space-y-6 p-6">
+            {pillars.map((pillar) => (
+              <div key={pillar.title} className="rounded-2xl bg-gray-50 p-5 shadow">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{pillar.title}</p>
+                <p className="mt-3 text-sm text-gray-800">{pillar.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>

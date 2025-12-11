@@ -1,13 +1,13 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import valuesImage from '../../../assets/ppl/men1.jpg';
+import valuesImage from '../../../assets/about-section/core.jpg';
 import teamworkImage from '../../../assets/banners/webbanner.png';
-import integrityImage from '../../../assets/banners/bigdatabanner.png';
-import innovationImage from '../../../assets/banners/iotbanner.png';
-import peopleImage from '../../../assets/ppl/location.png';
+import integrityImage from '../../../assets/about-section/int.png';
+import innovationImage from '../../../assets/about-section/invent.jpg';
+import peopleImage from '../../../assets/about-section/elevate.jpg';
 import outcomesImage from '../../../assets/banners/sponsership.jpg';
 import sustainabilityImage from '../../../assets/banners/mediabanner.png';
-import partnershipImage from '../../../assets/ppl/girl2.jpg';
+import partnershipImage from '../../../assets/about-section/partnership.jpg';
 
 const values = [
   {
@@ -120,14 +120,12 @@ const CoreValuesSection = () => {
             <motion.img
               src={valuesImage}
               alt="Core Values"
-              className="w-full h-64 object-cover"
+              className="w-full  object-cover"
               whileHover={{ scale: 1.2, rotate: 2 }}
               transition={{ duration: 0.6 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <p className="text-sm font-semibold">Our teams operate as extensions of our clients</p>
-            </div>
+            <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+           
           </motion.div>
         </div>
 

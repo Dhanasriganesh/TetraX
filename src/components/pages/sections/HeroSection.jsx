@@ -55,14 +55,14 @@ const HeroSection = () => {
       </div>
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none"></div>
+      <div className="absolute inset-0 z-0  pointer-events-none"></div>
 
       {/* Content - Centered in middle of page */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full pointer-events-none">
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center max-w-5xl mx-auto w-full">
             {/* Subtitle */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -71,10 +71,10 @@ const HeroSection = () => {
               <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-[9px] font-medium border border-white/20">
                 Next-Generation AI Solutions
               </span>
-            </motion.div>
+            </motion.div> */}
 
             {/* Main Heading */}
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -90,13 +90,13 @@ const HeroSection = () => {
                 Business Through
               </span>
               <span className="block text-white">Innovation and Excellence</span>
-            </motion.h1>
+            </motion.h1> */}
 
             {/* Description */}
           
 
             {/* Stats Preview */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -112,7 +112,7 @@ const HeroSection = () => {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

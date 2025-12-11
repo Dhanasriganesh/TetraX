@@ -7,6 +7,11 @@ const IndustriesSection = () => {
 
   const industries = [
     {
+      title: 'Automobile & Mobility',
+      icon: '🚗',
+      accent: 'from-orange-500/10 to-orange-500/5',
+    },
+    {
       title: 'Product Design',
       icon: '🧠',
     },
@@ -139,29 +144,36 @@ const IndustriesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Domain depth</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-            Industries
+            Industries we power
           </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-red-700">
-            Industries We Serve
-          </h3>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            From mobility to media, every program is tailored with industry-specific playbooks, controls, and partners.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+
+        {/* Grid for all industries */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {industries.map((industry, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 p-5 text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-transparent"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 p-5 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-red-600 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative flex flex-col items-center gap-3">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-red-100 text-2xl transition-all duration-500 group-hover:bg-white group-hover:scale-110">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-red-600 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
+              <div className="relative flex items-center gap-3">
+                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-red-100 text-2xl transition-all duration-500 group-hover:bg-white group-hover:scale-110 ${industry.accent || ''}`}>
                   {industry.icon}
                 </div>
-                <h4 className="text-base font-bold text-gray-800 transition-colors duration-500 group-hover:text-white">{industry.title}</h4>
+                <div className="flex-1">
+                  <h4 className="text-base font-bold text-gray-900 transition-colors duration-500 group-hover:text-blue-700">{industry.title}</h4>
+                  <p className="text-xs text-gray-500">Use-case accelerators ready to deploy.</p>
+                </div>
               </div>
             </motion.div>
           ))}

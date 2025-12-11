@@ -85,12 +85,8 @@ const ServiceCard = ({ service, index }) => {
             className="mb-4 relative"
           >
             <div className="relative inline-flex">
-              <div className={`relative rounded-xl p-2.5 transition-all duration-300 group-hover:scale-110 ${
-                index % 2 === 0 
-                  ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
-                  : 'bg-gradient-to-br from-red-500 to-red-600'
-              }`}>
-                <service.Icon className="w-5 h-5 text-white" />
+              <div className="relative bg-gray-100 rounded-xl p-2.5 group-hover:bg-gray-200 transition-colors duration-300">
+                <service.Icon className="w-5 h-5 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" />
               </div>
             </div>
           </motion.div>
@@ -100,7 +96,7 @@ const ServiceCard = ({ service, index }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ delay: index * 0.15 + 0.4, duration: 0.6 }}
-            className="text-xl font-bold mb-3  group-hover:text-blue-600 transition-colors duration-300"
+            className="text-xl font-bold mb-3 text-red-600 group-hover:text-blue-600 transition-colors duration-300"
           >
             {service.title}
           </motion.h4>

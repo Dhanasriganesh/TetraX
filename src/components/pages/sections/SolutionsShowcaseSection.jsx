@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import solutionsImage from '../../../assets/home-section/solutions.png';
 
 const solutions = [
   {
@@ -25,7 +26,17 @@ const solutions = [
 ];
 
 const SolutionsShowcaseSection = () => (
-  <section className="relative bg-gradient-to-bl from-blue-100 via-red-100/50 to-blue-100 py-20 overflow-hidden" data-header-theme="light">
+  <section className="relative py-20 overflow-hidden" data-header-theme="light">
+    {/* Full background image with legibility overlay */}
+    <div className="absolute inset-0">
+      <img
+        src={solutionsImage}
+        alt="Solutions in action"
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/92 via-white/80 to-white/55" />
+    </div>
+
     {/* Geometric shapes */}
     <motion.div 
       animate={{ 
@@ -78,20 +89,22 @@ const SolutionsShowcaseSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="rounded-3xl border border-gray-100 bg-white p-8 shadow-xl"
+            whileHover={{ y: -8, scale: 1.01 }}
+            className="group rounded-3xl border border-gray-100 bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-blue-200"
           >
             <div className="flex items-center justify-between">
-              <h3 className="text-2xl font-semibold text-gray-900">{solution.title}</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">{solution.title}</h3>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">0{index + 1}</span>
             </div>
-            <p className="mt-3 text-sm text-gray-600">{solution.description}</p>
+            <p className="mt-3 text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{solution.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {solution.tags.map((tag) => (
-              <span key={tag} className="rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
-                {tag}
-              </span>
+                <span key={tag} className="rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white group-hover:bg-blue-600 transition-colors duration-300">
+                  {tag}
+                </span>
               ))}
             </div>
+            <div className="mt-6 h-1 w-12 rounded-full bg-gradient-to-r from-blue-600 to-red-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </motion.div>
         ))}
       </div>

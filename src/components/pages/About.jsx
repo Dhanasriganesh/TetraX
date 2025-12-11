@@ -12,7 +12,7 @@ const About = () => {
       <AboutHero />
       <MissionVisionSection />
       <CoreValuesSection />
-      <TimelineSection />
+      {/* <TimelineSection /> */}
       <CultureImpactSection />
       <AboutCTASection />
     </div>

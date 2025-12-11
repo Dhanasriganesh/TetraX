@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Counter from './Counter';
+import statsImage from '../../../assets/home-section/statistics.png';
 
 const StatisticsSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -18,8 +19,12 @@ const StatisticsSection = () => {
       id="statistics" 
       data-header-theme="gradient"
       ref={ref} 
-      className="py-20 bg-gradient-to-r from-blue-700 to-red-700 text-white"
+      className="relative py-20  text-black overflow-hidden"
     >
+      <div className="absolute inset-0 opacity-30">
+     
+        <div className="absolute inset-0 " />
+      </div>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

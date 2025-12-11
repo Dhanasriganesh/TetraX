@@ -1,8 +1,17 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import buildImage from '../../../assets/home-section/build.png';
 
 const HomeCTASection = () => (
-  <section className="bg-gradient-to-r from-blue-800 via-blue-700 to-red-800 py-20 text-white" data-header-theme="gradient">
+  <section className="relative bg-gradient-to-r from-blue-800 via-blue-700 to-red-800 py-20 text-white overflow-hidden" data-header-theme="gradient">
+    <div className="absolute inset-0">
+      <img
+        src={buildImage}
+        alt="Build together"
+        className="h-full w-full object-cover opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-red-900/70" />
+    </div>
     <div className="container mx-auto px-4 lg:px-12">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
