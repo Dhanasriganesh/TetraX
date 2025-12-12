@@ -4,6 +4,7 @@ const ApplicationFormSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    mobile: '',
     role: '',
     message: '',
   });
@@ -13,7 +14,7 @@ const ApplicationFormSection = () => {
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const getApiBaseUrl = () =>
-    import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3001/api' : '/api');
+    import.meta.env.VITE_API_URL || '/api';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +37,7 @@ const ApplicationFormSection = () => {
       const payload = new FormData();
       payload.append('name', formData.name);
       payload.append('email', formData.email);
+      payload.append('mobile', formData.mobile);
       payload.append('role', formData.role);
       payload.append('message', formData.message);
       if (file) payload.append('file', file);
@@ -45,10 +47,21 @@ const ApplicationFormSection = () => {
         body: payload,
       });
 
+      if (!response.ok) {
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { error: 'Server error. Please try again later.' };
+        }
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
+
       const data = await response.json();
       if (data.success) {
         setSubmitStatus({ type: 'success', message: 'Thank you! Your application has been sent.' });
-        setFormData({ name: '', email: '', role: '', message: '' });
+        setFormData({ name: '', email: '', mobile: '', role: '', message: '' });
         setFile(null);
         e.target.reset();
         setSubmitted(true);
@@ -57,7 +70,10 @@ const ApplicationFormSection = () => {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitStatus({ type: 'error', message: 'Network error. Please try again.' });
+      setSubmitStatus({ 
+        type: 'error', 
+        message: error.message || 'Network error. Please check your connection and try again.' 
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -98,6 +114,19 @@ const ApplicationFormSection = () => {
                 required
                 className="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
                 placeholder="alex@nexusai.com"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-semibold text-gray-700" htmlFor="mobile">Mobile number</label>
+              <input
+                id="mobile"
+                type="tel"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+                className="mt-2 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+                placeholder="+1 234 567 8900"
               />
             </div>
           </div>

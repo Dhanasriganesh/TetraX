@@ -5,11 +5,17 @@ const ContactFormSection = () => {
     name: '',
     company: '',
     email: '',
+    mobile: '',
     topic: '',
     message: '',
   });
   const [file, setFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  const getApiBaseUrl = () =>
+    import.meta.env.VITE_API_URL || '/api';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,13 +28,57 @@ const ContactFormSection = () => {
     setSubmitted(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ ...formData, file });
-    setFormData({ name: '', company: '', email: '', topic: '', message: '' });
-    setFile(null);
-    e.target.reset();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const API_URL = getApiBaseUrl();
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('company', formData.company);
+      payload.append('email', formData.email);
+      payload.append('mobile', formData.mobile);
+      payload.append('topic', formData.topic);
+      payload.append('message', formData.message);
+      if (file) payload.append('file', file);
+
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        body: payload,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { error: 'Server error. Please try again later.' };
+        }
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent.' });
+        setFormData({ name: '', company: '', email: '', mobile: '', topic: '', message: '' });
+        setFile(null);
+        e.target.reset();
+        setSubmitted(true);
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Unable to send. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: error.message || 'Network error. Please check your connection and try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,6 +130,19 @@ const ContactFormSection = () => {
               />
             </div>
             <div>
+              <label className="text-sm font-semibold text-gray-700" htmlFor="mobile">Mobile number</label>
+              <input
+                id="mobile"
+                type="tel"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+                className="mt-2 w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+                placeholder="+1 234 567 8900"
+              />
+            </div>
+            <div>
               <label className="text-sm font-semibold text-gray-700" htmlFor="topic">Topic</label>
               <select
                 id="topic"
@@ -120,11 +183,32 @@ const ContactFormSection = () => {
               className="mt-2 w-full rounded-2xl border border-dashed border-gray-300 bg-white px-4 py-3 text-sm text-gray-600"
             />
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <button type="submit" className="rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-lg">
-              Send message
-            </button>
-            {submitted && <span className="text-sm font-semibold text-green-600">Thanks! We'll be in touch soon.</span>}
+          <div className="mt-8 space-y-3">
+            {submitStatus.message && (
+              <div
+                className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
+                  submitStatus.type === 'success'
+                    ? 'border-green-200 bg-green-50 text-green-700'
+                    : 'border-red-200 bg-red-50 text-red-700'
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700 ${
+                  isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                }`}
+              >
+                {isSubmitting ? 'Sending...' : 'Send message'}
+              </button>
+              {submitted && submitStatus.type === 'success' && (
+                <span className="text-sm font-semibold text-green-600">Thanks! We'll be in touch soon.</span>
+              )}
+            </div>
           </div>
         </form>
       </div>
