@@ -179,21 +179,21 @@ function Header() {
       }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${headerClasses.bg} ${headerClasses.shadow}`}
     >
-      <nav className="container mx-auto px-10 lg:px-16">
-        <div className="flex items-center justify-between h-16 lg:h-18 gap-8 lg:gap-12">
+      <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-16 lg:h-20 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
               <img 
                 src={logonImage} 
                 alt="Nexus AI Solutions Logo" 
-                className="h-12 lg:h-10 lg:w-36"
+                className="h-8 sm:h-10 md:h-12 lg:h-10 w-auto lg:w-36 object-contain"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center hidden lg:block">
             <DesktopNavigation isTextWhite={isTextWhite} />
           </div>
 
@@ -201,7 +201,7 @@ function Header() {
           <div className="hidden lg:flex flex-shrink-0">
             <Link
               to="/contact"
-              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50 hover:scale-105"
+              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-4 lg:px-6 py-2 lg:py-2.5 text-xs lg:text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50 hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Get Started
@@ -232,7 +232,7 @@ function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 lg:hidden">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

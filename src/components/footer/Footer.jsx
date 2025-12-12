@@ -103,7 +103,7 @@ function Footer() {
             scale: [1, 1.2, 1],
           }}
           transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-0 right-0 w-96 h-96 opacity-[0.02]"
+          className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 opacity-[0.02] hidden sm:block"
           style={{
             backgroundImage: `
               repeating-linear-gradient(45deg, transparent, transparent 10px, #3b82f6 10px, #3b82f6 20px),
@@ -118,7 +118,7 @@ function Footer() {
             scale: [1, 1.15, 1],
           }}
           transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
-          className="absolute bottom-0 left-0 w-96 h-96 opacity-[0.02]"
+          className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 opacity-[0.02] hidden sm:block"
           style={{
             backgroundImage: `
               repeating-linear-gradient(135deg, transparent, transparent 15px, #10b981 15px, #10b981 30px),
@@ -181,7 +181,7 @@ function Footer() {
             scale: [1, 1.1, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -right-20 top-0 h-96 w-96 rounded-full bg-blue-600 blur-3xl opacity-[0.03]"
+          className="absolute -right-10 sm:-right-20 top-0 h-48 w-48 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full bg-blue-600 blur-3xl opacity-[0.03]"
         />
         <motion.div 
           animate={{ 
@@ -190,7 +190,7 @@ function Footer() {
             scale: [1, 1.15, 1]
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-orange-500 blur-3xl opacity-[0.03]"
+          className="absolute -left-10 sm:-left-20 bottom-0 h-48 w-48 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full bg-orange-500 blur-3xl opacity-[0.03]"
         />
         <motion.div 
           animate={{ 
@@ -198,34 +198,34 @@ function Footer() {
             scale: [1, 1.1, 1]
           }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-green-500 blur-3xl opacity-[0.02]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64 rounded-full bg-green-500 blur-3xl opacity-[0.02] hidden sm:block"
         />
       </div>
 
-      <div className="container relative mx-auto px-4 lg:px-10 py-12">
+      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10">
           {/* Logo and Description - Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3"
+            className="sm:col-span-2 md:col-span-3 lg:col-span-3"
           >
-            <div className="mb-6">
-              <h3 className="text-gray-900 font-bold text-3xl mb-2">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-gray-900 font-bold text-2xl sm:text-3xl mb-1.5 sm:mb-2">
                 NEXUS <span className="bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">AI</span>
               </h3>
-              <p className="text-xs text-gray-500 italic">
+              <p className="text-[10px] sm:text-xs text-gray-500 italic">
                 Because if your AI solutions can't handle disruption, neither will your business.
             </p>
             </div>
-            <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+            <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
               Nexus AI is an independent technology company and digital transformation partner. We help businesses design, integrate, and scale their digital solutions.
             </p>
-            <div className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-green-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium shadow-sm">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
               E-Verified Company
@@ -238,20 +238,20 @@ function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-3"
+            className="sm:col-span-1 md:col-span-1 lg:col-span-3"
           >
-            <h4 className="text-gray-900 font-bold text-base mb-6">Explore</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+            <h4 className="text-gray-900 font-bold text-sm sm:text-base mb-4 sm:mb-6">Explore</h4>
+            <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
               {exploreLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 group"
                 >
-                  <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  {link.name}
+                  <span className="truncate">{link.name}</span>
                 </Link>
               ))}
             </div>
@@ -263,20 +263,20 @@ function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
+            className="sm:col-span-1 md:col-span-1 lg:col-span-2"
           >
-            <h4 className="text-gray-900 font-bold text-base mb-6">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-gray-900 font-bold text-sm sm:text-base mb-4 sm:mb-6">Services</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {servicesLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
+                    className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 group"
                   >
-                    <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                    {link.name}
+                    <span className="truncate">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -289,20 +289,20 @@ function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-4"
+            className="sm:col-span-2 md:col-span-1 lg:col-span-4"
           >
-            <h4 className="text-gray-900 font-bold text-base mb-6">Industries</h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+            <h4 className="text-gray-900 font-bold text-sm sm:text-base mb-4 sm:mb-6">Industries</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
               {industriesLinks.map((link, index) => (
                 <Link
                   key={index}
                   to={link.path}
-                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-sm flex items-center gap-2 group"
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 group"
                 >
-                  <svg className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  {link.name}
+                  <span className="truncate">{link.name}</span>
                 </Link>
               ))}
             </div>
@@ -313,12 +313,12 @@ function Footer() {
        
 
         {/* Location Sections */}
-        <div className="bg-white/80 border border-gray-100 rounded-2xl shadow-sm p-6 mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-10 w-1 bg-yellow-500 rounded-full" />
-            <h3 className="text-gray-900 font-semibold text-lg">Our Locations</h3>
+        <div className="bg-white/80 border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 md:p-6 mb-8 sm:mb-10 md:mb-12">
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+            <div className="h-8 sm:h-10 w-0.5 sm:w-1 bg-yellow-500 rounded-full" />
+            <h3 className="text-gray-900 font-semibold text-base sm:text-lg">Our Locations</h3>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
             {locations.map((location, idx) => (
               <motion.div
                 key={location.title}
@@ -326,44 +326,44 @@ function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * idx }}
-                className="rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/80 p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
+                className="rounded-lg sm:rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/80 p-4 sm:p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
               >
-                <div className="flex items-stretch gap-4">
-                  <div className="flex-1 space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex flex-col sm:flex-row items-stretch gap-3 sm:gap-4">
+                  <div className="flex-1 space-y-2 sm:space-y-3">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <div className="mt-0.5 sm:mt-1 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600 flex-shrink-0">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <div className="space-y-1 flex-1">
-                        <h4 className="text-gray-900 font-semibold text-base">{location.title}</h4>
+                      <div className="space-y-1 flex-1 min-w-0">
+                        <h4 className="text-gray-900 font-semibold text-sm sm:text-base">{location.title}</h4>
                         <a
                           href={location.mapUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-700 hover:text-blue-700 text-sm leading-relaxed"
+                          className="text-gray-700 hover:text-blue-700 text-xs sm:text-sm leading-relaxed break-words"
                         >
                           {location.address}
                         </a>
                       </div>
                     </div>
-                    <div className="flex flex-col gap-1 text-sm text-gray-600">
-                      <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex flex-col gap-1 text-xs sm:text-sm text-gray-600">
+                      <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="inline-flex items-center gap-1.5 sm:gap-2 hover:text-blue-600 transition-colors">
+                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        {location.phone}
+                        <span className="break-all">{location.phone}</span>
                       </a>
-                      <a href={`mailto:${location.email}`} className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <a href={`mailto:${location.email}`} className="inline-flex items-center gap-1.5 sm:gap-2 hover:text-blue-600 transition-colors">
+                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        {location.email}
+                        <span className="break-all">{location.email}</span>
                       </a>
                     </div>
                   </div>
-                  <div className="w-28 md:w-32 lg:w-36 rounded-lg overflow-hidden border border-gray-100 shadow-sm self-center">
+                  <div className="w-full sm:w-24 md:w-32 lg:w-36 h-32 sm:h-auto rounded-lg overflow-hidden border border-gray-100 shadow-sm self-center sm:self-auto">
                     <img
                       src={mapImage}
                       alt="Map preview"
@@ -382,10 +382,10 @@ function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="border-t border-gray-200 pt-6"
+          className="border-t border-gray-200 pt-4 sm:pt-5 md:pt-6"
         >
           <div className="flex justify-center items-center">
-            <p className="text-sm text-gray-600">© 2020 Nexus AI. All rights reserved.</p>
+            <p className="text-xs sm:text-sm text-gray-600 text-center px-2">© 2020 Nexus AI. All rights reserved.</p>
           </div>
           <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
             <svg className="w-80 h-80" viewBox="0 0 200 200" fill="none">

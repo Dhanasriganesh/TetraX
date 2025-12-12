@@ -22,7 +22,7 @@ const steps = [
 ];
 
 const VelocityProcessSection = () => (
-  <section className="relative py-20 overflow-hidden">
+  <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
     {/* Static background image with white overlay for legibility */}
     <div className="absolute inset-0">
       <img
@@ -32,14 +32,16 @@ const VelocityProcessSection = () => (
       />
       <div className="absolute inset-0 bg-white/42" />
     </div>
-    <div className="container relative z-10 mx-auto px-4 lg:px-12">
+    <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Delivery rhythm</p>
-        <h2 className="mt-4 text-4xl font-bold text-gray-900">Velocity without sacrificing rigor</h2>
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Delivery rhythm</p>
+        <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-2 sm:px-0">
+          Velocity without sacrificing rigor
+        </h2>
       </div>
-      <div className="relative mt-14 max-w-5xl mx-auto">
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 transform bg-gradient-to-b from-blue-600 to-red-600" />
-        <div className="space-y-8">
+      <div className="relative mt-8 sm:mt-10 md:mt-12 lg:mt-14 max-w-5xl mx-auto">
+        <div className="absolute left-4 sm:left-1/2 top-0 h-full w-0.5 sm:w-px -translate-x-0 sm:-translate-x-1/2 transform bg-gradient-to-b from-blue-600 to-red-600" />
+        <div className="space-y-6 sm:space-y-7 md:space-y-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.phase}
@@ -47,14 +49,14 @@ const VelocityProcessSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className={`relative rounded-3xl border border-white/60 bg-gray-50 p-6 shadow-xl md:w-[calc(50%-2rem)] ${
+              className={`relative rounded-2xl sm:rounded-3xl border border-white/60 bg-gray-50 p-4 sm:p-5 md:p-6 shadow-xl ml-8 sm:ml-0 md:w-[calc(50%-2rem)] ${
                 index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
               }`}
             >
-              <span className="absolute -left-2 top-6 flex h-4 w-4 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-blue-700 to-red-700 md:left-auto md:-right-2" />
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">Phase 0{index + 1}</p>
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">{step.phase}</h3>
-              <p className="mt-3 text-sm text-gray-600">{step.detail}</p>
+              <span className="absolute -left-3 sm:-left-2 top-5 sm:top-6 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full border-2 sm:border-4 border-white bg-gradient-to-r from-blue-700 to-red-700 md:left-auto md:-right-2" />
+              <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-red-700">Phase 0{index + 1}</p>
+              <h3 className="mt-1.5 sm:mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 leading-tight">{step.phase}</h3>
+              <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">{step.detail}</p>
             </motion.div>
           ))}
         </div>

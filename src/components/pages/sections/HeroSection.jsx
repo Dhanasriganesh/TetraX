@@ -38,16 +38,26 @@ const HeroSection = () => {
     <section 
       id="hero" 
       data-header-theme="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black w-full"
     >
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full h-full">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          style={{
+            minWidth: '100%',
+            minHeight: '100%',
+            width: 'auto',
+            height: 'auto',
+          }}
+          onError={(e) => {
+            console.error('Video loading error:', e);
+          }}
         >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -55,12 +65,12 @@ const HeroSection = () => {
       </div>
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-0  pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none"></div>
 
       {/* Content - Centered in middle of page */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full pointer-events-none">
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="text-center max-w-5xl mx-auto w-full">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 relative z-10 w-full pointer-events-none">
+        <div className="flex items-center justify-center min-h-screen py-8 sm:py-12 md:py-16">
+          <div className="text-center max-w-5xl mx-auto w-full px-2 sm:px-4">
             {/* Subtitle */}
             {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -121,12 +131,17 @@ const HeroSection = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10 pointer-events-auto"
       >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-white/70 text-[7px] font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>Scroll</span>
+        <div className="flex flex-col items-center gap-1.5 sm:gap-2">
+          <span 
+            className="text-white/70 text-[8px] sm:text-[9px] md:text-[10px] font-medium uppercase tracking-wider" 
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Scroll
+          </span>
           <motion.svg
-            className="w-5 h-5 text-white/70"
+            className="w-4 h-4 sm:w-5 sm:h-5 text-white/70"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

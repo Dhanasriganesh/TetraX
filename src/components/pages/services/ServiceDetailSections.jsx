@@ -70,12 +70,12 @@ const offerings = [
 
 const ServiceDetailSections = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 overflow-hidden" id="service-details">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-12 sm:py-16 md:py-20 overflow-hidden" id="service-details">
       {/* Modern gradient mesh background */}
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-blue-400 to-blue-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-gradient-to-tl from-red-400 to-red-200 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-blue-300 to-red-300 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute top-10 left-10 sm:top-20 sm:left-20 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-400 to-blue-200 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 w-56 h-56 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-tl from-red-400 to-red-200 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-64 sm:h-64 md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] bg-gradient-to-r from-blue-300 to-red-300 rounded-full blur-3xl opacity-70 hidden sm:block"></div>
       </div>
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.06]">
@@ -84,16 +84,18 @@ const ServiceDetailSections = () => {
           backgroundSize: '60px 60px'
         }}></div>
       </div>
-      <div className="container relative mx-auto px-4 lg:px-12">
+      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Consulting · Staffing · Training · IT Solutions</p>
-          <h2 className="mt-4 text-4xl font-bold text-gray-900">Depth across every service line</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-blue-600 px-2 sm:px-0">Consulting · Staffing · Training · IT Solutions</p>
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-2 sm:px-0">
+            Depth across every service line
+          </h2>
+          <p className="mx-auto mt-3 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed px-2 sm:px-0">
             Each offering includes strategy, experience, engineering, and change partners so we can move from idea to scaled value without handoffs.
           </p>
         </div>
 
-        <div className="mt-16 space-y-10">
+        <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-16 space-y-6 sm:space-y-8 md:space-y-10">
           {offerings.map((service, index) => (
             <motion.div
               key={service.id}
@@ -101,34 +103,34 @@ const ServiceDetailSections = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="flex flex-col gap-8 rounded-[32px] border border-gray-100 bg-gray-50/70 p-8 shadow-xl lg:flex-row lg:p-10"
+              className="flex flex-col gap-6 sm:gap-7 md:gap-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] border border-gray-100 bg-gray-50/70 p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl lg:flex-row"
             >
               <div className="lg:w-1/2">
-                <div className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">{service.title}</div>
-                <h3 className="mt-3 text-3xl font-semibold text-gray-900">{service.headline}</h3>
-                <p className="mt-4 text-base text-gray-600">{service.description}</p>
-                <ul className="mt-6 space-y-3 text-sm text-gray-700">
+                <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-500">{service.title}</div>
+                <h3 className="mt-2 sm:mt-3 text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">{service.headline}</h3>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
+                <ul className="mt-4 sm:mt-5 md:mt-6 space-y-2 sm:space-y-2.5 md:space-y-3 text-xs sm:text-sm text-gray-700">
                   {service.pillars.map((pillar) => (
-                    <li key={pillar} className="flex items-start gap-3">
-                      <span className="mt-2 inline-block h-2 w-2 rounded-full bg-blue-600"></span>
-                      <span>{pillar}</span>
+                    <li key={pillar} className="flex items-start gap-2 sm:gap-3">
+                      <span className="mt-1 sm:mt-1.5 md:mt-2 inline-block h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-blue-600 flex-shrink-0"></span>
+                      <span className="leading-relaxed">{pillar}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="flex-1 rounded-3xl border border-white/80 bg-white p-6 shadow-lg">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">Snapshot metrics</p>
-                <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="flex-1 rounded-2xl sm:rounded-3xl border border-white/80 bg-white p-4 sm:p-5 md:p-6 shadow-lg">
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-500">Snapshot metrics</p>
+                <div className="mt-4 sm:mt-5 md:mt-6 grid grid-cols-2 gap-3 sm:gap-4">
                   {service.metrics.map((metric) => (
-                    <div key={metric.label} className="rounded-2xl bg-gray-50 p-4 text-center">
-                      <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
-                      <p className="text-xs uppercase tracking-wide text-gray-500">{metric.label}</p>
+                    <div key={metric.label} className="rounded-xl sm:rounded-2xl bg-gray-50 p-3 sm:p-4 text-center">
+                      <p className="text-xl sm:text-2xl font-bold text-gray-900">{metric.value}</p>
+                      <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs uppercase tracking-wide text-gray-500 leading-tight">{metric.label}</p>
                     </div>
                   ))}
                 </div>
                 <a
                   href={`/services/${service.id}`}
-                  className="mt-8 block w-full rounded-full bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg"
+                  className="mt-6 sm:mt-7 md:mt-8 block w-full rounded-full bg-blue-600 px-4 sm:px-5 md:px-6 py-2.5 sm:py-2.5 md:py-3 text-center text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
                 >
                   Explore {service.title}
                 </a>

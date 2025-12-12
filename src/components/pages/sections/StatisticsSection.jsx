@@ -19,26 +19,26 @@ const StatisticsSection = () => {
       id="statistics" 
       data-header-theme="gradient"
       ref={ref} 
-      className="relative py-20  text-black overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 text-black overflow-hidden"
     >
       <div className="absolute inset-0 opacity-30">
      
         <div className="absolute inset-0 " />
       </div>
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="text-center"
+              className="text-center px-2 sm:px-0"
             >
-              <div className="text-5xl md:text-6xl font-bold mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1.5 sm:mb-2">
                 {inView ? <Counter end={stat.number} suffix={stat.suffix} /> : '0'}
               </div>
-              <div className="text-lg md:text-xl opacity-90">{stat.label}</div>
+              <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl opacity-90 leading-tight">{stat.label}</div>
             </motion.div>
           ))}
         </div>
