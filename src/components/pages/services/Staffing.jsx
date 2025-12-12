@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import staffingHero from '../../../assets/about-section/staffing.jpg';
+import staffingHero from '../../../assets/about-section/staffing.png';
 
 const talentModels = [
   {
@@ -40,15 +40,15 @@ const successHighlights = [
 
 const Staffing = () => {
   return (
-    <div className="bg-gray-50">
-      <section className="relative overflow-hidden pt-16">
+    <div className="bg-gradient-to-br from-blue-300 via-white to-red-800">
+      <section className="relative overflow-hidden pt-24">
         <motion.img
           initial={{ opacity: 0.6, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           src={staffingHero}
           alt="Staffing in management"
-          className="w-full h-auto max-h-[420px] object-cover rounded-3xl shadow-2xl border border-white/50"
+          className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
         />
       </section>
 

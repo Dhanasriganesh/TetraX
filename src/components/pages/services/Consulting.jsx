@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import consultingHero from '../../../assets/about-section/consult.jpg';
+import consultingHero from '../../../assets/about-section/consulting.png';
 
 const valueLevers = [
   {

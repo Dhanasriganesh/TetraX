@@ -9,6 +9,11 @@ const ApplicationFormSection = () => {
   });
   const [file, setFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  const getApiBaseUrl = () =>
+    import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3001/api' : '/api');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,13 +26,41 @@ const ApplicationFormSection = () => {
     setSubmitted(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ ...formData, file });
-    setFormData({ name: '', email: '', role: '', message: '' });
-    setFile(null);
-    e.target.reset();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const API_URL = getApiBaseUrl();
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('role', formData.role);
+      payload.append('message', formData.message);
+      if (file) payload.append('file', file);
+
+      const response = await fetch(`${API_URL}/careers/apply`, {
+        method: 'POST',
+        body: payload,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your application has been sent.' });
+        setFormData({ name: '', email: '', role: '', message: '' });
+        setFile(null);
+        e.target.reset();
+        setSubmitted(true);
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Unable to send. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ type: 'error', message: 'Network error. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -102,11 +135,32 @@ const ApplicationFormSection = () => {
               className="mt-2 w-full rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-600"
             />
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <button type="submit" className="rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-lg">
-              Submit application
-            </button>
-            {submitted && <span className="text-sm font-semibold text-green-600">Thanks! We received your details.</span>}
+          <div className="mt-6 space-y-3">
+            {submitStatus.message && (
+              <div
+                className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
+                  submitStatus.type === 'success'
+                    ? 'border-green-200 bg-green-50 text-green-700'
+                    : 'border-red-200 bg-red-50 text-red-700'
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700 ${
+                  isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                }`}
+              >
+                {isSubmitting ? 'Sending...' : 'Submit application'}
+              </button>
+              {submitted && submitStatus.type === 'success' && (
+                <span className="text-sm font-semibold text-green-600">Thanks! We received your details.</span>
+              )}
+            </div>
           </div>
         </form>
       </div>

@@ -1,11 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-
-const metrics = [
-  { label: 'Cloud transformations', value: '140+' },
-  { label: 'Automation hours saved', value: '2.8M' },
-  { label: 'Platform availability', value: '99.97%' },
-];
+import itSolutionsHero from '../../../assets/about-section/itsolutions.png';
 
 const pillars = [
   {
@@ -46,30 +41,15 @@ const caseResults = [
 
 const ITSolutions = () => (
   <div className="bg-gray-50">
-    <section className="bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-28 text-white">
-      <div className="container mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:px-12">
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/70">IT Solutions</p>
-          <h1 className="text-4xl font-semibold leading-tight md:text-5xl">Engineer resilient platforms with embedded intelligence.</h1>
-          <p className="text-lg text-white/80">
-            We pair modern cloud-native engineering with automation and change enablement so platforms stay secure, observable, and loved by users.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-900 shadow-xl">Plan a migration</button>
-            <button className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white/90">Review playbooks</button>
-          </div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="grid gap-4 sm:grid-cols-3">
-            {metrics.map((metric) => (
-              <div key={metric.label} className="rounded-2xl border border-white/20 bg-white/10 p-4 text-center">
-                <p className="text-2xl font-semibold">{metric.value}</p>
-                <p className="text-xs uppercase tracking-wide text-white/70">{metric.label}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+    <section className="relative overflow-hidden pt-24">
+      <motion.img
+        initial={{ opacity: 0.6, scale: 1.02 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        src={itSolutionsHero}
+        alt="IT Solutions"
+        className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
+      />
     </section>
 
     <section className="bg-white py-20">
