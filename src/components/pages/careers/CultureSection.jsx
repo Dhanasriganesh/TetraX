@@ -17,21 +17,21 @@ const cultureHighlights = [
 ];
 
 const CultureSection = () => (
-  <section className="relative bg-gradient-to-br from-blue-100 via-white to-red-100 py-20 overflow-hidden">
+  <section className="relative bg-gradient-to-br from-blue-100 via-white to-red-100 py-12 sm:py-16 md:py-20 overflow-hidden">
     {/* Decorative background elements */}
     <div className="absolute inset-0 opacity-30">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-400 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-400 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-red-400 rounded-full blur-3xl"></div>
     </div>
-    <div className="container relative mx-auto px-4 lg:px-12">
+    <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Culture</p>
-        <h2 className="mt-4 text-4xl font-bold text-gray-900">People-first rituals that spark innovation</h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Culture</p>
+        <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 px-2">People-first rituals that spark innovation</h2>
+        <p className="mx-auto mt-3 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-gray-600 px-4">
           We believe great work happens when teams feel psychologically safe, informed, and empowered to experiment.
         </p>
       </div>
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-8 sm:mt-10 md:mt-12 grid gap-4 sm:gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
         {cultureHighlights.map((item, index) => (
           <motion.div
             key={item.title}
@@ -39,10 +39,10 @@ const CultureSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="rounded-3xl border border-gray-100 bg-gray-50 p-6 text-left shadow-lg"
+            className="rounded-2xl sm:rounded-3xl border border-gray-100 bg-gray-50 p-4 sm:p-5 md:p-6 text-left shadow-lg"
           >
-            <h3 className="text-2xl font-semibold text-gray-900">{item.title}</h3>
-            <p className="mt-3 text-sm text-gray-600">{item.description}</p>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">{item.title}</h3>
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">{item.description}</p>
           </motion.div>
         ))}
       </div>

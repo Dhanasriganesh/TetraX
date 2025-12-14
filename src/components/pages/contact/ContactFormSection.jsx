@@ -83,29 +83,29 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section className="bg-white py-8">
-      <div className="container mx-auto px-4 lg:px-12">
-        <div className="text-center mb-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Contact form</p>
-          <h2 className="mt-3 text-3xl font-bold text-gray-900">Share your brief or RFP</h2>
-          <p className="mx-auto mt-3 max-w-xl text-base text-gray-600">
+    <section className="bg-white py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Contact form</p>
+          <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">Share your brief or RFP</h2>
+          <p className="mx-auto mt-2 sm:mt-3 max-w-xl text-sm sm:text-base text-gray-600 px-4">
             Upload documents, outlines, or supporting files. We keep everything confidential and respond with next steps.
           </p>
         </div>
-        <div className="grid gap-8 lg:grid-cols-2 items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 items-stretch">
           {/* Left side - Image */}
-          <div className="order-2 lg:order-1 h-full">
+          <div className="order-2 lg:order-1 h-full min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-0">
             <img 
               src={inTouchImage} 
               alt="Connect with us"
-              className="w-full h-full object-cover rounded-3xl"
+              className="w-full h-full object-cover rounded-2xl sm:rounded-3xl"
             />
           </div>
           
           {/* Right side - Form */}
-          <form onSubmit={handleSubmit} className="order-1 lg:order-2 h-full flex flex-col rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-xl">
+          <form onSubmit={handleSubmit} className="order-1 lg:order-2 h-full flex flex-col rounded-2xl sm:rounded-3xl border border-gray-100 bg-gray-50 p-4 sm:p-5 md:p-6 lg:p-8 shadow-xl">
           <div className="flex-grow">
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
             <div>
               <label className="text-xs font-semibold text-gray-700" htmlFor="name">Full name</label>
               <input
@@ -155,7 +155,7 @@ const ContactFormSection = () => {
                 placeholder="+1 234 567 8900"
               />
             </div>
-            <div>
+            <div className="md:col-span-2">
               <label className="text-xs font-semibold text-gray-700" htmlFor="topic">Topic</label>
               <select
                 id="topic"
@@ -182,7 +182,7 @@ const ContactFormSection = () => {
               value={formData.message}
               onChange={handleChange}
               rows="4"
-              className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+              className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none resize-y"
               placeholder="Share context, goals, and timelines."
             ></textarea>
           </div>
@@ -193,11 +193,11 @@ const ContactFormSection = () => {
               type="file"
               accept=".pdf,.doc,.docx,.zip,.ppt,.pptx"
               onChange={handleFileChange}
-              className="mt-1.5 w-full rounded-xl border border-dashed border-gray-300 bg-white px-3 py-2 text-xs text-gray-600"
+              className="mt-1.5 w-full rounded-xl border border-dashed border-gray-300 bg-white px-3 py-2 text-xs text-gray-600 file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
           </div>
           </div>
-          <div className="mt-auto space-y-2">
+          <div className="mt-6 sm:mt-auto space-y-2">
             {submitStatus.message && (
               <div
                 className={`rounded-xl border px-3 py-2 text-xs font-semibold ${
@@ -213,7 +213,7 @@ const ContactFormSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 ${
+                className={`rounded-full bg-blue-600 px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 ${
                   isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
                 }`}
               >

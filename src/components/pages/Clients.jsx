@@ -184,7 +184,7 @@ const Clients = () => {
             y: [0, -50, 0],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+          className="absolute -top-20 -left-20 sm:-top-32 sm:-left-32 md:-top-40 md:-left-40 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -194,7 +194,7 @@ const Clients = () => {
             y: [0, 50, 0],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-full blur-3xl"
+          className="absolute -bottom-20 -right-20 sm:-bottom-32 sm:-right-32 md:-bottom-40 md:-right-40 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -203,14 +203,14 @@ const Clients = () => {
             y: [0, -30, 0],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-green-400/20 to-cyan-400/20 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-br from-green-400/20 to-cyan-400/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
             rotate: [0, 360],
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-1/3 w-72 h-72 bg-gradient-to-br from-pink-400/20 to-yellow-400/20 rounded-full blur-3xl"
+          className="absolute top-1/3 right-1/3 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-gradient-to-br from-pink-400/20 to-yellow-400/20 rounded-full blur-3xl"
         />
         
         {/* Floating particles */}
@@ -239,7 +239,7 @@ const Clients = () => {
       {/* Hero Section */}
       <section 
         data-header-theme="hero"
-        className="relative pt-32 pb-16"
+        className="relative pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-14 md:pb-16"
         style={{
           backgroundImage: `url(${heroBackgroundImage})`,
           backgroundSize: 'cover',
@@ -249,7 +249,7 @@ const Clients = () => {
       >
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-blue-900/60 to-purple-900/65"></div>
-        <div className="container relative mx-auto px-4 lg:px-12">
+        <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -260,16 +260,16 @@ const Clients = () => {
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-              className="inline-flex items-center justify-center w-14 h-14 mb-4 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl"
+              className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl"
             >
-              <Rocket className="w-7 h-7 text-white" />
+              <Rocket className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
             </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl lg:text-5xl font-bold mb-4 text-white"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white px-2"
             >
                 <span className="text-white">
                 70+ Global Leaders
@@ -282,7 +282,7 @@ const Clients = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-base text-white mb-6 max-w-3xl mx-auto leading-relaxed"
+              className="text-sm sm:text-base text-white mb-4 sm:mb-5 md:mb-6 max-w-3xl mx-auto leading-relaxed px-4"
             >
               Powering innovation for Fortune 500 companies and industry disruptors across the globe
             </motion.p>
@@ -292,7 +292,7 @@ const Clients = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex flex-wrap justify-center gap-8 mb-12"
+              className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12"
             >
               {[
                 { value: '70+', label: 'Global Clients', icon: Building2 },
@@ -305,13 +305,13 @@ const Clients = () => {
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
-                    <stat.icon className="w-6 h-6 mx-auto mb-1 text-blue-600" />
-                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl sm:rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg border border-gray-100">
+                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mx-auto mb-1 text-blue-600" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-gray-600">{stat.label}</div>
+                    <div className="text-[10px] sm:text-xs text-gray-600">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}
@@ -321,12 +321,12 @@ const Clients = () => {
       </section>
 
       {/* Category Filters - Animated Pills */}
-      <section className="relative py-8">
-        <div className="container mx-auto px-4 lg:px-12">
+      <section className="relative py-6 sm:py-8">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4"
           >
             {categories.map((category, index) => (
               <motion.button
@@ -337,7 +337,7 @@ const Clients = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`relative overflow-hidden px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                className={`relative overflow-hidden px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeCategory === category.id
                     ? 'text-white shadow-2xl'
                     : 'bg-white text-gray-700 hover:shadow-lg border border-gray-200'
@@ -350,8 +350,8 @@ const Clients = () => {
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   />
                 )}
-                <span className="relative flex items-center gap-2">
-                  <category.icon className="w-4 h-4" />
+                <span className="relative flex items-center gap-1.5 sm:gap-2">
+                  <category.icon className="w-3 h-3 sm:w-4 sm:h-4" />
                   {category.label}
                 </span>
               </motion.button>
@@ -361,14 +361,14 @@ const Clients = () => {
       </section>
 
       {/* Clients Showcase - Bento Grid Style */}
-      <section className="relative py-12">
-        <div className="container mx-auto px-4 lg:px-12">
+      <section className="relative py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <motion.div
             key={activeCategory}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7"
+            className="grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7"
           >
             {getFilteredClients().map((client, index) => (
               <motion.div
@@ -383,11 +383,11 @@ const Clients = () => {
                 className="group relative"
               >
                 {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                 
                 {/* Card */}
                 <div 
-                  className="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:border-gray-300 h-32 flex items-center justify-center overflow-hidden"
+                  className="relative bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-gray-200 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:border-gray-300 h-24 sm:h-28 md:h-32 flex items-center justify-center overflow-hidden"
                   style={{ transform: 'none' }}
                 >
                   {/* Animated background pattern */}
@@ -414,7 +414,7 @@ const Clients = () => {
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-h-16 max-w-[90%] w-auto h-auto object-contain"
+                      className="max-h-10 sm:max-h-12 md:max-h-16 max-w-[90%] w-auto h-auto object-contain"
                       style={{
                         imageRendering: 'auto',
                         transform: 'none !important',
@@ -431,11 +431,11 @@ const Clients = () => {
 
                   {/* Sparkle effect on hover */}
                   <motion.div
-                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100"
+                    className="absolute top-1 right-1 sm:top-2 sm:right-2 opacity-0 group-hover:opacity-100"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   >
-                    <Sparkles className="w-5 h-5 text-yellow-500" />
+                    <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-500" />
                   </motion.div>
                 </div>
               </motion.div>
@@ -445,7 +445,7 @@ const Clients = () => {
       </section>
 
       {/* CTA Section - Gradient Wave */}
-      <section className="relative py-24 mt-16 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 mt-8 sm:mt-12 md:mt-16 overflow-hidden">
         {/* Animated gradient background */}
         <motion.div
           animate={{
@@ -473,7 +473,7 @@ const Clients = () => {
             rotate: [0, 180, 360],
           }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-10 left-10 w-32 h-32 border-4 border-white/20 rounded-3xl"
+          className="absolute top-5 left-5 sm:top-10 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 border-2 sm:border-4 border-white/20 rounded-2xl sm:rounded-3xl"
         />
         <motion.div
           animate={{
@@ -481,10 +481,10 @@ const Clients = () => {
             rotate: [0, -180, -360],
           }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-10 right-10 w-40 h-40 border-4 border-white/20 rounded-full"
+          className="absolute bottom-5 right-5 sm:bottom-10 sm:right-10 w-24 h-24 sm:w-40 sm:h-40 border-2 sm:border-4 border-white/20 rounded-full"
         />
 
-        <div className="container relative mx-auto px-4 lg:px-12 text-center">
+        <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -494,40 +494,40 @@ const Clients = () => {
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="inline-block mb-4"
+              className="inline-block mb-3 sm:mb-4"
             >
-              <Sparkles className="w-12 h-12 text-yellow-300" />
+              <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-300" />
             </motion.div>
 
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 px-2">
               Ready to Join the Elite?
             </h2>
-            <p className="text-lg text-white/90 mb-8">
+            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-7 md:mb-8 px-4">
               Partner with Nexus AI and transform your business with solutions trusted by global leaders
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+              <Link to="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-8 py-3 rounded-full bg-white text-blue-600 font-bold text-base overflow-hidden shadow-2xl"
+                  className="group relative w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-white text-blue-600 font-bold text-sm sm:text-base overflow-hidden shadow-2xl"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"
                   />
-                  <span className="relative group-hover:text-white transition-colors flex items-center gap-2">
+                  <span className="relative group-hover:text-white transition-colors flex items-center justify-center gap-2">
                     Start Your Journey
-                    <Rocket className="w-5 h-5" />
+                    <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
                   </span>
                 </motion.button>
               </Link>
               
-              <Link to="/services">
+              <Link to="/services" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold text-base hover:bg-white/20 transition-all shadow-xl"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold text-sm sm:text-base hover:bg-white/20 transition-all shadow-xl"
                 >
                   Explore Our Services
                 </motion.button>
