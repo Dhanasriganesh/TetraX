@@ -25,26 +25,20 @@ function Footer() {
   ];
 
   const industriesLinks = [
-    { name: 'Financial Services', path: '/industries' },
-    { name: 'Banking & Financial', path: '/industries' },
-    { name: 'Healthcare', path: '/industries' },
-    { name: 'Healthcare & Life Science', path: '/industries' },
-    { name: 'Media, Entertainment & Gaming', path: '/industries' },
-    { name: 'Telecom & Media', path: '/industries' },
-    { name: 'Technology Enablement', path: '/industries' },
+    { name: 'Banking & Financial Services', path: '/industries' },
+    { name: 'Healthcare & Life Sciences', path: '/industries' },
+    { name: 'Media & Entertainment', path: '/industries' },
     { name: 'Telecommunications', path: '/industries' },
-    { name: 'Energy', path: '/industries' },
-    { name: 'Energy & Utility', path: '/industries' },
+    { name: 'Energy & Utilities', path: '/industries' },
     { name: 'Oil & Gas', path: '/industries' },
-    { name: 'Consumer & Industrial Products', path: '/industries' },
     { name: 'Retail & Consumer Goods', path: '/industries' },
-    { name: 'Transportation & Travel', path: '/industries' },
+    { name: 'Manufacturing', path: '/industries' },
+    { name: 'Transportation & Logistics', path: '/industries' },
     { name: 'Travel & Hospitality', path: '/industries' },
-    { name: 'Automotive & Mobility', path: '/industries' },
+    { name: 'Automotive', path: '/industries' },
     { name: 'Education', path: '/industries' },
-    { name: 'Government', path: '/industries' },
+    { name: 'Government & Public Sector', path: '/industries' },
     { name: 'Insurance', path: '/industries' },
-    { name: 'Logistics & Warehousing', path: '/industries' },
   ];
 
   const locations = [

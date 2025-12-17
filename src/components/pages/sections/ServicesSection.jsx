@@ -5,6 +5,7 @@ import consultingImg from '../../../assets/about-section/consulting.png';
 import staffingImg from '../../../assets/about-section/staffing.png';
 import trainingImg from '../../../assets/about-section/training.png';
 import itSolutionsImg from '../../../assets/about-section/itsolutions.png';
+import visaSponsorshipImg from '../../../assets/about-section/vs.png';
 
 const ServiceCard = ({ service, index }) => {
   const { ref, inView } = useInView({ 
@@ -179,6 +180,12 @@ const ServicesSection = () => {
         'Transform your business with our comprehensive suite of IT solutions tailored to meet your unique needs and drive digital transformation.',
       image: itSolutionsImg,
     },
+    {
+      title: 'Visa Sponsorship',
+      description:
+        'Navigate your visa sponsorship journey with confidence through our dedicated in-house immigration team. We provide comprehensive H1B, OPT, CPT, and Green Card support.',
+      image: visaSponsorshipImg,
+    },
   ];
 
   return (
@@ -264,7 +271,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 md:gap-6 lg:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}

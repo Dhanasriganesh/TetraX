@@ -269,8 +269,6 @@ const Clients = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Light overlay for better text readability */}
-        <div className="absolute inset-0 bg-white/50"></div>
         <div className="container relative mx-auto px-4 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -291,18 +289,18 @@ const Clients = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900"
+              className="text-4xl lg:text-5xl font-bold mb-4 text-white"
             >
-              <span className="text-gray-900">70+ Global Leaders</span>
+              <span className="text-white">70+ Global Leaders</span>
               <br />
-              <span className="text-gray-900">Trust Nexus AI</span>
+              <span className="text-white">Trust Nexus AI</span>
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-base text-gray-800 mb-6 max-w-3xl mx-auto leading-relaxed"
+              className="text-base text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed"
             >
               Powering innovation for Fortune 500 companies and industry disruptors across the globe
             </motion.p>
@@ -331,7 +329,7 @@ const Clients = () => {
                     <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-gray-600">{stat.label}</div>
+                    <div className="text-xs text-gray-700">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}
@@ -411,7 +409,7 @@ const Clients = () => {
             animation: marquee-reverse 60s linear infinite;
           }
         `}</style>
-        <div className="container mx-auto px-4 lg:px-12">
+        <div className="w-full">
           <div className="space-y-6">
             {getMarqueeRows().map((row, rowIndex) => (
               <div key={rowIndex} className="overflow-hidden">

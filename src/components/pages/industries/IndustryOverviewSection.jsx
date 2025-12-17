@@ -3,47 +3,41 @@ import { motion } from 'framer-motion';
 import financialImg from '../../../assets/about-section/financial.png';
 import healthcareImg from '../../../assets/about-section/healthcare.png';
 import entertainmentImg from '../../../assets/about-section/entertainment.png';
-import technologyImg from '../../../assets/about-section/technology.png';
 import telecommunicationImg from '../../../assets/about-section/telecommunication.png';
 import energyImg from '../../../assets/about-section/energy.png';
 import consumerImg from '../../../assets/about-section/consumer.png';
 import transportImg from '../../../assets/about-section/transport.png';
 import automobileImg from '../../../assets/about-section/automobile.png';
-// Additional industry images - using available images as placeholders
+// Additional industry images
 import educationImg from '../../../assets/about-section/technology.png';
-import governmentImg from '../../../assets/about-section/technology.png';
-import insuranceImg from '../../../assets/about-section/financial.png';
+import governmentImg from '../../../assets/about-section/govt_public.png';
+import insuranceImg from '../../../assets/about-section/insurance.png';
 import logisticsImg from '../../../assets/about-section/transport.png';
-import oilGasImg from '../../../assets/about-section/energy.png';
+import oilGasImg from '../../../assets/about-section/Oil-Gas.jpg';
+import manufacturingImg from '../../../assets/about-section/manufacturing.jpg';
+import travelHospitalityImg from '../../../assets/about-section/travel-hospitality.jpg';
 
 const industries = [
   {
-    name: 'Financial Services',
+    name: 'Banking & Financial Services',
     image: financialImg,
     summary:
       'Cloud-native cores, real-time risk and fraud controls, and personalized digital channels that meet regulatory rigor without slowing growth.',
-    strengths: ['RegTech & compliance automation', 'Risk, fraud & credit intelligence', 'Customer experience platforms'],
+    strengths: ['RegTech & compliance automation', 'Risk, fraud & credit intelligence', 'Digital banking platforms'],
   },
   {
-    name: 'Healthcare',
+    name: 'Healthcare & Life Sciences',
     image: healthcareImg,
     summary:
       'Interoperable data fabrics, virtual care, and AI-assisted clinical workflows that elevate outcomes and operational resilience.',
     strengths: ['EHR integration & interoperability', 'Clinical decision support & AI copilots', 'HIPAA-compliant architectures'],
   },
   {
-    name: 'Media, Entertainment & Gaming',
+    name: 'Media & Entertainment',
     image: entertainmentImg,
     summary:
       'Low-latency streaming, live ops, and personalization engines that maximize engagement and monetization across every surface.',
     strengths: ['Edge/CDN acceleration', 'Real-time analytics & recommendations', 'Multi-platform distribution'],
-  },
-  {
-    name: 'Technology Enablement',
-    image: technologyImg,
-    summary:
-      'Platform engineering, golden paths, and developer experience that keep product teams shipping fast and safely.',
-    strengths: ['Cloud-native architectures', 'DevEx, DevOps & platform tooling', 'API-first ecosystems'],
   },
   {
     name: 'Telecommunications',
@@ -53,95 +47,11 @@ const industries = [
     strengths: ['Network optimization & automation', 'Edge computing strategies', 'CX transformation'],
   },
   {
-    name: 'Energy',
+    name: 'Energy & Utilities',
     image: energyImg,
     summary:
       'Smart grids, renewables orchestration, and OT/IT convergence with predictive maintenance to keep uptime and sustainability high.',
     strengths: ['Grid modernization & IoT', 'Energy trading & dispatch platforms', 'Predictive maintenance systems'],
-  },
-  {
-    name: 'Consumer & Industrial Products',
-    image: consumerImg,
-    summary:
-      'Digitized plants and supply chains, demand sensing, and omnichannel commerce that shrink cycle times and boost margin.',
-    strengths: ['Supply chain visibility', 'Manufacturing automation', 'E-commerce & omnichannel'],
-  },
-  {
-    name: 'Transportation & Travel',
-    image: transportImg,
-    summary:
-      'Mobility platforms, logistics optimization, and traveler experience that keep fleets efficient and passengers delighted.',
-    strengths: ['Fleet & route optimization', 'Logistics analytics & orchestration', 'Customer journey platforms'],
-  },
-  {
-    name: 'Automotive & Mobility',
-    image: automobileImg,
-    summary:
-      'Software-defined vehicles, connected services, and in-cabin experiences backed by telemetry and safety-grade platforms.',
-    strengths: ['Connected vehicle platforms', 'Predictive maintenance & telematics', 'In-vehicle UX & infotainment'],
-  },
-  {
-    name: 'Banking & Financial',
-    image: financialImg,
-    summary:
-      'Modern banking platforms, digital transformation, and financial technology solutions that enhance customer experience and operational efficiency.',
-    strengths: ['Digital banking platforms', 'Payment processing systems', 'Risk management & compliance'],
-  },
-  {
-    name: 'Education',
-    image: educationImg,
-    summary:
-      'EdTech solutions, learning management systems, and educational platforms that transform teaching and learning experiences.',
-    strengths: ['Learning management systems', 'Student information systems', 'Online education platforms'],
-  },
-  {
-    name: 'Energy & Utility',
-    image: energyImg,
-    summary:
-      'Smart grid technologies, utility management systems, and energy efficiency solutions for modern power infrastructure.',
-    strengths: ['Smart grid solutions', 'Utility management platforms', 'Energy efficiency systems'],
-  },
-  {
-    name: 'Government',
-    image: governmentImg,
-    summary:
-      'Digital government services, public sector transformation, and citizen engagement platforms that improve governance and accessibility.',
-    strengths: ['Digital government platforms', 'Citizen services portals', 'Public sector modernization'],
-  },
-  {
-    name: 'Healthcare & Life Science',
-    image: healthcareImg,
-    summary:
-      'Advanced healthcare systems, life sciences platforms, and biomedical solutions that improve patient outcomes and research capabilities.',
-    strengths: ['Clinical information systems', 'Research data platforms', 'Patient care management'],
-  },
-  {
-    name: 'Insurance',
-    image: insuranceImg,
-    summary:
-      'Insurance technology platforms, claims processing systems, and risk assessment tools that streamline operations and customer service.',
-    strengths: ['Claims management systems', 'Policy administration platforms', 'Risk analytics & underwriting'],
-  },
-  {
-    name: 'Logistics & Warehousing',
-    image: logisticsImg,
-    summary:
-      'Supply chain optimization, warehouse management systems, and logistics platforms that improve efficiency and visibility.',
-    strengths: ['Warehouse management systems', 'Supply chain visibility', 'Fleet & route optimization'],
-  },
-  {
-    name: 'Retail & Consumer Goods',
-    image: consumerImg,
-    summary:
-      'E-commerce platforms, retail management systems, and consumer engagement solutions that drive sales and customer loyalty.',
-    strengths: ['E-commerce platforms', 'Inventory management', 'Customer experience solutions'],
-  },
-  {
-    name: 'Telecom & Media',
-    image: telecommunicationImg,
-    summary:
-      'Telecommunications infrastructure, media distribution platforms, and communication solutions for the digital age.',
-    strengths: ['Network infrastructure', 'Content distribution', 'Communication platforms'],
   },
   {
     name: 'Oil & Gas',
@@ -151,11 +61,60 @@ const industries = [
     strengths: ['Exploration & production systems', 'Pipeline management', 'Refining operations'],
   },
   {
+    name: 'Retail & Consumer Goods',
+    image: consumerImg,
+    summary:
+      'E-commerce platforms, retail management systems, and consumer engagement solutions that drive sales and customer loyalty.',
+    strengths: ['E-commerce platforms', 'Inventory management', 'Customer experience solutions'],
+  },
+  {
+    name: 'Manufacturing',
+    image: manufacturingImg,
+    summary:
+      'Digitized plants and supply chains, demand sensing, and Industry 4.0 solutions that shrink cycle times and boost margin.',
+    strengths: ['Supply chain visibility', 'Manufacturing automation', 'IoT & smart factories'],
+  },
+  {
+    name: 'Transportation & Logistics',
+    image: logisticsImg,
+    summary:
+      'Supply chain optimization, warehouse management systems, and logistics platforms that improve efficiency and visibility.',
+    strengths: ['Fleet & route optimization', 'Warehouse management systems', 'Supply chain analytics'],
+  },
+  {
     name: 'Travel & Hospitality',
-    image: transportImg,
+    image: travelHospitalityImg,
     summary:
       'Hospitality management systems, booking platforms, and travel technology solutions that enhance guest experiences and operations.',
     strengths: ['Property management systems', 'Booking & reservation platforms', 'Guest experience solutions'],
+  },
+  {
+    name: 'Automotive',
+    image: automobileImg,
+    summary:
+      'Software-defined vehicles, connected services, and in-cabin experiences backed by telemetry and safety-grade platforms.',
+    strengths: ['Connected vehicle platforms', 'Predictive maintenance & telematics', 'In-vehicle UX & infotainment'],
+  },
+  {
+    name: 'Education',
+    image: educationImg,
+    summary:
+      'EdTech solutions, learning management systems, and educational platforms that transform teaching and learning experiences.',
+    strengths: ['Learning management systems', 'Student information systems', 'Online education platforms'],
+  },
+  {
+    name: 'Government & Public Sector',
+    image: governmentImg,
+    summary:
+      'Digital government services, public sector transformation, and citizen engagement platforms that improve governance and accessibility.',
+    strengths: ['Digital government platforms', 'Citizen services portals', 'Public sector modernization'],
+  },
+  {
+    name: 'Insurance',
+    image: insuranceImg,
+    summary:
+      'Insurance technology platforms, claims processing systems, and risk assessment tools that streamline operations and customer service.',
+    strengths: ['Claims management systems', 'Policy administration platforms', 'Risk analytics & underwriting'],
   },
 ];
 

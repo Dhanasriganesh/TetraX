@@ -36,9 +36,6 @@ const CareersHero = () => (
       backgroundRepeat: 'no-repeat',
     }}
   >
-    {/* White overlay for readability */}
-    <div className="absolute inset-0 bg-white/40"></div>
-
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-40 pointer-events-none z-0">
       <div className="absolute -left-16 top-8 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>

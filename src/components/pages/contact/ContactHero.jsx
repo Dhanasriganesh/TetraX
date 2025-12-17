@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import backgroundImage from '../../../assets/about-section/15.png';
+import backgroundImage from '../../../assets/about-section/GET IN TOUCH WITH US.png';
 
 const ContactHero = () => (
   <section 
@@ -7,7 +7,7 @@ const ContactHero = () => (
     className="relative overflow-hidden min-h-screen"
     style={{
       backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'contain',
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}

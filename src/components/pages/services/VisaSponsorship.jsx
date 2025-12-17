@@ -1,36 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Building2, FileText, GraduationCap, Globe, Users, Award, Shield, Briefcase, MessageCircle } from 'lucide-react';
+import visaSponsorBg from '../../../assets/about-section/vs.png';
+import h1bImg from '../../../assets/about-section/h1b.jpg';
+import passportImg from '../../../assets/about-section/passport.jpg';
+import usaImg from '../../../assets/about-section/usa.jpg';
+import studentVisaImg from '../../../assets/about-section/US-Student-Visa.jpg';
+import greencardImg from '../../../assets/about-section/greencard.jpg';
+import stemImg from '../../../assets/about-section/stem.jpg';
+import cptImg from '../../../assets/about-section/cpt.jpg';
+import tnImg from '../../../assets/about-section/tn.jpg';
 
 const visaTypes = [
   {
     title: 'H1B Visas',
-    body: 'Specialty occupation visas for skilled professionals. TetraX AI provides comprehensive H1B sponsorship and processing support.',
-    support: '✓ Full support by TetraX AI',
+    icon: Building2,
+    body: 'Specialty occupation visas for skilled professionals. Nexus AI provides comprehensive H1B sponsorship and processing support.',
+    support: '✓ Full support by Nexus AI',
+    image: h1bImg,
   },
   {
     title: 'F1 Visa (Student Visas)',
+    icon: GraduationCap,
     body: 'Academic student visas for educational purposes. Our team assists with F1 visa applications and status maintenance.',
-    support: '✓ Full support by TetraX AI',
+    support: '✓ Full support by Nexus AI',
+    image: studentVisaImg,
   },
   {
     title: 'Optional Practical Training (OPT/OPT-STEM)',
+    icon: Award,
     body: 'Work authorization for F1 students in STEM fields. We help extend OPT visas for up to 24 months with E-Verify certification.',
-    support: '✓ Full support by TetraX AI',
+    support: '✓ Full support by Nexus AI',
+    image: stemImg,
   },
   {
     title: 'Curricular Practical Training (CPT)',
-    body: 'Work authorization as part of academic curriculum. TetraX AI facilitates CPT authorization for eligible students.',
-    support: '✓ Full support by TetraX AI',
+    icon: FileText,
+    body: 'Work authorization as part of academic curriculum. Nexus AI facilitates CPT authorization for eligible students.',
+    support: '✓ Full support by Nexus AI',
+    image: cptImg,
   },
   {
     title: 'TN1, TN2',
-    body: 'NAFTA professional visas for Canadian and Mexican citizens. Complete sponsorship and processing support provided by TetraX AI.',
-    support: '✓ Full support by TetraX AI',
+    icon: Globe,
+    body: 'NAFTA professional visas for Canadian and Mexican citizens. Complete sponsorship and processing support provided by Nexus AI.',
+    support: '✓ Full support by Nexus AI',
+    image: tnImg,
   },
   {
     title: 'Green Card Process (EB-2/EB-3)',
-    body: 'Permanent residency sponsorship provided by TetraX AI. Complete support for EB-2 and EB-3 employment-based green card applications.',
-    support: '✓ Full support by TetraX AI Immigration Team',
+    icon: Users,
+    body: 'Permanent residency sponsorship provided by Nexus AI. Complete support for EB-2 and EB-3 employment-based green card applications.',
+    support: '✓ Full support by Nexus AI Immigration Team',
+    image: greencardImg,
   },
 ];
 
@@ -47,8 +70,9 @@ const processSteps = [
   },
   {
     number: '03',
-    title: 'Client Matching & Sponsorship by TetraX AI',
-    body: 'TetraX AI directly matches you with suitable clients and provides visa sponsorship. Our immigration team handles all sponsorship documentation and ensures TetraX AI sponsors your visa for the right opportunity. All sponsorship is provided directly by TetraX AI, not through third parties.',
+    title: 'Client Matching & Sponsorship by Nexus AI',
+    body: 'Nexus AI directly matches you with suitable clients and provides visa sponsorship. Our immigration team handles all sponsorship documentation and ensures Nexus AI sponsors your visa for the right opportunity.',
+    badge: 'NEXUS AI SPONSORSHIP',
   },
   {
     number: '04',
@@ -65,32 +89,38 @@ const processSteps = [
 const experienceBenefits = [
   {
     title: 'E-Verify Certification',
-    body: 'Our e-verify certification offers students in STEM majors the potential to extend their OPT visa for 24 months. TetraX AI handles all certification processes.',
+    icon: Shield,
+    body: 'Our e-verify certification offers students in STEM majors the potential to extend their OPT visa for 24 months. Nexus AI handles all certification processes.',
     support: '✓ 24-month OPT extension support',
   },
   {
     title: 'Visa Issue Resolution',
-    body: 'Our immigration specialists apply their deep subject matter expertise to quickly address and resolve even the most complex visa issues. Direct support from TetraX AI team.',
+    icon: FileText,
+    body: 'Our immigration specialists apply their deep subject matter expertise to quickly address and resolve even the most complex visa issues.',
     support: '✓ Expert problem resolution',
   },
   {
     title: 'Direct Client Relationships',
-    body: 'TetraX AI directly markets candidates to end clients, alleviating third-party channel issues and ensuring smooth processes. No intermediaries involved.',
+    icon: Users,
+    body: 'Nexus AI directly markets candidates to end clients, alleviating third-party channel issues and ensuring smooth processes.',
     support: '✓ Direct client connections',
   },
   {
     title: 'Comprehensive Green Card Support',
-    body: 'TetraX AI provides full support for your green card journey. We facilitate EB-2 and EB-3 employment-based applications, handle PERM certification, and I-140 petitions.',
+    icon: Award,
+    body: 'Nexus AI provides full support for your green card journey. We facilitate EB-2 and EB-3 employment-based applications, handle PERM certification, and I-140 petitions.',
     support: '✓ EB-2/EB-3, PERM, I-140 support',
   },
   {
     title: 'Consultant Redeployment',
-    body: 'Before your current assignment ends, our redeployment team is already working to find your next opportunity. Continuous career support from TetraX AI.',
+    icon: Briefcase,
+    body: 'Before your current assignment ends, our redeployment team is already working to find your next opportunity.',
     support: '✓ Proactive opportunity matching',
   },
   {
     title: 'Industry Recognition',
-    body: "As a leading AI company, TetraX AI's client portfolio includes partnerships with Fortune 500 companies across multiple industries. Trusted by top employers.",
+    icon: Building2,
+    body: "Nexus AI's client portfolio includes partnerships with Fortune 500 companies across multiple industries. Trusted by top employers.",
     support: '✓ Fortune 500 partnerships',
   },
 ];
@@ -98,274 +128,270 @@ const experienceBenefits = [
 const VisaSponsorship = () => {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-red-50">
-      {/* Background accents */}
-      <motion.div
-        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-300/30 blur-3xl"
-        animate={{ y: [0, 18, 0], x: [0, 10, 0], opacity: [0.25, 0.45, 0.25] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-red-300/25 blur-3xl"
-        animate={{ y: [0, -20, 0], x: [0, -12, 0], opacity: [0.22, 0.4, 0.22] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-300/20 blur-3xl"
-        animate={{ scale: [1, 1.08, 1], opacity: [0.2, 0.35, 0.2] }}
-        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       {/* Hero */}
       <motion.section
-        className="relative pt-28 pb-12"
+        data-header-theme="hero"
+        className="relative pt-32 pb-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        style={{
+          backgroundImage: `url(${visaSponsorBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
-        <div className="container mx-auto px-4 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
-              TETRAX AI IMMIGRATION TEAM
-            </p>
-            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              TetraX AI Immigration Team - Your Trusted Visa Sponsorship Partner
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="container relative mx-auto px-4 lg:px-12 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+              Nexus AI Immigration Team - Your Trusted Visa Sponsorship Partner
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              Navigate your visa sponsorship journey with confidence through TetraX AI&apos;s dedicated in-house immigration team.
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              Navigate your visa sponsorship journey with confidence through{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent font-semibold italic">
+                Nexus AI&apos;s dedicated in-house immigration team
+              </span>
+              . Our comprehensive immigration support services are provided directly by Nexus AI, ensuring personalized attention and seamless sponsorship processes.
             </p>
-            <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              Our comprehensive immigration support services are provided directly by TetraX AI, ensuring personalized attention and seamless sponsorship processes.
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-gray-800 font-semibold">
-              ✨ Visa Sponsorship Provided Directly by TetraX AI - No Third-Party Intermediaries
-            </p>
-            <ul className="mt-3 space-y-1.5 text-xs sm:text-sm text-gray-700">
-              <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-500" />
-                <span>In-house immigration experts who understand both technology roles and visa pathways.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-purple-500" />
-                <span>End-to-end support from initial assessment through long-term status planning.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                <span>Transparent communication so you always know what comes next.</span>
-              </li>
-            </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 18px 35px rgba(37,99,235,0.45)' }}
-                whileTap={{ scale: 0.97 }}
-                className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg"
-              >
-                Start a Conversation
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,1)' }}
-                whileTap={{ scale: 0.97 }}
-                className="rounded-full border border-blue-600 px-6 py-2.5 text-sm font-semibold text-blue-700 bg-white/80 shadow-md"
-              >
-                Contact TetraX AI Immigration Team
-              </motion.button>
+            <div className="mt-8 inline-block rounded-lg border-2 border-blue-400 bg-gradient-to-r from-blue-600/30 to-red-600/30 backdrop-blur-sm px-6 py-4">
+              <p className="text-base sm:text-lg font-semibold text-white">
+                ✨ Visa Sponsorship Provided Directly by Nexus AI - No Third-Party Intermediaries
+              </p>
             </div>
           </div>
         </div>
       </motion.section>
+
+      {/* Our Immigration Team - With Image */}
+      <section className="relative py-16">
+        <div className="container mx-auto px-4 lg:px-12">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={passportImg}
+                alt="Immigration Team"
+                className="w-full h-72 lg:h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <span className="inline-block rounded-full bg-white/90 backdrop-blur-sm px-4 py-2 text-sm font-bold text-blue-700">
+                  Expert Immigration Support
+                </span>
+              </div>
+            </motion.div>
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-3xl border-2 border-blue-300 bg-gradient-to-br from-blue-100 via-red-50 to-blue-50 p-8 sm:p-10 text-center lg:text-left shadow-xl"
+            >
+              <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-widest shadow-md">
+                NEXUS AI IMMIGRATION TEAM
+              </span>
+              <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+                Our Immigration Team is Here to Help You Every Step of the Way
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed">
+                Connect directly with Nexus AI&apos;s immigration specialists. Our in-house team provides personalized support throughout your visa sponsorship journey.
+              </p>
+              <div className="mt-8">
+                <Link to="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: '0 16px 32px rgba(37,99,235,0.35)' }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-8 py-3 text-base font-semibold text-white shadow-lg"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Contact Nexus AI Immigration Team
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Best-In-Class section */}
-      <motion.section
-        className="relative bg-white/80 backdrop-blur-sm py-14"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="container mx-auto px-4 lg:px-12 space-y-10">
-          <div className="max-w-4xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
-              TETRAX AI IMMIGRATION TEAM
-            </p>
-            <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-              <span className="bg-gradient-to-r from-blue-600 to-red-500 bg-clip-text text-transparent">
-                Best-In-Class Visa Sponsorship Solutions by TetraX AI
+      <section className="relative py-16">
+        <div className="container mx-auto px-4 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="text-center lg:text-left"
+            >
+              <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-widest shadow-md">
+                NEXUS AI IMMIGRATION TEAM
               </span>
-            </h2>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              As the global workforce rapidly evolves, choosing the right partner for your visa sponsorship and employment needs is crucial.
-            </p>
-            <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              TetraX AI&apos;s internal immigration team guides you through each step of the visa sponsorship process and provides tailored solutions to international consultants facing immigration challenges.
-            </p>
-            <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              As a leading AI technology company, we specialize in helping our consultants find meaningful work with top companies nationwide, including Fortune 500 enterprises.
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-gray-800 font-semibold">
-              ✓ Visa Sponsorship Provided Directly by TetraX AI
-            </p>
-            <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
-              Our immigration team is an integral part of TetraX AI, ensuring direct communication, faster processing, and dedicated support throughout your visa journey. We handle all sponsorship processes internally, eliminating third-party delays and ensuring transparency at every step.
-            </p>
-          </div>
-          
-          {/* Visual highlight cards so content isn't just paragraphs */}
-          <div className="grid gap-5 md:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.35 }}
-              className="rounded-2xl border border-blue-100 bg-blue-50/80 p-4 shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">
-                Direct sponsorship
+              <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+                Best-In-Class Visa Sponsorship Solutions by Nexus AI
+              </h2>
+              <p className="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">
+                As the global workforce rapidly evolves, choosing the right partner for your visa sponsorship and employment needs is crucial.{' '}
+                <span className="font-semibold text-blue-600 underline decoration-red-400">Nexus AI&apos;s internal immigration team</span>{' '}
+                guides you through each step of the visa sponsorship process and provides tailored solutions to international consultants facing immigration challenges.
               </p>
-              <p className="mt-2 text-sm text-gray-800">
-                All visa sponsorship is handled in‑house by TetraX AI—no third‑party intermediaries.
+              <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed">
+                As a leading AI technology company, we specialize in helping our consultants find meaningful work with top companies nationwide, including Fortune 500 enterprises.
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.35, delay: 0.05 }}
-              className="rounded-2xl border border-purple-100 bg-purple-50/70 p-4 shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple-700">
-                Tailored solutions
-              </p>
-              <p className="mt-2 text-sm text-gray-800">
-                Support designed specifically for international consultants navigating complex immigration paths.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.35, delay: 0.1 }}
-              className="rounded-2xl border border-red-100 bg-red-50/70 p-4 shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-700">
-                Fortune 500 reach
-              </p>
-              <p className="mt-2 text-sm text-gray-800">
-                Access opportunities with top companies nationwide, including multiple Fortune 500 employers.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
 
-      {/* Our Immigration Team */}
-      <motion.section
-        className="relative bg-gradient-to-r from-blue-50/80 via-white to-red-50/90 py-14"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.6, delay: 0.05 }}
-      >
-        <div className="container mx-auto px-4 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
-              TETRAX AI IMMIGRATION TEAM
-            </p>
-            <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-gray-900">
-              Our Immigration Team is Here to Help You Every Step of the Way
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-gray-700 leading-relaxed">
-              Connect directly with TetraX AI&apos;s immigration specialists. Our in-house team provides personalized support throughout your visa sponsorship journey.
-            </p>
-            <ul className="mt-5 space-y-2 text-sm sm:text-base text-gray-700">
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-blue-600" />
-                <span>Single point of contact from assessment through approval.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-purple-600" />
-                <span>Proactive updates on case status and next steps.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="mt-1 h-2 w-2 rounded-full bg-red-500" />
-                <span>Guidance aligned with current USCIS policies and timelines.</span>
-              </li>
-            </ul>
-            <div className="mt-6">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 16px 32px rgba(37,99,235,0.45)' }}
-                whileTap={{ scale: 0.97 }}
-                className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg"
+              {/* Sponsorship info card */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4 }}
+                className="mt-8 rounded-2xl border-l-4 border-blue-500 bg-blue-50/80 p-6 text-left shadow-md"
               >
-                Contact TetraX AI Immigration Team
-              </motion.button>
-            </div>
+                <p className="text-base sm:text-lg font-bold text-blue-700">
+                  ✓ Visa Sponsorship Provided Directly by Nexus AI
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+                  Our immigration team is an integral part of Nexus AI, ensuring direct communication, faster processing, and dedicated support throughout your visa journey.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src={h1bImg}
+                  alt="H1B Visa Sponsorship"
+                  className="w-full h-72 lg:h-[420px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent" />
+              </div>
+              {/* Floating card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-gray-900">Direct Sponsorship</p>
+                    <p className="text-xs text-gray-500">No Third Parties</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* What to Expect / Visa Types */}
-      <section className="relative bg-white/90 py-16">
-        <div className="container mx-auto px-4 lg:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+      {/* What to Expect - Visa Types with Icons */}
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-16">
+        <div className="container mx-auto px-4 lg:px-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             What to Expect
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed max-w-3xl">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             Our subject matter expertise and strict adherence to the United States Citizenship and Immigration Services (USCIS) regulations enables us to secure visa sponsorship for multiple visa types, including:
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {visaTypes.map((visa) => (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visaTypes.map((visa, index) => (
               <motion.div
                 key={visa.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -6, scale: 1.02, boxShadow: '0 18px 40px rgba(15,23,42,0.08)' }}
-                className="rounded-2xl border border-blue-100 bg-white/95 p-5 sm:p-6 shadow-md backdrop-blur-sm"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
+                className="rounded-2xl bg-white shadow-lg text-left border border-gray-100 overflow-hidden group"
               >
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  {visa.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-700 leading-relaxed">
-                  {visa.body}
-                </p>
-                <p className="mt-3 text-sm font-semibold text-blue-700">
-                  {visa.support}
-                </p>
+                {/* Image */}
+                <div className="relative h-36 overflow-hidden">
+                  <img
+                    src={visa.image}
+                    alt={visa.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                      <visa.icon className="w-5 h-5 text-blue-600" />
+                    </div>
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-gray-900">{visa.title}</h3>
+                  <p className="mt-3 text-sm text-gray-700 leading-relaxed">
+                    {visa.body}
+                  </p>
+                  <div className="mt-4 border-l-4 border-blue-500 bg-blue-50 px-3 py-2 rounded-r-lg">
+                    <p className="text-sm font-semibold text-blue-700">{visa.support}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Visa Sponsorship Process */}
-      <section className="relative bg-gradient-to-r from-blue-50 via-white to-red-50 py-16">
-        <div className="container mx-auto px-4 lg:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+      {/* Visa Sponsorship Process - Timeline Style */}
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 py-16">
+        <div className="container mx-auto px-4 lg:px-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Visa Sponsorship Process
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed max-w-3xl">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
             Our streamlined process ensures a smooth visa sponsorship experience from start to finish.
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {processSteps.map((step) => (
+          <div className="mt-12 space-y-8 max-w-4xl mx-auto">
+            {processSteps.map((step, index) => (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -6, scale: 1.02, boxShadow: '0 18px 40px rgba(15,23,42,0.08)' }}
-                className="rounded-2xl border border-blue-100 bg-white/95 p-5 sm:p-6 shadow-md flex flex-col h-full backdrop-blur-sm"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className={`flex items-start gap-6 ${index % 2 === 1 ? 'flex-row-reverse text-right' : 'text-left'}`}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">
+                {/* Number circle */}
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-white">
                   {step.number}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-gray-900">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-700 leading-relaxed">
-                  {step.body}
-                </p>
+                </div>
+                {/* Content card */}
+                <div className={`flex-1 rounded-2xl border-2 border-blue-300 bg-blue-50/70 p-6 shadow-md ${index % 2 === 1 ? 'mr-0' : 'ml-0'}`}>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h3 className="text-lg font-bold text-blue-700">{step.title}</h3>
+                    {step.badge && (
+                      <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-3 py-1 text-xs font-bold text-white uppercase tracking-wide">
+                        {step.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-3 text-sm text-gray-700 leading-relaxed">
+                    {step.body}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -373,34 +399,37 @@ const VisaSponsorship = () => {
       </section>
 
       {/* Experience & Benefits */}
-      <section className="relative bg-white/95 py-16">
-        <div className="container mx-auto px-4 lg:px-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            With TetraX AI, You Can Expect an Exceptional Sponsorship Experience
+      <section className="relative bg-white py-16">
+        <div className="container mx-auto px-4 lg:px-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+            With Nexus AI, You Can Expect an Exceptional Sponsorship Experience
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed max-w-3xl">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             Our comprehensive benefits package ensures you have the support you need throughout your visa sponsorship journey.
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {experienceBenefits.map((item) => (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {experienceBenefits.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -6, scale: 1.02, boxShadow: '0 18px 40px rgba(15,23,42,0.08)' }}
-                className="rounded-2xl border border-blue-100 bg-white/95 p-5 sm:p-6 shadow-md flex flex-col backdrop-blur-sm"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.1)' }}
+                className="rounded-2xl bg-gradient-to-br from-blue-50 to-red-50 p-6 shadow-lg text-left border border-gray-100"
               >
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-200 to-red-200 flex items-center justify-center">
+                    <item.icon className="w-6 h-6 text-blue-700" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
+                </div>
+                <p className="mt-4 text-sm text-gray-700 leading-relaxed">
                   {item.body}
                 </p>
-                <p className="mt-3 text-sm font-semibold text-blue-700">
-                  {item.support}
-                </p>
+                <div className="mt-4 border-l-4 border-blue-500 bg-white px-3 py-2 rounded-r-lg">
+                  <p className="text-sm font-semibold text-blue-700">{item.support}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -409,35 +438,53 @@ const VisaSponsorship = () => {
 
       {/* Final CTA */}
       <motion.section
-        className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 py-16"
+        className="relative py-20 overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="container mx-auto px-4 lg:px-12 text-center text-white">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Ready to Start Your Visa Sponsorship Journey?
-          </h2>
-          <p className="mt-4 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
-            Let our experienced team guide you through the process and help you achieve your career goals in the United States.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.06, boxShadow: '0 20px 45px rgba(15,23,42,0.45)' }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-blue-700 shadow-lg"
-            >
-              Contact Our Team
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.06, backgroundColor: 'rgba(255,255,255,0.14)' }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-full border border-white px-6 py-2.5 text-sm font-semibold text-white"
-            >
-              Submit Your Resume
-            </motion.button>
-          </div>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${usaImg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-purple-900/80 to-red-900/85" />
+        
+        <div className="container relative mx-auto px-4 lg:px-12 text-center text-white">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+              Ready to Start Your Visa Sponsorship Journey?
+            </h2>
+            <p className="mt-4 text-base sm:text-lg max-w-3xl mx-auto text-white/90">
+              Let our experienced team guide you through the process and help you achieve your career goals in the United States.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.06, boxShadow: '0 20px 45px rgba(15,23,42,0.45)' }}
+                  whileTap={{ scale: 0.97 }}
+                  className="rounded-full bg-white px-8 py-3 text-base font-semibold text-blue-700 shadow-lg"
+                >
+                  Contact Our Team
+                </motion.button>
+              </Link>
+              <Link to="/careers">
+                <motion.button
+                  whileHover={{ scale: 1.06, backgroundColor: 'rgba(255,255,255,0.14)' }}
+                  whileTap={{ scale: 0.97 }}
+                  className="rounded-full border-2 border-white px-8 py-3 text-base font-semibold text-white"
+                >
+                  Submit Your Resume
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
     </div>
@@ -445,5 +492,3 @@ const VisaSponsorship = () => {
 };
 
 export default VisaSponsorship;
-
-
