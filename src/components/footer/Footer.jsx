@@ -219,12 +219,11 @@ function Footer() {
             className="sm:col-span-2 md:col-span-3 lg:col-span-3"
           >
             <div className="mb-4 sm:mb-6">
-              <h3 className="text-gray-900 font-bold text-2xl sm:text-3xl mb-1.5 sm:mb-2">
-                NEXUS <span className="bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">AI</span>
-              </h3>
-              <p className="text-[10px] sm:text-xs text-gray-500 italic">
-                Because if your AI solutions can't handle disruption, neither will your business.
-            </p>
+              <img 
+                src="/src/assets/logoob.png" 
+                alt="Nexus AI Solutions Logo" 
+                className="h-12 sm:h-12 md:h-16 lg:h-16 w-auto lg:w-44 object-contain"
+              />
             </div>
             <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
               Nexus AI is an independent technology company and digital transformation partner. We help businesses design, integrate, and scale their digital solutions.
