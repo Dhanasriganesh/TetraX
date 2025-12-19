@@ -27,6 +27,8 @@ const InsightsSection = () => (
         src={insightsImage}
         alt="Insights visual"
         className="h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-white via-white/70 to-white/20" />
     </div>

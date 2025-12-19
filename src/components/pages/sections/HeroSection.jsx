@@ -47,7 +47,7 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
           style={{
             minWidth: '100%',

@@ -72,6 +72,8 @@ const AboutCTASection = () => {
               alt="Partnership"
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.2, rotate: 5 }}
+              loading="lazy"
+              decoding="async"
               transition={{ duration: 0.8 }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-red-900/80 to-blue-900/80" />

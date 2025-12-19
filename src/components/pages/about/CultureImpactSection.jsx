@@ -114,6 +114,8 @@ const CultureImpactSection = () => {
               className="w-full h-48 sm:h-56 md:h-64 object-cover"
               whileHover={{ scale: 1.15, rotate: 2 }}
               transition={{ duration: 0.6 }}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
          
@@ -165,6 +167,8 @@ const CultureImpactSection = () => {
           </div>
           <motion.img
               src={commit}
+              loading="lazy"
+              decoding="async"
               alt="Culture & Impact"
               className="w-full h-40 sm:h-48 md:h-56 mt-3 sm:mt-4 object-cover rounded-xl sm:rounded-2xl"
               whileHover={{ scale: 1, rotate: 0 }}

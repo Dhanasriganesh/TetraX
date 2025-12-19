@@ -180,6 +180,8 @@ const VisaSponsorship = () => {
                 src={passportImg}
                 alt="Immigration Team"
                 className="w-full h-72 lg:h-96 object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
@@ -279,6 +281,8 @@ const VisaSponsorship = () => {
                   src={h1bImg}
                   alt="H1B Visa Sponsorship"
                   className="w-full h-72 lg:h-[420px] object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent" />
               </div>

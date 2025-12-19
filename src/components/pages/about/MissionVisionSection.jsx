@@ -94,6 +94,8 @@ const MissionVisionSection = () => {
                 className="w-full h-40 sm:h-48 md:h-56 lg:h-full lg:max-h-64 object-cover rounded-xl sm:rounded-2xl"
                 whileHover={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.6 }}
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
@@ -120,6 +122,8 @@ const MissionVisionSection = () => {
                   className="w-full h-full object-cover object-center"
                   initial={{ scale: 1.1 }}
                   whileHover={{ scale: 1.15 }}
+                  loading="lazy"
+                  decoding="async"
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   style={{
                     filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',

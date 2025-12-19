@@ -125,6 +125,8 @@ const CoreValuesSection = () => {
               className="w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover"
               whileHover={{ scale: 1.2, rotate: 2 }}
               transition={{ duration: 0.6 }}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
            
@@ -150,6 +152,8 @@ const CoreValuesSection = () => {
                   src={value.image}
                   alt={value.title}
                   className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
                   initial={{ scale: 1.1 }}
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}

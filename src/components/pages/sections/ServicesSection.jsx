@@ -64,6 +64,8 @@ const ServiceCard = ({ service, index }) => {
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             initial={{ scale: 1.02 }}
             animate={{ scale: 1 }}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
           <div className="absolute left-3 bottom-2 sm:left-4 sm:bottom-3 rounded-full bg-white/80 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-700 shadow">

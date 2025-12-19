@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import logoImage from '../../assets/logoob.png';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -220,9 +221,11 @@ function Footer() {
           >
             <div className="mb-4 sm:mb-6">
               <img 
-                src="/src/assets/logoob.png" 
+                src={logoImage} 
                 alt="Nexus AI Solutions Logo" 
                 className="h-12 sm:h-12 md:h-16 lg:h-16 w-auto lg:w-44 object-contain"
+                loading="eager"
+                decoding="async"
               />
             </div>
             <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">

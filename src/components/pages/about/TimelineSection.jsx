@@ -267,6 +267,8 @@ const TimelineSection = () => {
                   <motion.img
                     src={milestone.image}
                     alt={milestone.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center"
                     initial={{ scale: 1.1 }}
                     whileHover={{ scale: 1.15 }}

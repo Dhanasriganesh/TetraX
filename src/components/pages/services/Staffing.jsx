@@ -47,6 +47,8 @@ const Staffing = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           src={staffingHero}
+          loading="lazy"
+          decoding="async"
           alt="Staffing in management"
           className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
         />

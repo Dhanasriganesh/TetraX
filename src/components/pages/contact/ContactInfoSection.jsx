@@ -113,6 +113,8 @@ const ContactInfoSection = () => {
                     src={location.image} 
                     alt={location.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

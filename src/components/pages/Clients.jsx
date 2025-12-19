@@ -4,6 +4,20 @@ import { Link } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Globe, Sparkles, Zap, Target, Rocket } from 'lucide-react';
 import heroBackgroundImage from '../../assets/about-section/12.png';
 
+// Preload hero image since it's above the fold
+const preloadHeroImage = (src) => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = src;
+  document.head.appendChild(link);
+};
+
+// Preload on component mount
+if (typeof window !== 'undefined') {
+  preloadHeroImage(heroBackgroundImage);
+}
+
 // Import logos
 import accentureLogo from '../../assets/accenture.png';
 import adpLogo from '../../assets/adp.png';
@@ -432,6 +446,8 @@ const Clients = () => {
                             src={client.logo}
                             alt={client.name}
                             className="max-h-12 max-w-[90%] w-auto h-auto object-contain"
+                            loading="lazy"
+                            decoding="async"
                             onError={(e) => {
                               e.target.style.display = 'none';
                             }}
@@ -458,6 +474,8 @@ const Clients = () => {
                             src={client.logo}
                             alt={client.name}
                             className="max-h-12 max-w-[90%] w-auto h-auto object-contain"
+                            loading="lazy"
+                            decoding="async"
                             onError={(e) => {
                               e.target.style.display = 'none';
                             }}

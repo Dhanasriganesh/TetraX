@@ -29,6 +29,8 @@ const VelocityProcessSection = () => (
         src={phasesImage}
         alt="Process phases"
         className="h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-white/42" />
     </div>

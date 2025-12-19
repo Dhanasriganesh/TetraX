@@ -2,6 +2,20 @@
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/14.png';
 
+// Preload hero image since it's above the fold
+const preloadHeroImage = (src) => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = src;
+  document.head.appendChild(link);
+};
+
+// Preload on component mount
+if (typeof window !== 'undefined') {
+  preloadHeroImage(backgroundImage);
+}
+
 const metrics = [
   { label: 'Studios worldwide', value: '6' },
   { label: 'Team members', value: '420+' },

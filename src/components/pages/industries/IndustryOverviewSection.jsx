@@ -156,6 +156,8 @@ const IndustryOverviewSection = () => (
                 src={industry.image}
                 alt={industry.name}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
               <div className="absolute left-5 bottom-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/90">
