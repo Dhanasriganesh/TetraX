@@ -5,6 +5,12 @@ import { Users, Rocket, Shield, TrendingUp, CheckCircle2, Award, Briefcase, Cloc
 import staffingHero from '../../../assets/about-section/staffing.png';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
+import staffing18 from '../../../assets/staffing/18.png';
+import staffing19 from '../../../assets/staffing/19.png';
+import staffing20 from '../../../assets/staffing/20.png';
+import staffing21 from '../../../assets/staffing/21.png';
+import staffing22 from '../../../assets/staffing/22.png';
+import staffing23 from '../../../assets/staffing/23.png';
 
 const talentModels = [
   {
@@ -338,7 +344,10 @@ const Staffing = () => {
             </p>
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2">
-            {talentModels.map((model, index) => (
+            {talentModels.map((model, index) => {
+              const modelImages = [staffing22, staffing23];
+              const hasImage = index < 2;
+              return (
               <motion.div
                 key={model.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -346,8 +355,17 @@ const Staffing = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200"
+                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200 overflow-hidden"
               >
+                {hasImage && (
+                  <div className="relative h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden">
+                    <SkeletonImage
+                      src={modelImages[index]}
+                      alt={model.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <model.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
@@ -376,7 +394,8 @@ const Staffing = () => {
                   </p>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -569,7 +588,9 @@ const Staffing = () => {
             </p>
           </div>
           <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-3">
-            {successStories.map((story, index) => (
+            {successStories.map((story, index) => {
+              const storyImages = [staffing18, staffing19, staffing20];
+              return (
               <motion.div
                 key={story.industry}
                 initial={{ opacity: 0, y: 30 }}
@@ -579,11 +600,12 @@ const Staffing = () => {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
                 className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg overflow-hidden"
               >
-                {/* Image Placeholder */}
-                <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-red-100 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300">Image</span>
-                  </div>
+                <div className="relative h-40 sm:h-48 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
+                  <SkeletonImage
+                    src={storyImages[index]}
+                    alt={`${story.client} - ${story.industry}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
@@ -616,7 +638,8 @@ const Staffing = () => {
                   </ul>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -668,7 +691,7 @@ const Staffing = () => {
       <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-red-50">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            {/* Image Placeholder */}
+            {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -676,9 +699,11 @@ const Staffing = () => {
               transition={{ duration: 0.5 }}
               className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl order-2 lg:order-1"
             >
-              <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center">
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-300">Image</span>
-              </div>
+              <SkeletonImage
+                src={staffing21}
+                alt="Transparent Performance Metrics"
+                className="w-full h-64 sm:h-80 md:h-96 object-cover"
+              />
             </motion.div>
             
             {/* Content */}

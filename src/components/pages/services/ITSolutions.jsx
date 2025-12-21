@@ -5,6 +5,12 @@ import { Server, Cloud, Shield, Zap, Database, Network, Code, Rocket, CheckCircl
 import itSolutionsHero from '../../../assets/about-section/itsolutions.png';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
+import it1 from '../../../assets/it-solutions/it-1.png';
+import it2 from '../../../assets/it-solutions/it-2.png';
+import it3 from '../../../assets/it-solutions/it-3.png';
+import it4 from '../../../assets/it-solutions/it-4.png';
+import it5 from '../../../assets/it-solutions/it-5.png';
+import it6 from '../../../assets/it-solutions/it-6.png';
 
 const solutionPillars = [
   {
@@ -526,7 +532,10 @@ const ITSolutions = () => {
             </p>
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {solutionPillars.map((pillar, index) => (
+            {solutionPillars.map((pillar, index) => {
+              const pillarImages = [it1, it2, it3];
+              const hasImage = index < 3;
+              return (
               <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -534,8 +543,17 @@ const ITSolutions = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200"
+                className="group rounded-xl sm:rounded-2xl border border-white/30 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl transition-all duration-300 hover:border-white/50 hover:from-white/50 hover:via-white/40 hover:to-white/50 overflow-hidden"
               >
+                {hasImage && (
+                  <div className="relative h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden">
+                    <SkeletonImage
+                      src={pillarImages[index]}
+                      alt={pillar.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <pillar.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
@@ -549,7 +567,7 @@ const ITSolutions = () => {
                     </p>
                   </div>
                 </div>
-                <div className="border-t border-gray-100 pt-3 sm:pt-4 space-y-3 sm:space-y-4">
+                <div className="border-t border-white/30 pt-3 sm:pt-4 space-y-3 sm:space-y-4">
                   <div>
                     <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Services:</p>
                     <ul className="space-y-1 sm:space-y-1.5">
@@ -565,7 +583,7 @@ const ITSolutions = () => {
                     <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Technologies:</p>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {pillar.technologies.map((tech, idx) => (
-                        <span key={idx} className="text-[10px] sm:text-xs text-gray-700 bg-gray-50 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-gray-200">
+                        <span key={idx} className="text-[10px] sm:text-xs text-gray-700 bg-white/30 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/40">
                           {tech}
                         </span>
                       ))}
@@ -584,7 +602,8 @@ const ITSolutions = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
     </section>
@@ -611,7 +630,7 @@ const ITSolutions = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: catIndex * 0.1 }}
-                className="rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg"
+                className="rounded-xl sm:rounded-2xl border border-white/30 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl"
               >
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-5 flex items-center gap-2">
                   <CategoryIcon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
@@ -623,7 +642,7 @@ const ITSolutions = () => {
                     return (
                     <div
                       key={techIndex}
-                      className="p-3 sm:p-4 rounded-lg bg-gradient-to-br from-blue-50 to-red-50 hover:from-blue-100 hover:to-red-100 transition-colors border border-gray-100"
+                      className="p-3 sm:p-4 rounded-lg bg-white/30 backdrop-blur-md hover:bg-white/40 transition-colors border border-white/40"
                     >
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="text-sm sm:text-base font-bold text-gray-900">{tech.name}</h4>
@@ -662,14 +681,14 @@ const ITSolutions = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.1)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-gradient-to-br from-blue-50 to-red-50 p-4 sm:p-5 md:p-6"
+                className="group rounded-xl sm:rounded-2xl border border-white/30 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl hover:border-white/50 hover:from-white/50 hover:via-white/40 hover:to-white/50 transition-all duration-300"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
                   <area.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{area.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4">{area.description}</p>
-                <div className="border-t border-gray-200 pt-3 sm:pt-4">
+                <div className="border-t border-white/30 pt-3 sm:pt-4">
                   <p className="text-[10px] sm:text-xs font-semibold text-gray-500 mb-2">Capabilities:</p>
                   <ul className="space-y-1 sm:space-y-1.5">
                     {area.capabilities.map((capability, idx) => (
@@ -707,7 +726,7 @@ const ITSolutions = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.1)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg"
+                className="group rounded-xl sm:rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-4 sm:p-5 md:p-6 shadow-lg hover:bg-white/15 transition-all duration-300"
               >
                 <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -718,7 +737,7 @@ const ITSolutions = () => {
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4">{method.description}</p>
                   </div>
                 </div>
-                <div className="border-t border-gray-100 pt-3 sm:pt-4">
+                <div className="border-t border-white/30 pt-3 sm:pt-4">
                   <p className="text-[10px] sm:text-xs font-semibold text-gray-500 mb-2">Key Practices:</p>
                   <ul className="space-y-1 sm:space-y-1.5">
                     {method.practices.map((practice, idx) => (
@@ -760,10 +779,10 @@ const ITSolutions = () => {
                 <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg border-2 sm:border-4 border-white">
                   {step.number}
                 </div>
-                <div className="flex-1 rounded-xl sm:rounded-2xl border-2 border-blue-200 bg-white p-4 sm:p-5 md:p-6 shadow-md w-full">
+                <div className="flex-1 rounded-xl sm:rounded-2xl border-2 border-white/40 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl w-full">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900">{step.title}</h3>
-                    <span className="text-[10px] sm:text-xs font-semibold text-blue-600 bg-blue-50 px-2 sm:px-3 py-1 rounded-full w-fit">
+                    <span className="text-[10px] sm:text-xs font-semibold text-blue-600 bg-white/30 backdrop-blur-md px-2 sm:px-3 py-1 rounded-full w-fit border border-white/40">
                       {step.duration}
                     </span>
                   </div>
@@ -774,7 +793,7 @@ const ITSolutions = () => {
                     {step.activities.map((activity, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs bg-gray-50 text-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-200"
+                        className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs bg-white/30 backdrop-blur-md text-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/40"
                       >
                         <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 flex-shrink-0" />
                         <span className="whitespace-nowrap">{activity}</span>
@@ -809,7 +828,7 @@ const ITSolutions = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.1)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-gradient-to-br from-blue-50 to-red-50 p-4 sm:p-5 md:p-6 shadow-lg"
+                className="group rounded-xl sm:rounded-2xl border border-white/30 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl hover:border-white/50 hover:from-white/50 hover:via-white/40 hover:to-white/50 transition-all duration-300"
               >
                 <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -820,7 +839,7 @@ const ITSolutions = () => {
                     <p className="text-xs sm:text-sm text-gray-700 leading-relaxed mb-3">
                       {feature.description}
                     </p>
-                    <div className="border-l-4 border-blue-500 bg-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-r-lg">
+                    <div className="border-l-4 border-blue-500 bg-white/30 backdrop-blur-md px-2 sm:px-3 py-1.5 sm:py-2 rounded-r-lg">
                       <p className="text-[10px] sm:text-xs font-semibold text-blue-700">{feature.highlight}</p>
                     </div>
                   </div>
@@ -844,7 +863,9 @@ const ITSolutions = () => {
             </p>
           </div>
           <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-3">
-            {successStories.map((story, index) => (
+            {successStories.map((story, index) => {
+              const storyImages = [it4, it5, it6];
+              return (
               <motion.div
                 key={story.industry}
                 initial={{ opacity: 0, y: 30 }}
@@ -852,16 +873,18 @@ const ITSolutions = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg overflow-hidden"
+                className="group rounded-xl sm:rounded-2xl border border-white/30 bg-gradient-to-br from-white/40 via-white/30 to-white/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 shadow-xl overflow-hidden hover:border-white/50 hover:from-white/50 hover:via-white/40 hover:to-white/50 transition-all duration-300"
               >
-                <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-red-100 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300">Image</span>
-                  </div>
+                <div className="relative h-40 sm:h-48 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
+                  <SkeletonImage
+                    src={storyImages[index]}
+                    alt={`${story.client} - ${story.industry}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-blue-600 bg-blue-50 px-2 sm:px-3 py-1 rounded-full w-fit">
+                  <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-blue-600 bg-white/30 backdrop-blur-md px-2 sm:px-3 py-1 rounded-full w-fit border border-white/40">
                     {story.industry}
                   </span>
                   <div className="text-left sm:text-right">
@@ -878,18 +901,18 @@ const ITSolutions = () => {
                   <span className="font-semibold">Solution:</span> {story.solution}
                 </p>
                 
-                <div className="border-t border-gray-100 pt-3 sm:pt-4 mb-3 sm:mb-4">
+                <div className="border-t border-white/30 pt-3 sm:pt-4 mb-3 sm:mb-4">
                   <p className="text-[10px] sm:text-xs font-semibold text-gray-500 mb-2">Technologies:</p>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {story.technologies.map((tech, idx) => (
-                      <span key={idx} className="text-[10px] sm:text-xs text-gray-700 bg-gray-50 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-gray-200">
+                      <span key={idx} className="text-[10px] sm:text-xs text-gray-700 bg-white/30 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/40">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <div className="border-t border-gray-100 pt-3 sm:pt-4">
+                <div className="border-t border-white/30 pt-3 sm:pt-4">
                   <p className="text-[10px] sm:text-xs font-semibold text-gray-500 mb-2">Key Results:</p>
                   <ul className="space-y-1 sm:space-y-1.5">
                     {story.results.map((result, idx) => (
@@ -901,7 +924,8 @@ const ITSolutions = () => {
                   </ul>
                 </div>
             </motion.div>
-          ))}
+              );
+            })}
         </div>
       </div>
     </section>

@@ -5,6 +5,12 @@ import { BookOpen, Users, Award, Target, Zap, TrendingUp, CheckCircle2, Clock, G
 import trainingHero from '../../../assets/about-section/training.png';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
+import training24 from '../../../assets/training/24.png';
+import training25 from '../../../assets/training/25.png';
+import training26 from '../../../assets/training/26.png';
+import training27 from '../../../assets/training/27.png';
+import training28 from '../../../assets/training/28.png';
+import training29 from '../../../assets/training/29.png';
 
 const trainingTracks = [
   {
@@ -532,7 +538,10 @@ const Training = () => {
             </p>
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2">
-            {trainingTracks.map((track, index) => (
+            {trainingTracks.map((track, index) => {
+              const trackImages = [training27, training28, training29];
+              const hasImage = index < 3;
+              return (
               <motion.div
                 key={track.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -540,8 +549,17 @@ const Training = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200"
+                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200 overflow-hidden"
               >
+                {hasImage && (
+                  <div className="relative h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden">
+                    <SkeletonImage
+                      src={trackImages[index]}
+                      alt={track.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <track.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
@@ -587,7 +605,8 @@ const Training = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -951,7 +970,9 @@ const Training = () => {
             </p>
           </div>
           <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-3">
-            {successStories.map((story, index) => (
+            {successStories.map((story, index) => {
+              const storyImages = [training24, training25, training26];
+              return (
               <motion.div
                 key={story.industry}
                 initial={{ opacity: 0, y: 30 }}
@@ -961,10 +982,12 @@ const Training = () => {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
                 className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg overflow-hidden"
               >
-                <div className="relative h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-red-100 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-300">Image</span>
-                  </div>
+                <div className="relative h-40 sm:h-48 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
+                  <SkeletonImage
+                    src={storyImages[index]}
+                    alt={`${story.client} - ${story.industry}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
@@ -997,7 +1020,8 @@ const Training = () => {
                   </ul>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

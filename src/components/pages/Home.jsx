@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import Snowfall from 'react-snowfall';
 import HeroSection from './sections/HeroSection';
 import StrategicHighlightsSection from './sections/StrategicHighlightsSection';
 import ServicesSection from './sections/ServicesSection';
@@ -12,7 +13,7 @@ import HomeCTASection from './sections/HomeCTASection';
 
 const Home = () => {
   return (
-    <div>
+    <div className="relative">
       <HeroSection />
       <StrategicHighlightsSection />
       <ServicesSection />
