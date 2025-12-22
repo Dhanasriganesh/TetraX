@@ -36,12 +36,16 @@ const AnimatedNumber = ({ value, suffix = '+' }) => {
 };
 
 const HeroSection = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   return (
     <section 
       id="hero" 
       data-header-theme="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black w-full"
     >
+      {/* Fallback gradient background so hero looks good before video loads */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-950 via-slate-950 to-red-900" />
       {/* Mobile: Mobile Video Background (visible on small screens, hidden on md and up) */}
       <div className="absolute inset-0 z-0 w-full h-full md:hidden">
         <SkeletonVideo
@@ -50,8 +54,10 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          preload="metadata"
+          className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-700 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
           style={{
             minWidth: '100%',
             minHeight: '100%',
@@ -60,6 +66,9 @@ const HeroSection = () => {
           }}
           onError={(e) => {
             console.error('Mobile video loading error:', e);
+          }}
+          onLoadedData={() => {
+            setIsVideoLoaded(true);
           }}
         >
           <source src={mobileVideo} type="video/mp4" />
@@ -75,8 +84,10 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          preload="metadata"
+          className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-700 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
           style={{
             minWidth: '100%',
             minHeight: '100%',
@@ -86,14 +97,17 @@ const HeroSection = () => {
           onError={(e) => {
             console.error('Desktop video loading error:', e);
           }}
+          onLoadedData={() => {
+            setIsVideoLoaded(true);
+          }}
         >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </SkeletonVideo>
       </div>
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-0 pointer-events-none"></div>
+      {/* Dark overlay for text readability (sits above gradient and video) */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-black/40" />
 
       {/* Content - Centered in middle of page */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 relative z-10 w-full pointer-events-none">
