@@ -47,7 +47,7 @@ function Footer() {
     {
       title: 'Nexus AI Headquarters',
       address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
-      phone: '+1 980 781 9639',
+      phone: '+1 980 737 1953',
       email: 'contact@nexusaisol.com',
       mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
     },
