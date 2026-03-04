@@ -9,8 +9,8 @@ const JOB = {
   salary: '$150,000.00/year',
   startDate: '04-03-2026',
   endDate: '20-03-2026',
-  location: 'Charlotte, NC',
-  address: 'Charlotte, NC',
+  location: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
+  address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
   positionSummary: `The IT Project Manager will support the planning, coordination, and execution of enterprise technology initiatives. The position requires specialized knowledge in computer science principles, software development lifecycle (SDLC), systems integration, and project management methodologies. The role involves collaboration with cross-functional technical teams and business stakeholders to ensure effective implementation of IT solutions.`,
   detailedDuties: [
     'Serve as liaison between project consultants and internal technical teams to ensure alignment of business and technical requirements.',
