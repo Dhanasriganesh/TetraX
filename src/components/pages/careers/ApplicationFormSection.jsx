@@ -385,11 +385,11 @@ const ApplicationFormSection = () => {
                 ></textarea>
               </div>
               <div className="mt-4 sm:mt-5 md:mt-6">
-                <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="resume">Upload resume / portfolio (PDF, DOCX, ZIP)</label>
+                <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="resume">Upload resume / portfolio (* Only .pdf)</label>
                 <input
                   id="resume"
                   type="file"
-                  accept=".pdf,.doc,.docx,.zip"
+                  accept=".pdf"
                   onChange={handleFileChange}
                   className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-600 file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                 />
