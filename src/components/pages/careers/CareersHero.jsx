@@ -30,7 +30,7 @@ const CareersHero = () => (
   <BackgroundImage
     src={backgroundImage}
     data-header-theme="hero"
-    className="relative overflow-hidden py-16"
+    className="relative overflow-hidden py-6"
   >
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-40 pointer-events-none z-0">
@@ -65,30 +65,30 @@ const CareersHero = () => (
     </div>
 
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
-      <div className="grid lg:grid-cols-3 gap-10 items-center py-12">
+      <div className="grid lg:grid-cols-3 gap-6 items-center py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-2 space-y-8"
+          className="lg:col-span-2 space-y-3"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 backdrop-blur-sm px-8 py-3.5 text-sm md:text-base uppercase tracking-[0.32em] text-gray-900 shadow-sm font-semibold">
+          <div className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 backdrop-blur-sm px-6 py-2 text-sm uppercase tracking-[0.32em] text-gray-900 shadow-sm font-semibold">
             Careers
           </div>
-          <div className="space-y-4 max-w-4xl">
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
+          <div className="space-y-2 max-w-4xl">
+            <h1 className="text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
               Join the pod that ships AI people can trust.
             </h1>
-            <p className="text-lg text-gray-800 leading-relaxed">
+            <p className="text-base text-gray-800 leading-snug">
               Cross-functional squads of designers, engineers, data scientists, and researchers building products end-to-end—backed by growth, autonomy, and inclusive rituals.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1.5">
             {signals.map((item) => (
               <div
                 key={item}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 px-4 py-2 text-sm text-gray-900 backdrop-blur-sm shadow-sm w-fit"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 px-3 py-1.5 text-sm text-gray-900 backdrop-blur-sm shadow-sm w-fit"
               >
                 <span className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 shadow-[0_0_0_6px_rgba(96,165,250,0.15)]"></span>
                 {item}

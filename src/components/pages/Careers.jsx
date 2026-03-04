@@ -10,9 +10,9 @@ const Careers = () => {
     <div className="bg-gray-50">
       <CareersHero />
       <ApplicationFormSection />
-      <BenefitsSection />
+      {/* <BenefitsSection /> */}
       {/* <OpenRolesSection /> */}
-      <CultureSection />
+      {/* <CultureSection /> */}
       
     </div>
   );

@@ -2,17 +2,29 @@
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
 import Routers from '../routers/Routers'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, useLocation } from 'react-router-dom'
 import ScrollToTop from '../shared/ScrollToTop'
-function Layout() {
+
+function LayoutContent() {
+    const location = useLocation()
+    const isCareersPage = location.pathname === '/careers'
+
     return (
-        <Router>
+        <>
             <ScrollToTop />
             <Header />
             <div>
                 <Routers />
             </div>
-            <Footer />
+            {!isCareersPage && <Footer />}
+        </>
+    )
+}
+
+function Layout() {
+    return (
+        <Router>
+            <LayoutContent />
         </Router>
     )
 }
