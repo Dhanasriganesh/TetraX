@@ -27,7 +27,7 @@ const JOB = {
   ],
   minimumRequirements: [
     "Master's degree in Computer Science, Information Technology, Engineering, or a closely related field.",
-    '3–5 years of experience in software development and/or IT project management support.',
+    '2–5 years of experience in software development and/or IT project management support.',
     'Knowledge of: Software Development Life Cycle (SDLC); Systems analysis and design; Project management methodologies (Agile, Scrum, or Waterfall); Database and data processing systems.',
     'Strong analytical, technical documentation, and communication skills.',
   ],
