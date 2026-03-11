@@ -18,11 +18,11 @@ const locations = [
   {
     title: 'Nexus AI Development Center',
     location: 'Hyderabad, India',
-    address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
-    phone: '+91 77939 92217',
-    phoneLink: '+917793992217',
+    address: 'Ameerpet, Near by metro station, Hyderabad, Telangana, India ',
+    phone: '+91 9542142620',
+    phoneLink: '+919542142620',
     email: 'contact@nexusaisol.com',
-    mapQuery: encodeURIComponent('Unit no. 1020, 9th floor Vasavi MPM Grand, Ameerpet Near by metro station, Hyderabad, Telangana, India'),
+    mapQuery: encodeURIComponent('Ameerpet, Near by metro station, Hyderabad, Telangana, India '),
     image: hydImage,
   },
 ];
