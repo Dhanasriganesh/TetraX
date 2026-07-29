@@ -45,18 +45,28 @@ function Footer() {
 
   const locations = [
     {
-      title: 'Nexus AI Headquarters',
+      region: 'USA',
+      title: 'Headquarters',
       address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
       phone: '+1 980 737 1953',
       email: 'contact@nexusaisol.com',
-      mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
+      mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr+%23100+Charlotte,+NC+28262',
     },
     {
-      title: 'Nexus AI Development Center',
-      address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
-      phone: '+91 77939 92217',
+      region: 'London, UK',
+      title: 'London Office',
+      address: 'Universal House, Bescot Industrial Estate, Woden Road West, Wednesbury, WS10 7SF, UK',
+      phone: '+1 980 737 1953',
       email: 'contact@nexusaisol.com',
-      mapUrl: 'https://www.google.com/maps?q=Vasavi+MPM+Grand,+Ameerpet,+Hyderabad,+Telangana',
+      mapUrl: 'https://www.google.com/maps?q=Universal+House,+Bescot+Industrial+Estate,+Woden+Road+West,+Wednesbury,+WS10+7SF,+UK',
+    },
+    {
+      region: 'Hyderabad, India',
+      title: 'Development Center',
+      address: 'Ameerpet, Near by metro station, Hyderabad, Telangana, India',
+      phone: '+91 9542142620',
+      email: 'contact@nexusaisol.com',
+      mapUrl: 'https://www.google.com/maps?q=Ameerpet,+Near+by+metro+station,+Hyderabad,+Telangana,+India',
     },
   ];
 
@@ -319,70 +329,64 @@ function Footer() {
        
 
         {/* Location Sections */}
-        <div className="bg-white/80 border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 md:p-6 mb-8 sm:mb-10 md:mb-12">
-          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
-            <div className="h-8 sm:h-10 w-0.5 sm:w-1 bg-yellow-500 rounded-full" />
-            <h3 className="text-gray-900 font-semibold text-base sm:text-lg">Our Locations</h3>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+        <div className="border-t border-gray-200 pt-10 sm:pt-12 mb-8 sm:mb-10 md:mb-12">
+          <h3 className="font-semibold text-sm uppercase tracking-[0.2em] text-gray-400 mb-8 sm:mb-10">
+            Our Locations
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12">
             {locations.map((location, idx) => (
               <motion.div
-                key={location.title}
+                key={location.region}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * idx }}
-                className="rounded-lg sm:rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/80 p-4 sm:p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.25)]"
+                className={`space-y-4 ${idx > 0 ? 'md:border-l md:border-gray-100 md:pl-8 lg:pl-12' : ''}`}
               >
-                <div className="flex flex-col sm:flex-row items-stretch gap-3 sm:gap-4">
-                  <div className="flex-1 space-y-2 sm:space-y-3">
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <div className="mt-0.5 sm:mt-1 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-yellow-100 text-yellow-600 flex-shrink-0">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div className="space-y-1 flex-1 min-w-0">
-                        <h4 className="text-gray-900 font-semibold text-sm sm:text-base">{location.title}</h4>
-                        <a
-                          href={location.mapUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-700 hover:text-blue-700 text-xs sm:text-sm leading-relaxed break-words"
-                        >
-                          {location.address}
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-1 text-xs sm:text-sm text-gray-600">
-                      <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="inline-flex items-center gap-1.5 sm:gap-2 hover:text-blue-600 transition-colors">
-                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        <span className="break-all">{location.phone}</span>
-                      </a>
-                      <a href={`mailto:${location.email}`} className="inline-flex items-center gap-1.5 sm:gap-2 hover:text-blue-600 transition-colors">
-                        <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <span className="break-all">{location.email}</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="w-full sm:w-24 md:w-32 lg:w-36 h-32 sm:h-auto rounded-lg overflow-hidden border border-gray-100 shadow-sm self-center sm:self-auto">
-                    <iframe
-                      src={`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}&output=embed&z=15`}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title={`Map for ${location.title}`}
-                      className="w-full h-full"
-                    />
-                  </div>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-1.5">
+                    {location.region}
+                  </p>
+                  <h4 className="text-gray-900 font-medium text-base">{location.title}</h4>
                 </div>
+
+                <address className="not-italic">
+                  <a
+                    href={location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-600 leading-relaxed hover:text-gray-900 transition-colors"
+                  >
+                    {location.address}
+                  </a>
+                </address>
+
+                <div className="space-y-1.5 text-sm text-gray-500">
+                  <a
+                    href={`tel:${location.phone.replace(/[^+\d]/g, '')}`}
+                    className="block hover:text-gray-900 transition-colors"
+                  >
+                    {location.phone}
+                  </a>
+                  <a
+                    href={`mailto:${location.email}`}
+                    className="block hover:text-gray-900 transition-colors"
+                  >
+                    {location.email}
+                  </a>
+                </div>
+
+                <a
+                  href={location.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-blue-600 transition-colors"
+                >
+                  View on map
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </motion.div>
             ))}
           </div>
